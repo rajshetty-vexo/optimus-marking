@@ -68,7 +68,7 @@ const Navbar = () => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-primary-foreground/80 hover:text-orange transition-colors font-display tracking-wider uppercase text-sm py-2"
+                  className="block text-foreground/70 hover:text-orange transition-colors font-display tracking-wider uppercase text-sm py-2"
                 >
                   {link.label}
                 </a>
