@@ -47,12 +47,12 @@ const About = () => {
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
               Optimus Marking Systems Pvt Ltd is a trusted name in the Indian industrial coding
-              and marking industry. We specialize in the sales, service, and support of world-class
+              and marking industry. We specialize in the sales, service, and support of industrial
               printing and labelling solutions from brands like Domino, Videojet, Markem-Imaje, and
               Control Print.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              As the authorized channel partner in India for FAM SRL printers and IMA Labelling systems,
+              As the exclusive channel partner in India for FAM SRL printers and IMA Labelling systems,
               we bring European precision and reliability to Indian manufacturers. Our team of trained engineers
               ensures seamless installation, maintenance, and support across the country.
             </p>
