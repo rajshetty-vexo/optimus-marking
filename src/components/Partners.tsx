@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
 
-const partners = [
-  {
-    name: "Domino Printing Sciences",
-    description: "World leader in industrial inkjet, laser and thermal transfer printing technology.",
-  },
-  {
-    name: "Videojet Technologies",
-    description: "Global coding and marking solutions for product identification and traceability.",
-  },
-  {
-    name: "Markem-Imaje",
-    description: "End-to-end marking and coding solutions for the complete product supply chain.",
-  },
-  {
-    name: "Control Print",
-    description: "India's leading industrial coding and marking solutions provider.",
-  },
+const channelPartners = [
   {
     name: "FAM SRL",
-    description: "Italian precision printers for industrial applications. Official channel partner in India.",
-    highlight: true,
+    description: "Italian precision printers for industrial applications. Optimus Marking is the official channel partner in India.",
   },
   {
     name: "IMA Labelling",
-    description: "World-class labelling systems for every industry. Official channel partner in India.",
-    highlight: true,
+    description: "World-class labelling systems for every industry. Optimus Marking is the official channel partner in India.",
+  },
+];
+
+const brandsWeService = [
+  {
+    name: "Domino Printing Sciences",
+    description: "Sales and service support for Domino's industrial inkjet, laser, and thermal transfer printers.",
+  },
+  {
+    name: "Videojet Technologies",
+    description: "Comprehensive service and spares for Videojet coding and marking equipment.",
+  },
+  {
+    name: "Markem-Imaje",
+    description: "Expert maintenance and support for Markem-Imaje marking and coding solutions.",
+  },
+  {
+    name: "Control Print",
+    description: "Authorized service provider for Control Print's range of industrial printers.",
   },
 ];
 
