@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  const recaptchaEnabled = import.meta.env.VITE_ENABLE_RECAPTCHA === "true";
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    message: "",
+    website: "", // Honeypot field (must remain empty)
+  });
+
   const contactItems = [
     { label: "Phone", value: "+91 95037 29925", href: "tel:+919503729925", icon: Phone },
     { label: "Email", value: "sales@optimusmarking.com", href: "mailto:sales@optimusmarking.com", icon: Mail },
@@ -25,6 +39,92 @@ const Contact = () => {
       short: "AS",
     },
   ];
+
+  useEffect(() => {
+    if (!recaptchaEnabled || !recaptchaSiteKey) {
+      return;
+    }
+
+    // Load reCAPTCHA v3 script dynamically in Vite apps.
+    const existingScript = document.querySelector(
+      'script[src^="https://www.google.com/recaptcha/api.js"]'
+    );
+    if (existingScript) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }, [recaptchaEnabled, recaptchaSiteKey]);
+
+  const getRecaptchaToken = async () => {
+    if (!recaptchaEnabled) {
+      return "";
+    }
+    if (!recaptchaSiteKey) {
+      throw new Error("reCAPTCHA site key is not configured.");
+    }
+    if (!window.grecaptcha) {
+      throw new Error("reCAPTCHA failed to load. Please refresh and try again.");
+    }
+
+    return new Promise<string>((resolve, reject) => {
+      window.grecaptcha?.ready(() => {
+        window.grecaptcha
+          ?.execute(recaptchaSiteKey, { action: "contact_form" })
+          .then(resolve)
+          .catch(() => reject(new Error("Unable to validate reCAPTCHA.")));
+      });
+    });
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitMessage(null);
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    try {
+      const recaptchaToken = await getRecaptchaToken();
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken,
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.message || "Failed to send enquiry.");
+      }
+
+      setSubmitMessage("Thanks! Your enquiry has been sent successfully.");
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        message: "",
+        website: "",
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to send enquiry.";
+      setSubmitError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-24 bg-navy relative overflow-hidden">
@@ -123,7 +223,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="bg-primary-foreground/5 border border-primary-foreground/10 p-8 space-y-5"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
@@ -132,6 +232,10 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
                   className="w-full bg-navy-light/30 border border-primary-foreground/20 px-4 py-3 text-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-orange transition-colors"
                   placeholder="Your name"
                 />
@@ -142,6 +246,9 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
                   className="w-full bg-navy-light/30 border border-primary-foreground/20 px-4 py-3 text-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-orange transition-colors"
                   placeholder="Company name"
                 />
@@ -153,6 +260,10 @@ const Contact = () => {
               </label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
                 className="w-full bg-navy-light/30 border border-primary-foreground/20 px-4 py-3 text-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-orange transition-colors"
                 placeholder="sales@optimusmarking.com"
               />
@@ -163,15 +274,42 @@ const Contact = () => {
               </label>
               <textarea
                 rows={4}
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
                 className="w-full bg-navy-light/30 border border-primary-foreground/20 px-4 py-3 text-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-orange transition-colors resize-none"
                 placeholder="Tell us about your requirements..."
               />
             </div>
+
+            {/* Honeypot field: hidden for users, visible for bots */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formData.website}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            {submitMessage && (
+              <p className="text-sm text-emerald-300">{submitMessage}</p>
+            )}
+            {submitError && (
+              <p className="text-sm text-red-300">{submitError}</p>
+            )}
+
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full bg-orange hover:bg-orange-light text-accent-foreground py-3.5 font-display font-semibold tracking-wide text-sm uppercase transition-colors"
             >
-              Send Enquiry
+              {isSubmitting ? "Sending..." : "Send Enquiry"}
             </button>
           </motion.form>
         </div>

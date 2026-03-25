@@ -92,7 +92,7 @@ const Hero = () => {
             {/* Central hexagon with logo */}
             <div className="relative">
               <div className="w-72 aspect-[0.866] hexagon-clip bg-primary-foreground flex items-center justify-center shadow-hex">
-                <img src={optimusLogo} alt="Optimus Marking" className="w-72 h-auto" />
+                <img src={optimusLogo} alt="Optimus Marking" draggable={false} className="w-72 h-auto select-none" />
               </div>
               {/* Orbiting smaller hexagons */}
               <motion.div
