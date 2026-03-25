@@ -1,30 +1,33 @@
-import optimusLogo from "@/assets/optimus-logo-white.svg";
+import optimusLogo from "@/assets/optimus-marking.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-navy border-t border-orange/10 py-12">
+    <footer className="bg-white border-t border-border py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <div>
             <img src={optimusLogo} alt="Optimus Marking" className="h-10 w-auto mb-3" />
-            <p className="text-primary-foreground/40 text-sm">
+            <p className="text-foreground/60 text-sm">
               Industrial Coding & Marking Solutions
             </p>
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-center">
-            {["Products", "Services", "Partners", "About", "Contact"].map((link) => (
+            {["Products", "Services", "About", "Contact"].map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-primary-foreground/50 hover:text-orange text-sm font-display tracking-wider uppercase transition-colors"
+                className="text-foreground/60 hover:text-orange text-sm font-display tracking-wider uppercase transition-colors"
               >
                 {link}
               </a>
             ))}
           </div>
 
-          <div className="text-primary-foreground/30 text-sm md:text-right">
+          <div className="text-foreground/60 text-sm md:text-right">
+            <a href="mailto:sales@optimusmarking.com" className="hover:text-orange transition-colors block">
+              sales@optimusmarking.com
+            </a>
             <a href="https://www.optimusmarking.com" className="hover:text-orange transition-colors">
               www.optimusmarking.com
             </a>

@@ -1,32 +1,46 @@
 import { motion } from "framer-motion";
-import { Printer, Zap, Shield, Settings } from "lucide-react";
 
 const products = [
   {
-    name: "Continuous Inkjet (CIJ)",
-    description: "High-speed, non-contact printing for date codes, batch numbers, and barcodes on virtually any surface.",
-    icon: Printer,
+    name: "Continuous Inkjet printing (CIJ)",
+    description: "Continuous Inkjet printing for high-speed, non-contact coding on production lines.",
+    short: "CIJ",
   },
   {
-    name: "Thermal Inkjet (TIJ)",
-    description: "Clean, high-resolution printing ideal for pharmaceutical, food, and beverage packaging applications.",
-    icon: Zap,
+    name: "Thermal Inkjet printing (TIJ)",
+    description: "Thermal Inkjet printing with clean, high-resolution output for cartons and labels.",
+    short: "TIJ",
   },
   {
-    name: "Laser Marking",
-    description: "Permanent, high-contrast marks with zero consumables. Perfect for traceability and anti-counterfeiting.",
-    icon: Shield,
+    name: "Thermal Transfer Overprinting (TTO)",
+    description: "Thermal Transfer Overprinting for sharp, durable codes on flexible films and pouches.",
+    short: "TTO",
   },
   {
-    name: "Thermal Transfer Overprinting",
-    description: "Crisp, high-resolution codes on flexible films and labels for food and cosmetic packaging.",
-    icon: Settings,
+    name: "Laser Marking System (LMS)",
+    description: "Laser Marking System for accurate variable data and batch traceability with permanent marking.",
+    short: "LMS",
+  },
+  {
+    name: "Label Print and Apply (LPA)",
+    description: "Automated print-and-apply labeling for fast, precise product and case labelling.",
+    short: "LPA",
+  },
+  {
+    name: "High Resolution Case Coding (Hi-res)",
+    description: "High-resolution case coding for clear text, logos, and barcodes on corrugated boxes.",
+    short: "Hi-Res",
+  },
+  {
+    name: "Large Character Printer (LCP)",
+    description: "Drop on Demand technology for large character printing and rugged industrial environments.",
+    short: "LCP",
   },
 ];
 
 const Products = () => {
   return (
-    <section id="products" className="py-24 bg-background relative overflow-hidden">
+    <section id="products" className="py-24 bg-muted/30 relative overflow-hidden">
       {/* Subtle hex pattern in background */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <svg width="100%" height="100%">
@@ -57,7 +71,7 @@ const Products = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6">
           {products.map((product, index) => (
             <motion.div
               key={product.name}
@@ -65,15 +79,25 @@ const Products = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-card border border-border hover:border-orange/40 p-8 transition-all duration-300 hover:shadow-hex"
+              className={`group relative bg-card border border-border hover:border-orange/40 p-8 transition-all duration-300 hover:shadow-hex ${
+                index < 4 ? "lg:col-span-3" : ""
+              } ${
+                index === 4 ? "lg:col-span-3 lg:col-start-2" : ""
+              } ${
+                index === 5 ? "lg:col-span-3 lg:col-start-5" : ""
+              } ${
+                index === 6 ? "lg:col-span-3 lg:col-start-8" : ""
+              }`}
             >
               {/* Hex accent */}
               <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute -top-4 -right-4 w-16 h-16 hexagon-clip bg-orange/10" />
               </div>
 
-              <div className="w-12 h-12 hexagon-clip bg-navy flex items-center justify-center mb-6">
-                <product.icon className="w-5 h-5 text-primary-foreground" />
+              <div className="w-12 aspect-[0.866] hexagon-clip bg-navy flex items-center justify-center mb-6">
+                <span className="text-primary-foreground text-[10px] font-display font-bold tracking-wider uppercase">
+                  {product.short}
+                </span>
               </div>
 
               <h3 className="text-lg font-display font-bold text-foreground mb-3">

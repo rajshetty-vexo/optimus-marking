@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Wrench, Truck, GraduationCap, HeadphonesIcon } from "lucide-react";
+import { Wrench, Truck, GraduationCap, Settings } from "lucide-react";
 
 const services = [
   {
@@ -8,14 +8,14 @@ const services = [
     description: "Professional installation and setup of all coding and marking equipment at your facility.",
   },
   {
-    icon: HeadphonesIcon,
+    icon: Settings,
     title: "Annual Maintenance Contracts",
     description: "Preventive maintenance programs to maximize uptime and equipment longevity.",
   },
   {
     icon: Truck,
     title: "Spares & Consumables",
-    description: "Genuine spare parts and consumables for all major brands with pan-India delivery.",
+    description: "Genuine spare parts and consumables with pan-India delivery.",
   },
   {
     icon: GraduationCap,
@@ -26,7 +26,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-muted relative overflow-hidden">
+    <section id="services" className="py-24 bg-muted/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -47,7 +47,7 @@ const Services = () => {
             </p>
 
             <div className="mt-10 flex items-center gap-4">
-              <div className="w-16 h-16 hexagon-clip bg-navy flex items-center justify-center">
+              <div className="w-16 aspect-[0.866] hexagon-clip bg-navy flex items-center justify-center">
                 <span className="text-primary-foreground font-display font-bold text-xl">✓</span>
               </div>
               <div>

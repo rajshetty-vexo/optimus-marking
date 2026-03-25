@@ -2,31 +2,31 @@ import { motion } from "framer-motion";
 
 const channelPartners = [
   {
-    name: "FAM SRL",
-    description: "Italian precision printers for industrial applications. Optimus Marking is the official channel partner in India.",
+    name: "Technology Partners",
+    description: "Strategic partnerships that help us deliver reliable, high-performance coding and marking solutions.",
   },
   {
-    name: "IMA Labelling",
-    description: "World-class labelling systems for every industry. Optimus Marking is the official channel partner in India.",
+    name: "Automation Partners",
+    description: "Collaborative ecosystem support for seamless integration with modern manufacturing lines.",
   },
 ];
 
 const brandsWeService = [
   {
-    name: "Domino Printing Sciences",
-    description: "Sales and service support for Domino's industrial inkjet, laser, and thermal transfer printers.",
+    name: "CIJ Systems",
+    description: "Sales, installation, and maintenance support for continuous inkjet coding systems.",
   },
   {
-    name: "Videojet Technologies",
-    description: "Comprehensive service and spares for Videojet coding and marking equipment.",
+    name: "TIJ Systems",
+    description: "End-to-end support for thermal inkjet printing in packaging and product coding.",
   },
   {
-    name: "Markem-Imaje",
-    description: "Expert maintenance and support for Markem-Imaje marking and coding solutions.",
+    name: "TTO Systems",
+    description: "Service and optimization support for thermal transfer overprinting applications.",
   },
   {
-    name: "Control Print",
-    description: "Authorized service provider for Control Print's range of industrial printers.",
+    name: "Labelling Systems",
+    description: "Reliable support for label marking, print-and-apply, and case coding requirements.",
   },
 ];
 
@@ -47,14 +47,14 @@ const Partners = () => {
           className="text-center mb-12"
         >
           <span className="text-orange text-sm font-display font-semibold tracking-widest uppercase">
-            Channel Partners
+            Partnerships
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-primary-foreground">
-            Exclusive Partnerships in India
+            Trusted Industry Collaborations
           </h2>
           <p className="mt-4 text-primary-foreground/50 max-w-2xl mx-auto">
-            We are the official channel partners in India for these world-class European brands,
-            bringing precision engineering to Indian manufacturers.
+            We work closely with trusted technology and automation collaborators to deliver
+            dependable industrial coding and marking outcomes for Indian manufacturers.
           </p>
         </motion.div>
 
@@ -70,7 +70,7 @@ const Partners = () => {
             >
               <div className="absolute top-4 right-4">
                 <span className="bg-orange text-accent-foreground text-[10px] font-display font-bold tracking-widest uppercase px-2.5 py-1">
-                  Channel Partner
+                  Partner
                 </span>
               </div>
 
@@ -102,10 +102,10 @@ const Partners = () => {
             Sales & Service
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold font-display text-primary-foreground">
-            Brands We Service
+            Systems We Support
           </h2>
           <p className="mt-4 text-primary-foreground/50 max-w-2xl mx-auto">
-            Expert sales and service support for all major industrial coding and marking brands.
+            Expert sales and service support for key industrial coding and marking technologies.
           </p>
         </motion.div>
 

@@ -71,8 +71,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Rajdhani', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['"TT Norms"', '"TTNorms"', "Inter", "system-ui", "sans-serif"],
+        body: ['"TT Norms"', '"TTNorms"', "Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

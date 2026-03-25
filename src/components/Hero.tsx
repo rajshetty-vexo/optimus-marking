@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import HexagonDecor from "./HexagonDecor";
-import optimusLogo from "@/assets/optimus-logo-white.svg";
+import optimusLogo from "@/assets/optimus-marking.svg";
 
 const Hero = () => {
   return (
@@ -15,7 +15,7 @@ const Hero = () => {
       <HexagonDecor className="bottom-1/4 right-1/4" size={160} opacity={0.06} delay={0.4} />
 
       {/* Large background hexagon */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+      <div className="absolute top-1/2 left-[38%] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
         <svg width="700" height="808" viewBox="0 0 100 115.47" className="opacity-[0.03]">
           <polygon
             points="50,0 100,28.87 100,86.6 50,115.47 0,86.6 0,28.87"
@@ -32,16 +32,16 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="inline-block bg-orange/10 border border-orange/30 rounded-sm px-4 py-1.5 mb-6">
-              <span className="text-orange text-sm font-display font-semibold tracking-widest uppercase">
+              <span className="text-primary-foreground text-sm font-display font-semibold tracking-widest uppercase">
                 Industrial Marking Solutions
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground font-display leading-tight tracking-tight">
               Precision{" "}
-              <span className="text-gradient-accent">Coding &</span>
+              <span className="text-orange">Coding &</span>
               <br />
-              Marking Systems
+              <span className="text-orange">Marking</span> Systems
             </h1>
 
             <p className="mt-6 text-lg text-primary-foreground/60 font-body max-w-xl leading-relaxed">
@@ -67,12 +67,12 @@ const Hero = () => {
 
             <div className="mt-12 flex items-center gap-8 text-primary-foreground/40">
               <div>
-                <div className="text-3xl font-display font-bold text-primary-foreground">15+</div>
+                <div className="text-3xl font-display font-bold text-primary-foreground">10+</div>
                 <div className="text-xs font-display uppercase tracking-wider">Years Experience</div>
               </div>
               <div className="w-px h-10 bg-primary-foreground/10" />
               <div>
-                <div className="text-3xl font-display font-bold text-primary-foreground">500+</div>
+                <div className="text-3xl font-display font-bold text-primary-foreground">50+</div>
                 <div className="text-xs font-display uppercase tracking-wider">Installations</div>
               </div>
               <div className="w-px h-10 bg-primary-foreground/10" />
@@ -91,8 +91,8 @@ const Hero = () => {
           >
             {/* Central hexagon with logo */}
             <div className="relative">
-              <div className="w-72 h-72 hexagon-clip bg-primary-foreground flex items-center justify-center shadow-hex">
-                <img src={optimusLogo} alt="Optimus Marking" className="w-48 h-auto" />
+              <div className="w-72 aspect-[0.866] hexagon-clip bg-primary-foreground flex items-center justify-center shadow-hex">
+                <img src={optimusLogo} alt="Optimus Marking" className="w-72 h-auto" />
               </div>
               {/* Orbiting smaller hexagons */}
               <motion.div
@@ -100,21 +100,21 @@ const Hero = () => {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-16 h-16 hexagon-clip bg-orange/80" />
+                <div className="w-16 aspect-[0.866] hexagon-clip bg-orange/80" />
               </motion.div>
               <motion.div
                 className="absolute -bottom-4 -left-10"
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-20 h-20 hexagon-clip bg-teal/60" />
+                <div className="w-20 aspect-[0.866] hexagon-clip bg-teal/60" />
               </motion.div>
               <motion.div
                 className="absolute top-4 -left-16"
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-10 h-10 hexagon-clip bg-orange/40" />
+                <div className="w-10 aspect-[0.866] hexagon-clip bg-orange/40" />
               </motion.div>
             </div>
           </motion.div>

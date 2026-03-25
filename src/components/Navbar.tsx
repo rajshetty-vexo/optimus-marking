@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
-import optimusLogo from "@/assets/optimus-logo.svg";
+import optimusLogo from "@/assets/optimus-marking.svg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Products", href: "#products" },
   { label: "Services", href: "#services" },
-  { label: "Partners", href: "#partners" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -16,7 +15,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#home" className="flex-shrink-0">
@@ -60,7 +59,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-background border-t border-border overflow-hidden"
+            className="md:hidden bg-white border-t border-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
