@@ -1,3 +1,7 @@
+declare const process: {
+  env: Record<string, string | undefined>;
+};
+
 const json = (res: any, status: number, payload: Record<string, unknown>) => {
   res.status(status).json(payload);
 };
