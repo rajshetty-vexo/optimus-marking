@@ -6,7 +6,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <div>
-            <img src={optimusLogo} alt="Optimus Marking" draggable={false} className="h-10 w-auto mb-3 select-none" />
+            <img
+              src={optimusLogo}
+              alt="Optimus Marking"
+              title="Optimus marking"
+              draggable={false}
+              className="h-10 w-auto mb-3 select-none"
+            />
             <p className="text-foreground/60 text-sm">
               Industrial Coding & Marking Solutions
             </p>

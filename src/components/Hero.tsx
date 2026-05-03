@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import HexagonDecor from "./HexagonDecor";
-import optimusLogo from "@/assets/optimus-logo.svg";
 
 const Hero = () => {
   return (
@@ -92,7 +91,13 @@ const Hero = () => {
             {/* Central hexagon with logo */}
             <div className="relative">
               <div className="w-72 aspect-[0.866] hexagon-clip bg-primary-foreground flex items-center justify-center shadow-hex">
-                <img src={optimusLogo} alt="Optimus Marking" draggable={false} className="max-w-[88%] max-h-[72%] w-auto h-auto object-contain select-none" />
+                <img
+                  src="/apple-touch-icon.png"
+                  alt="Optimus Marking"
+                  title="Optimus marking"
+                  draggable={false}
+                  className="max-w-[62%] max-h-[62%] w-auto h-auto object-contain select-none"
+                />
               </div>
               {/* Orbiting smaller hexagons */}
               <motion.div
