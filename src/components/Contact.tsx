@@ -143,7 +143,7 @@ const Contact = () => {
             Get In Touch
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-primary-foreground">
-            Let's Build Your Ideal Marking Setup
+            Let's Build Your Ideal Marking Solution
           </h2>
           <p className="mt-4 text-primary-foreground/50 max-w-2xl mx-auto">
             Ready to optimize your production line with the right coding solution?
