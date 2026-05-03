@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
-import optimusLogo from "@/assets/optimus-marking.svg";
+import optimusLogo from "@/assets/optimus-logo.svg";
 
 const navLinks = [
   { label: "Home", href: "#home" },

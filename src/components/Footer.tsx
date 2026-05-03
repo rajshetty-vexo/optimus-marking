@@ -1,4 +1,4 @@
-import optimusLogo from "@/assets/optimus-marking.svg";
+import optimusLogo from "@/assets/optimus-logo.svg";
 
 const Footer = () => {
   return (
