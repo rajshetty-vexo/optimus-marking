@@ -37,21 +37,6 @@ Set these in **Vercel Project Settings -> Environment Variables**.
 - `RECAPTCHA_SECRET_KEY`  
   Google reCAPTCHA v3 secret key
 
-## Security Checklist (Production)
-
-- Keep all secrets only in Vercel env vars (never commit `.env` files).
-- Set `VITE_ENABLE_RECAPTCHA=true` and `RECAPTCHA_ENABLED=true` before going live.
-- Use a verified `CONTACT_FROM_EMAIL` domain in Resend.
-- Rotate `RESEND_API_KEY` periodically.
-- Test API endpoint:
-  - Valid request sends mail
-  - Honeypot-filled request is ignored
-  - Invalid email/request is rejected
-- Confirm headers from `vercel.json` are active:
-  - `X-Content-Type-Options`
-  - `X-Frame-Options`
-  - `Referrer-Policy`
-  - `Permissions-Policy`
 
 ## Deploy on Vercel (Step-by-Step)
 
