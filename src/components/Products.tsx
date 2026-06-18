@@ -1,47 +1,11 @@
 import { motion } from "framer-motion";
-
-const products = [
-  {
-    name: "Continuous Inkjet printing (CIJ)",
-    description: "Continuous Inkjet printing for high-speed, non-contact coding on production lines.",
-    short: "CIJ",
-  },
-  {
-    name: "Thermal Inkjet printing (TIJ)",
-    description: "Thermal Inkjet printing with clean, high-resolution output for cartons and labels.",
-    short: "TIJ",
-  },
-  {
-    name: "Thermal Transfer Overprinting (TTO)",
-    description: "Thermal Transfer Overprinting for sharp, durable codes on flexible films and pouches.",
-    short: "TTO",
-  },
-  {
-    name: "Laser Marking System (LMS)",
-    description: "Laser Marking System for accurate variable data and batch traceability with permanent marking.",
-    short: "LMS",
-  },
-  {
-    name: "Label Print and Apply (LPA)",
-    description: "Automated print-and-apply labeling for fast, precise product and case labelling.",
-    short: "LPA",
-  },
-  {
-    name: "High Resolution Case Coding (Hi-res)",
-    description: "High-resolution case coding for clear text, logos, and barcodes on corrugated boxes.",
-    short: "Hi-Res",
-  },
-  {
-    name: "Large Character Printer (LCP)",
-    description: "Drop on Demand technology for large character printing and rugged industrial environments.",
-    short: "LCP",
-  },
-];
+import { Link } from "react-router-dom";
+import { labellingData } from "../data/labellingData";
 
 const Products = () => {
   return (
     <section id="products" className="py-24 bg-muted/30 relative overflow-hidden">
-      {/* Subtle hex pattern in background */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <svg width="100%" height="100%">
           <pattern id="hex-pattern" width="56" height="100" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
@@ -51,61 +15,79 @@ const Products = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-display">
+        {/* Main Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-orange text-sm font-display font-semibold tracking-widest uppercase">
+          <span className="text-[#F97316] text-sm font-semibold tracking-widest uppercase">
             Our Solutions
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground">
-            Coding & Marking Technologies
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B192C] uppercase">
+            Coding, Marking & Labeling Technologies
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm">
             We offer comprehensive industrial printing solutions to meet every manufacturing need,
             from high-speed production lines to specialty applications.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6">
-          {products.map((product, index) => (
+        {/* Hexagonal Dynamic Layout Grid Array */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6:gap-x-12 gap-y-16 pt-8 justify-items-center w-full px-2">
+          {labellingData.map((cat, index) => (
             <motion.div
-              key={product.name}
+              key={cat.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative bg-card border border-border hover:border-orange/40 p-8 transition-all duration-300 hover:shadow-hex ${
-                index < 4 ? "lg:col-span-3" : ""
-              } ${
-                index === 4 ? "lg:col-span-3 lg:col-start-2" : ""
-              } ${
-                index === 5 ? "lg:col-span-3 lg:col-start-5" : ""
-              } ${
-                index === 6 ? "lg:col-span-3 lg:col-start-8" : ""
-              }`}
+              /* Core Hexagon Wrapper Panel: Soft drop-shadow normal state me aur hover pr pure Orange Glow */
+              className="relative w-[300px] h-[320px] sm:w-[310px] sm:h-[330px] lg:w-[270px] lg:h-[290px] xl:w-[320px] xl:h-[350px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]"
             >
-              {/* Hex accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute -top-4 -right-4 w-16 h-16 hexagon-clip bg-orange/10" />
-              </div>
+              {/* Layer 1: Background Shape Mask (Isse hover border effect banta hai) */}
+              <div 
+                className="absolute inset-0 bg-transparent group-hover:bg-[#F97316] transition-colors duration-500"
+                style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+              />
 
-              <div className="w-12 aspect-[0.866] hexagon-clip bg-navy flex items-center justify-center mb-6">
-                <span className="text-primary-foreground text-[10px] font-display font-bold tracking-wider uppercase">
-                  {product.short}
-                </span>
-              </div>
+              {/* Layer 2: Inner Core Content Box (No border normal, matches layout spacing) */}
+              <div 
+                className="absolute inset-[0.7px] bg-white flex flex-col justify-between items-center p-6 text-center transition-all duration-500"
+                style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+              >
+                {/* Product Title Section */}
+                <div className="w-full mt-6 px-5 sm:px-6">
+                  <h3 className="text-[14px] sm:text-base lg:text-[13px] xl:text-[14px] font-extrabold text-[#0B192C] tracking-wide uppercase line-clamp-2 min-h-[44px] flex items-center justify-center">
+                    {cat.title}
+                  </h3>
+                </div>
 
-              <h3 className="text-lg font-display font-bold text-foreground mb-3">
-                {product.name}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {product.description}
-              </p>
+                {/* Product Image Viewer Box */}
+                <div className="h-36 w-full flex items-center justify-center overflow-hidden px-4 my-1">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    className="max-h-full max-w-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                </div>
+
+                {/* Navigation CTA: Standard Optimus Theme Buttons */}
+                <div className="w-full mb-6 flex justify-center px-4">
+                  <Link
+                    to={`/labelling/${cat.id}`}
+                    className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm"
+                    style={{ backgroundColor: '#0B192C' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#F97316')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#0B192C')}
+                  >
+                    Discover More
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

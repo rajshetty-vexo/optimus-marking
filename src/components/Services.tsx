@@ -1,5 +1,7 @@
+
+
 import { motion } from "framer-motion";
-import { Wrench, Truck, GraduationCap, Settings } from "lucide-react";
+import { Wrench, Settings, Truck, GraduationCap, MapPin, Headphones } from "lucide-react";
 
 const services = [
   {
@@ -22,59 +24,373 @@ const services = [
     title: "Operator Training",
     description: "Comprehensive training programs for your operators to ensure optimal equipment performance.",
   },
+  {
+    icon: MapPin,
+    title: "Pan-India Coverage",
+    description: "Service network across all major industrial hubs in India.",
+  },
+  {
+    icon: Headphones,
+    title: "Technical Support",
+    description: "24/7 expert technical support and remote diagnostics for all your equipment.",
+  },
 ];
+
+
+interface HexagonCardProps {
+  icon?: any;
+  title?: string;
+  description?: string;
+  delay?: number;
+  isCenter?: boolean;
+}  
+
+const HexagonCard = ({ icon: Icon, title, description, delay = 0, isCenter = false }:HexagonCardProps) => {
+
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="hex-wrapper"
+    >
+      <div className={`hex-inner ${isCenter ? "hex-center" : "hex-service"}`}>
+        <div className="hex-content">
+          {isCenter ? (
+            <div className="center-content">
+              <div className="brand-hex-icon">⬡</div>
+              <div className="brand-name">OPTIMUS</div>
+              <div className="brand-sub">MARKING</div>
+              <div className="brand-tagline">Complete Service Solutions</div>
+            </div>
+          ) : (
+            <div className="service-content">
+              {Icon && <Icon className="service-icon" />}
+              <h3 className="service-title">{title}</h3>
+              <p className="service-desc">{description}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-muted/80 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="text-orange text-sm font-display font-semibold tracking-widest uppercase">
-              What We Do
-            </span>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground">
-              Complete Service Solutions
-            </h2>
-            <p className="mt-4 text-muted-foreground max-w-lg leading-relaxed">
-              From initial consultation to ongoing maintenance, we provide end-to-end support
-              for all your industrial coding and marking needs across India.
-            </p>
+    <section id="services" className="services-section">
+      <div className="services-layout">
 
-            <div className="mt-10 flex items-center gap-4">
-              <div className="w-16 aspect-[0.866] hexagon-clip bg-navy flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">✓</span>
-              </div>
-              <div>
-                <div className="font-display font-bold text-foreground">Pan-India Coverage</div>
-                <div className="text-sm text-muted-foreground">Service network across all major industrial hubs</div>
-              </div>
+        {/* LEFT: Text content - desktop only shows here */}
+        <motion.div
+          className="services-text"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <span className="section-label">What We Do</span>
+          <h2 className="section-title">Complete Service Solutions</h2>
+          <p className="section-subtitle">
+            From initial consultation to ongoing maintenance, we provide end-to-end support
+            for all your industrial coding and marking needs across India.
+          </p>
+          <div className="pan-india-badge">
+            <div className="badge-hex">✓</div>
+            <div>
+              <div className="badge-title">Pan-India Coverage</div>
+              <div className="badge-sub">Service network across all major industrial hubs</div>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card p-6 border border-border hover:border-orange/30 transition-all duration-300 hover:shadow-hex group"
-              >
-                <service.icon className="w-8 h-8 text-orange mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-display font-bold text-foreground mb-2">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-              </motion.div>
-            ))}
+        {/* RIGHT: Hexagon flower */}
+        <div className="hex-flower">
+          {/* Row 1 */}
+          <div className="hex-row hex-row-top">
+            <HexagonCard {...services[0]} delay={0.1} />
+            <HexagonCard {...services[1]} delay={0.2} />
+          </div>
+          {/* Row 2 - middle */}
+          <div className="hex-row hex-row-mid">
+            <HexagonCard {...services[2]} delay={0.3} />
+            <HexagonCard isCenter={true} delay={0} />
+            <HexagonCard {...services[3]} delay={0.4} />
+          </div>
+          {/* Row 3 */}
+          <div className="hex-row hex-row-bot">
+            <HexagonCard {...services[4]} delay={0.5} />
+            <HexagonCard {...services[5]} delay={0.6} />
           </div>
         </div>
       </div>
+
+      <style>{`
+        .services-section {
+          padding: 80px 24px;
+          background: #f4f4f6;
+          overflow: hidden;
+        }
+
+        /* ── Layout: side-by-side on desktop ── */
+        .services-layout {
+          max-width: 1240px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          gap: 64px;
+        }
+
+        /* LEFT text block */
+        .services-text {
+          flex: 1 1 450px;
+          min-width: 320px;
+        }
+
+        .section-label {
+          color: #FF6B2B;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+        }
+
+        .section-title {
+          margin-top: 12px;
+          font-size: clamp(32px, 3.5vw, 42px);
+          font-weight: 800;
+          color: #1a1a2e;
+          line-height: 1.2;
+          // text-transform: uppercase;
+          white-space: normal; /* Yeh text ko zabardasti single words mein nahi todne dega */
+          max-w: 100%;
+        }
+
+        .section-subtitle {
+          margin-top: 14px;
+          color: #555;
+          line-height: 1.7;
+          font-size: 14px;
+        }
+
+        .pan-india-badge {
+          margin-top: 28px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .badge-hex {
+          width: 48px;
+          height: 55px;
+          background: #1a1a2e;
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #FF6B2B;
+          font-size: 18px;
+          font-weight: bold;
+          flex-shrink: 0;
+        }
+
+        .badge-title {
+          font-weight: 700;
+          color: #1a1a2e;
+          font-size: 14px;
+        }
+
+        .badge-sub {
+          font-size: 12px;
+          color: #777;
+          margin-top: 2px;
+        }
+
+        /* RIGHT hexagon flower */
+        .hex-flower {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hex-row {
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        .hex-row-top {
+          margin-bottom: -30px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hex-row-mid {
+          position: relative;
+          z-index: 2;
+        }
+
+        .hex-row-bot {
+          margin-top: -30px;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* ── Hexagon size ── */
+        .hex-wrapper {
+          width: 200px;
+          height: 231px;
+          flex-shrink: 0;
+        }
+
+        .hex-inner {
+          width: 100%;
+          height: 100%;
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hex-service {
+          background: #ffffff;
+        }
+
+        /* NO hover dark - only subtle scale */
+        .hex-service:hover {
+          transform: scale(1.04);
+          transition: transform 0.3s ease;
+        }
+
+        .hex-center {
+          background: #1a1a2e;
+        }
+
+        .hex-content {
+          width: 68%;
+          text-align: center;
+        }
+
+        /* Icon */
+        .service-icon {
+          width: 26px;
+          height: 26px;
+          color: #FF6B2B;
+          margin: 0 auto 8px auto;
+          display: block;
+        }
+
+        .service-title {
+          font-size: 11.5px;
+          font-weight: 800;
+          color: #1a1a2e;
+          margin-bottom: 6px;
+          line-height: 1.3;
+          text-transform: uppercase;
+          letter-spacing: 0.4px;
+        }
+
+        .service-desc {
+          font-size: 10px;
+          color: #666;
+          line-height: 1.5;
+        }
+
+        /* Center hex text */
+        .center-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1px;
+        }
+
+        .brand-hex-icon {
+          font-size: 24px;
+          color: #FF6B2B;
+          margin-bottom: 4px;
+        }
+
+        .brand-name {
+          font-size: 17px;
+          font-weight: 900;
+          color: #fff;
+          letter-spacing: 3px;
+        }
+
+        .brand-sub {
+          font-size: 10px;
+          color: #FF6B2B;
+          letter-spacing: 4px;
+          font-weight: 600;
+        }
+
+        .brand-tagline {
+          font-size: 9px;
+          color: #aaa;
+          margin-top: 6px;
+          line-height: 1.4;
+          text-align: center;
+        }
+
+        /* ── MOBILE: stack vertically ── */
+        @media (max-width: 900px) {
+          .services-layout {
+            flex-direction: column;
+            gap: 32px;
+          }
+
+          .services-text {
+            flex: none;
+            width: 100%;
+            text-align: center;
+          }
+
+          .pan-india-badge {
+            justify-content: center;
+          }
+        }
+
+        /* Smaller phones */
+        @media (max-width: 680px) {
+          .hex-wrapper {
+            width: 130px;
+            height:150px;
+            margin:0 auto
+          }
+
+          .hex-row { gap: 5px; }
+          .hex-row-top { margin-bottom: -20px; }
+          .hex-row-bot { margin-top: -20px; }
+
+          .service-icon { width: 18px; height: 18px; margin-bottom: 5px; }
+          .service-title { font-size: 8px; }
+          .service-desc { font-size: 7px; }
+          .brand-name { font-size: 11px; letter-spacing: 2px; }
+          .brand-sub { font-size: 7px; letter-spacing: 2px; }
+          .brand-tagline { font-size: 7px; }
+          .brand-hex-icon { font-size: 16px; }
+        }
+
+        @media (max-width: 420px) {
+          .hex-wrapper {
+            width: 108px;
+            height: 125px;
+          }
+
+          .hex-row { gap: 3px; }
+          .hex-row-top { margin-bottom: -16px; }
+          .hex-row-bot { margin-top: -16px; }
+
+          .service-title { font-size: 6.5px; }
+          .service-desc { font-size: 6px; }
+          .service-icon { width: 14px; height: 14px; }
+          .brand-name { font-size: 9px; }
+          .hex-content { width: 76%; }
+        }
+      `}</style>
     </section>
   );
 };
