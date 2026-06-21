@@ -1,13 +1,31 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { labellingData } from "../data/labellingData";
 
 const LabellingRange = () => {
-  // Mobile touch active state aur desktop hover state track karne ke liye
   const [activeCard, setActiveCard] = useState<string | null>(null);
+  const [currentActiveIndex, setCurrentActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top automatically when the page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Mobile Scroll Tracking Function
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft } = scrollRef.current;
+    
+    // Calculate index based on how much user scrolled: card width (285) + gap (24)
+    const index = Math.round(scrollLeft / (285 + 24)); 
+    if (index >= 0 && index < labellingData.length) {
+      setCurrentActiveIndex(index);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -23,8 +41,12 @@ const LabellingRange = () => {
           </h1>
           <div className="w-24 h-1 bg-orange mx-auto mb-16 mt-4"></div>
 
-          {/* 📱 Mobile view mein dynamic Horizontal Scroll / 💻 Desktop view mein solid Hexagon Grid Layout */}
-          <div className="flex overflow-x-auto pb-8 pt-4 md:grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-12 gap-y-16 justify-items-center w-full px-2 snap-x snap-mandatory scrollbar-none gap-6 md:gap-y-16">
+          {/* Mobile: Horizontal Scroll | Desktop: Clean 4-Column Grid */}
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto pb-6 pt-4 md:grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-16 justify-items-center w-full px-6 pl-8 md:px-4 snap-x snap-mandatory scrollbar-none md:overflow-x-visible"
+          >
             {labellingData.map((cat, index) => {
               const isHovered = activeCard === cat.id;
               
@@ -47,7 +69,7 @@ const LabellingRange = () => {
                       setActiveCard(cat.id);
                     }
                   }}
-                  className={`relative w-[290px] h-[310px] sm:w-[310px] sm:h-[330px] lg:w-[270px] lg:h-[290px] xl:w-[320px] xl:h-[350px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] shrink-0 snap-center ${
+                  className={`relative w-[285px] h-[310px] sm:w-[310px] sm:h-[330px] lg:w-[260px] lg:h-[280px] xl:w-[290px] xl:h-[320px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)] shrink-0 snap-center ${
                     isHovered ? "drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" : ""
                   }`}
                 >
@@ -64,15 +86,15 @@ const LabellingRange = () => {
                     className="absolute inset-[0.7px] bg-white flex flex-col justify-between items-center p-6 text-center transition-all duration-500"
                     style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                   >
-                    {/* Hexagon Top: Title Layout Grid */}
-                    <div className="w-full mt-6 px-4">
-                      <h3 className="text-[13px] sm:text-base lg:text-[13px] xl:text-[14px] font-extrabold text-[#0B192C] tracking-wide uppercase line-clamp-2 min-h-[44px] flex items-center justify-center">
+                    {/* Hexagon Top: Title */}
+                    <div className="w-full mt-6 px-2">
+                      <h3 className="text-[13px] sm:text-base lg:text-[12px] xl:text-[14px] font-extrabold text-[#0B192C] tracking-wide uppercase line-clamp-2 min-h-[44px] flex items-center justify-center">
                         {cat.title}
                       </h3>
                     </div>
 
-                    {/* Hexagon Center: Image Scaler Box */}
-                    <div className="h-32 w-full flex items-center justify-center overflow-hidden px-4 my-1">
+                    {/* Hexagon Center: Image */}
+                    <div className="h-28 w-full flex items-center justify-center overflow-hidden px-4 my-1">
                       <img
                         src={cat.image}
                         alt={cat.title}
@@ -82,7 +104,7 @@ const LabellingRange = () => {
                       />
                     </div>
 
-                    {/* Hexagon Bottom: Static/Hover Perfect UI Button (No IMA Logo) */}
+                    {/* Hexagon Bottom: Button */}
                     <div className="w-full mb-6 flex justify-center px-4">
                       <Link
                         to={`/labelling/${cat.id}`}
@@ -97,6 +119,57 @@ const LabellingRange = () => {
               );
             })}
           </div>
+
+          {/* Mobile Only: Dynamic Swipe Guide Hint */}
+          <div className="flex flex-col items-center justify-center mt-2 md:hidden">
+            <AnimatePresence>
+              {currentActiveIndex < labellingData.length - 1 && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  className="text-xs text-muted-foreground/70 flex items-center gap-1.5 font-medium"
+                >
+                  <span>Swipe to view more</span>
+                  <motion.svg 
+                    animate={{ x: [0, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="14" 
+                    height="14" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                  </motion.svg>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            {/* Dynamic Moving Dots Indicators */}
+            <div className="flex gap-2.5 mt-3 items-center h-2">
+              {labellingData.map((_, i) => {
+                const isSelected = i === currentActiveIndex;
+                return (
+                  <div key={i} className="relative flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]/20" />
+                    {isSelected && (
+                      <motion.div 
+                        layoutId="activeMobileDot"
+                        className="absolute h-1.5 w-5 bg-[#F97316] rounded-full"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </main>
 

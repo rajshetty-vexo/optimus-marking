@@ -175,7 +175,7 @@ export const labellingData: LabellingCategory[] = [
         id: "pallet-p3",
         name: "Pallet³ Labelling",
         description: "<strong>Pallet3</strong> is an automatic label print and apply system, suitable for <strong>A5 pallet label stickers</strong> application on multiple sides of a pallet and compliant with the international logistic identification standards <strong>(GS1)</strong>. <br> This pallet labeling machine features both the system and axis being <strong>fully electric and programmable</strong>. Pallet3 is built to label print and apply from <strong>one to three labels</strong>, in the exact position desired. Safe and ergonomic for the operator, the system is enclosed in a <strong>robust aluminum cabinet</strong> to be protected from dust and dirty environments.<br> The footprint of the Pallet series is small, allowing it to be positioned easily and sidewise in the pallet roller conveyor areas. Its automatic electric door opens only when the pallet is in the application position.<br>The Pallet3 system exemplifies a cutting-edge pallet labeling machine, perfect for accurate and efficient pallet labeling processes, ensuring precise application of pallet label stickers on multiple sides.",
-        scheme: "Multi-side GS1 compliant",
+        scheme: "",
         features: ["<strong>Programmable multi-axis linear applicator</strong> with electric motion",
           "<strong>Smart variable distance positioning</strong> of the actuator",
           "Tamp-Blow technology for <strong>maximum labeling flexibility</strong>",

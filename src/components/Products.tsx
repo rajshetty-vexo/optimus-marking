@@ -35,13 +35,13 @@ const Products = () => {
             Coding, Marking & Labeling Technologies
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm">
-            We offer comprehensive industrial printing solutions to meet every manufacturing need,
+            We offer comprehensive industrial Printing,Marking and Labelling solutions to meet every manufacturing need,
             from high-speed production lines to specialty applications.
           </p>
         </motion.div>
 
         {/* Hexagonal Dynamic Layout Grid Array */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-12 gap-y-16 pt-8 justify-items-center w-full px-2">
+        <div className="flex overflow-x-auto pb-8 pt-8 md:grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-12 gap-y-16 justify-items-center w-full px-4 snap-x snap-mandatory scrollbar-none gap-6 md:overflow-x-visible">
           {labellingData.slice(0,4).map((cat, index) => {
             const isHovered = activeCard === cat.id;
             return (
@@ -65,7 +65,7 @@ const Products = () => {
                   }
                 }}
                 
-                className={`relative w-[300px] h-[320px] sm:w-[310px] sm:h-[330px] lg:w-[270px] lg:h-[290px] xl:w-[320px] xl:h-[350px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] ${
+                className={`relative w-[290px] h-[310px] sm:w-[310px] sm:h-[330px] lg:w-[260px] lg:h-[280px] xl:w-[320px] xl:h-[350px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] shrink-0 snap-center ${
                   isHovered ? "drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" : ""
                 }`}
               >

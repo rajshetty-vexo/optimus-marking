@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Wrench, Settings, Truck, GraduationCap, MapPin, Headphones } from "lucide-react";
+import { Wrench, Settings, Truck, GraduationCap, HandCoins, Headphones} from "lucide-react";
 import optimuslogo from "../assets/optimus-logo.svg"
 const services = [
   {
     icon: Wrench,
     title: "Installation & Commissioning",
-    description: "Professional installation and setup of all coding and marking equipment at your facility.",
+    description: "Professional installation and setup of all printing marking and labelling equipment at your facility.",
   },
   {
     icon: Settings,
@@ -23,9 +23,9 @@ const services = [
     description: "Comprehensive training programs for your operators to ensure optimal equipment performance.",
   },
   {
-    icon: MapPin,
-    title: "Pan-India Coverage",
-    description: "Service network across all major industrial hubs in India.",
+    icon: HandCoins,
+    title: "Rental and Pay Per Code Options",
+    description: "Flexible rental plans and cost-effective pay-per-print models tailored for your production scale.",
   },
   {
     icon: Headphones,
@@ -93,11 +93,11 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="section-label">What We Do</span>
-          <h2 className="section-title">Complete Service Solutions</h2>
+          <span className="section-label">What Services Do We Offer</span>
+          <h2 className="section-title">Holistic Service Approach</h2>
           <p className="section-subtitle">
             From initial consultation to ongoing maintenance, we provide end-to-end support
-            for all your industrial coding and marking needs across India.
+            for all your industrial printing marking & labeling needs across India.
           </p>
           <div className="pan-india-badge">
             <div className="badge-hex">✓</div>
