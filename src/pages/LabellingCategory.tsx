@@ -1,28 +1,42 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { labellingData } from "../data/labellingData";
+// 1. Teeno datasets sahi se imported hain bro
+import { labellingData, thermalInkjetData, dodPrintingData } from "../data/labellingData"; 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LabellingCategory = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
-  const category = labellingData.find((c) => c.id === categoryId);
   const navigate = useNavigate();
+
+  // 2. Data arrays ka proper combination
+  const allCategories = [...labellingData, ...thermalInkjetData, ...dodPrintingData];
+  const category = allCategories.find((c) => c.id === categoryId);
 
   // Mobile Dots & Scroll Tracking States
   const [currentActiveIndex, setCurrentActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+
+  useEffect(() => {
+    if (category && (!category.machines || category.machines.length === 0)) {
+      navigate(`/product/${category.id}`, { replace: true });
+    }
+  }, [category, navigate]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Reset active index whenever the category changes
     setCurrentActiveIndex(0);
   }, [categoryId]);
 
-  if (!category) return <div className="text-center py-20 font-display">Category Not Found</div>;
+  // 4. Safely category existence validation and dynamic fallback mapping array setup
+  if (!category) {
+    return <div className="text-center py-20 font-display text-navy font-bold">Category Not Found</div>;
+  }
 
-  const totalMachines = category.machines?.length || 0;
+  const machinesList = category.machines || [];
+  const totalMachines = machinesList.length;
 
   // Mobile Scroll Monitor to calculate current visible card index
   const handleScroll = () => {
@@ -65,7 +79,7 @@ const LabellingCategory = () => {
           onScroll={handleScroll}
           className="flex overflow-x-auto pb-6 pt-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full px-4 pl-6 md:px-0 snap-x snap-mandatory scrollbar-none md:overflow-x-visible"
         >
-          {category.machines.map((machine, index) => (
+          {machinesList.map((machine, index) => (
             <motion.div
               key={machine.id}
               initial={{ opacity: 0, y: 20 }}
@@ -137,7 +151,7 @@ const LabellingCategory = () => {
             
             {/* Real Dynamic Sliding Dots Tracking Container */}
             <div className="flex gap-2.5 mt-3 items-center h-2">
-              {category.machines.map((_, i) => {
+              {machinesList.map((_, i) => {
                 const isSelected = i === currentActiveIndex;
                 return (
                   <div key={i} className="relative flex items-center justify-center">

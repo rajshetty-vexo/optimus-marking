@@ -5,7 +5,7 @@ const services = [
   {
     icon: Wrench,
     title: "Installation & Commissioning",
-    description: "Professional installation and setup of all printing marking and labelling equipment at your facility.",
+    description: "Professional installation and setup of all coding marking and labelling equipment at your facility.",
   },
   {
     icon: Settings,
@@ -24,8 +24,8 @@ const services = [
   },
   {
     icon: HandCoins,
-    title: "Rental and Pay Per Code Options",
-    description: "Flexible rental plans and cost-effective pay-per-print models tailored for your production scale.",
+    title: "Rental and Flexipay Options",
+    description: "Flexible rental plans and cost-effective print models tailored for your production scale.",
   },
   {
     icon: Headphones,
@@ -97,7 +97,7 @@ const Services = () => {
           <h2 className="section-title">Holistic Service Approach</h2>
           <p className="section-subtitle">
             From initial consultation to ongoing maintenance, we provide end-to-end support
-            for all your industrial printing marking & labeling needs across India.
+            for all your industrial Coding, Marking & Labeling needs across India.
           </p>
           <div className="pan-india-badge">
             <div className="badge-hex">✓</div>

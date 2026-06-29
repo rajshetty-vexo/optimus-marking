@@ -1,3 +1,4 @@
+import Printandapply from "/src/assets/Products Models/Print and Apply.jpg"
 import fliximatewindgrip from "/src/assets/Products Models/fliximate windgrip.jpg"
 import fliximatebelt from "/src/assets/Products Models/fliximate ebelt.jpg"
 import fliximateblade from "/src/assets/Products Models/fliximate eblade.jpg"
@@ -10,15 +11,32 @@ import SLAM from "/src/assets/Products Models/SLAM.jpg"
 import speedmateblade from "/src/assets/Products Models/speedmate blade.jpg"
 import speedmatepro from "/src/assets/Products Models/speedmate pro.jpg"
 import SLAMlabelling from "/src/assets/Products Models/SLAM labelling.jpg"
+import TIJM5 from "/src/assets/Products Models/TIJ M5.jpeg"
+import TIJM9 from "/src/assets/Products Models/TIJ M9.png"
+import M5andM9 from "/src/assets/Products Models/M5&M9.png"
+import TIJPleyon from "/src/assets/Products Models/TIJ Pleyon.jpeg"
+import TIJM7 from "/src/assets/Products Models/TIJ M7.jpg"
+import TIJKeryon from "/src/assets/Products Models/TIJ Keryon.png"
+import TIJDyplon from "/src/assets/Products Models/TIJ Dyplon.jpg"
+import KeryonandDyplon from "/src/assets/Products Models/Keryon&Dyplon.png"
+import DKMinimobile from "/src/assets/Products Models/TIJ Dk Minimobile.jpg"
+import Maximinimobile from "/src/assets/Products Models/TIJ Maximinimobile.jpg"
+import DKandMaximobile from "/src/assets/Products Models/DK and Maximobile.png"
+import MakroMobile from "/src/assets/Products Models/DOD Makro Mobile.jpg"
+import MakroPlus from "/src/assets/Products Models/DOD Makro Plus.jpg"  
+import IMALabeling from "/src/assets/Logo/IMA Labeling logo.png"
+import FamHplogo from "/src/assets/Logo/FamHp logo.jpeg"
+import Famlogo from "/src/assets/Logo/Fam logo.png"
 
 export interface ProductMachine {
   id: string;
   name: string;
-  description: string; // RESET TO ORIGINAL STRING
+  description: string; 
   scheme: string; 
-  features: string[]; // RESET TO ORIGINAL STRING ARRAY
+  features: string[]; 
   videoUrl?: string; 
   image: string; 
+ 
 }
 
 export interface LabellingCategory {
@@ -27,7 +45,12 @@ export interface LabellingCategory {
   subtitle: string;
   description: string;
   image: string;
+  logo?:string;
   machines: ProductMachine[];
+  
+  scheme?: string;
+  features?: string[];
+  videoUrl?: string;
 }
 
 export const labellingData: LabellingCategory[] = [
@@ -36,7 +59,8 @@ export const labellingData: LabellingCategory[] = [
     title: "Label Print & Apply",
     subtitle: "LABEL PRINT AND APPLY APPLICATORS",
     description: "A label Print & Apply is a system that is able to print any coding and traceability data on a self-adhesive label and then apply it directly to a product or package.",
-    image: "src/assets/Products Models/Print and Apply.jpg", 
+    image:Printandapply,
+    logo:IMALabeling,
     machines: [
       {
         id: "windgrip",
@@ -131,7 +155,8 @@ export const labellingData: LabellingCategory[] = [
     title: "Modular labelers",
     subtitle: "MODULAR LABELERS",
     description: "Automatic labelling systems are the most used devices when it comes to the application of informative and/or decorative self-adhesive labels.",
-    image: "src/assets/Products Models/Modular labelers.jpg",
+    image:Modularlabelers,
+    logo:IMALabeling,
     machines: [
       {
         id: "modular-m1",
@@ -169,7 +194,8 @@ export const labellingData: LabellingCategory[] = [
     title: "Pallet labelling",
     subtitle: "PALLET LABELLING SOLUTIONS",
     description: "Pallet is an automatic label print and apply system, suitable for A6 pallet label stickers application on multiple sides of a pallet.",
-    image: "src/assets/Products Models/Pallete Labelling.jpg",
+    image: palletelabelling,
+    logo:IMALabeling,
     machines: [
       {
         id: "pallet-p3",
@@ -191,7 +217,8 @@ export const labellingData: LabellingCategory[] = [
     title: "SLAM labelling solutions",
     subtitle: "SLAM LABELING SOLUTIONS",
     description: "Scan Label Apply Manifest (SLAM) applications designed to handle high-frequency shipping label applications.",
-    image: "src/assets/Products Models/SLAM.jpg",
+    image: SLAM,
+    logo:IMALabeling,
     machines: [
       {
         id: "slam-s1",
@@ -209,4 +236,226 @@ export const labellingData: LabellingCategory[] = [
       }
     ]
   }
+];
+
+
+// 2.THERMAL INKJET RANGE DATA
+export const thermalInkjetData: LabellingCategory[] = [
+  {
+    id: "tij-2.5",
+    title: "Thermal Inkjet 2.5",
+    subtitle: "THERMAL INKJET 2.5 SOLUTIONS",
+    description: "High-resolution industrial thermal inkjet printers utilizing 2.5 technology for precise and clean marking.",
+    image: M5andM9, 
+    logo: FamHplogo, 
+    machines: [
+{
+  id: "famjet-m5",
+  name: "Famjet M5",
+  description: "<strong>Famjet M5</strong> is a high-performance, advanced technology thermal inkjet printer equipped with HP TIJ technology. It offers an affordable price point and an easy-to-use interface for most industrial applications, featuring a compact design reduced in volume to perfectly suit any production line workflow.",
+  scheme: "Top side, Lateral side,Bottom side", // Tumhare structural layout ke mutabik unchanged rakha hai
+  features: [
+    "Android Touch 5\" Controller supporting 1 or 2 HP pen stalls",
+    "Powerful printing of texts, counters, autodata, logos, and 1D & 2D barcodes (static or dynamic)",
+    "Serialization and Track & Trace management through TCPIP network protocol",
+    "A-Level high legibility of Datamatrix & QR codes",
+    "Maintenance-free operations with inks for porous, semi-porous, and non-porous substrates",
+    "Flexible setup generated directly by the controller or PC software with easy external network interface"
+  ],
+  videoUrl: "https://www.youtube.com/embed/H9VcMeB-sfQ?si=9ypiqLujssw76qJ4",
+  image: TIJM5
+},
+
+  {
+  id: "famjet-m9",
+  name: "Famjet M9",
+  description: "<strong>Famjet M9</strong> is the best high-resolution printer designed for <strong>multi-head applications</strong> and complex coding requirements. Equipped with HP TIJ technology, it supports printing on both porous and non-porous substrates like cardboards, plastics, metal, and aluminum, offering a <strong>compact design</strong> that requires <strong>no maintenance</strong> or spare parts.",
+  scheme: "Top side, Lateral side, Bottom side",
+  features: [
+    "<strong>9\" touch screen display</strong> with integrated Android software for simple and intuitive direct data entry.",
+    "<strong>Printing height up to 50.8 mm</strong> (up to 50mm with quadruple printhead) in a single image or with different messages.",
+    "<strong>Advanced communication protocol</strong> ideal for remote operations and high-speed serialization of 2D codes.",
+    "<strong>New I/O port</strong> to connect an external warning levels lamp and automatic printing message selection.",
+    "<strong>Multi-substrate compatibility</strong> including texts, counters, autodata, logos, barcodes, and highly readable 2D codes.",
+    "<strong>Industrial efficiency</strong> providing automatic reverse printing and seamless integration in harsh environments."
+  ],
+  videoUrl: "https://www.youtube.com/embed/zA9VvKYSqnc?si=WvU0g1hgJE1JCcTH", 
+  image: TIJM9
+}
+    ]
+  },
+  {
+    id: "tij-25-bulk",
+    title: "Thermal Inkjet-2.5 bulk",
+    subtitle: "BULK INK SUPPLY SOLUTIONS",
+    description: "Ideal for high-volume production lines requiring continuous printing with lower running costs.",
+    image: TIJPleyon,
+    logo: FamHplogo, // Fam Logo
+    machines: [
+ {
+  id: "pleyon",
+  name: "Pleyon",
+  description: "<strong>Famjet Pleyon</strong> introduces the future of TIJ printing with its advanced <strong>HP Bulk technology</strong>. It offers a field-proven, highly reliable ink regulation solution that reduces overall printing costs while providing maximum versatility for complex production lines.",
+  scheme: "Lateral side,Top side",
+  features: [
+    "<strong>9\" Touch Screen Display</strong> with integrated Android software for intuitive data entry of texts, counters, and logos.",
+    "<strong>Advanced Bulk System</strong> utilizing an AKIT that includes 3x400ml bulks and a 35ml cartridge to print 1.2 liters seamlessly[cite: 7].",
+    "<strong>Sturdy Steel Printheads</strong> available in single or dual pen versions, managed by a dependable ink level feedback sensor[cite: 7].",
+    "<strong>4.0 Connectivity & I/O Port</strong> enabling remote operations, automatic message selection, and counter resets[cite: 7].",
+    "<strong>High-Speed Serialization</strong> of perfectly readable 2D codes designed to interface flawlessly with optical vision systems[cite: 7].",
+    "<strong>Multi-Substrate Printing</strong> using water-based, solvent-based, or UV curable inks for porous and non-porous surfaces[cite: 7]."
+  ],
+  videoUrl: "https://www.youtube.com/embed/YJmvfvJofiw?si=B8Lhrvvw28JWeRws",
+  image: TIJPleyon
+}
+    ]
+  },
+  {
+    id: "tij-1-inch",
+    title: "Thermal Inkjet 1-inch",
+    subtitle: "LARGE FORMAT TIJ PRINTERS",
+    description: "1-inch tall print head technology designed for larger characters, logos, and detailed barcodes.",
+    image: TIJM7,
+    logo: Famlogo, // Fam Logo
+    machines: [
+ {
+  id: "famjet-m7",
+  name: "Famjet M7",
+  description: "The <strong>Famjet M7</strong> is the first TIJ printer in the world featuring <strong>Collins 1\" disposable cartridges</strong>. It has been specifically designed to handle high-resolution printing jobs up to <strong>2400 dpi</strong> on porous, semi-porous, and non-porous materials. By utilizing a single 1\" print engine setup, it completely eliminates complicated cartridge alignments that lead to poor print quality, making it the ideal choice for reliable industrial serialization.",
+  scheme: " left Lateral side,right lateral side",
+  features: [
+    "<strong>25.4mm (1\") Print Height</strong> with a single cartridge, expandable up to 100mm (4\") using a quadruple printhead.",
+    "<strong>Hi-Definition Capabilities</strong> for perfect alphanumeric characters, logos, barcodes, and complex 2D codes[cite: 8].",
+    "<strong>7\" Touch Screen Display</strong> offering an intuitive and seamless data entry interface for the operator[cite: 8].",
+    "<strong>Robust Interface</strong> equipped with USB, Ethernet, and optional Wi-Fi connectivity[cite: 8]."
+  ],
+  videoUrl: "https://www.youtube.com/embed/your_video_id_here",
+  image: TIJM7
+ }
+    ]
+  },
+  {
+    id: "tij-40",
+    title: "Thermal Inkjet 4.0",
+    subtitle: "NEXT GENERATION TIJ TECHNOLOGY",
+    description: "Cutting-edge Thermal Inkjet 4.0 technology providing unmatched speed, connectivity, and performance.",
+    image: KeryonandDyplon,
+    logo: FamHplogo, // Fam Logo
+    machines: [
+  {
+  id: "dyplon",
+  name: "Dyplon",
+  description: "The <strong>Famjet Dyplon</strong> is a latest-generation thermal inkjet printer powered by cutting-edge <strong>HP TIJ 4.0 technology</strong>. It delivers a massive <strong>22mm printing area per single head</strong> and can print from a distance of up to 9mm, making it perfect for irregular or uneven surfaces. Engineered for heavy-duty, high-speed industrial environments, it operates at speeds four times faster than previous TIJ generations, providing an exceptionally efficient and reliable coding solution.",
+  scheme: "Multi-side configuration",
+  features: [
+    "<strong>HP TIJ 4.0 Power</strong> offering up to 22mm print height with a single head, and up to 44mm with a dual head setup.",
+    "<strong>Ultra-Fast Speeds</strong> reaching up to 732 meters/minute without compromising on clarity or quality[cite: 8].",
+    "<strong>775ml Bulk Ink Tanks</strong> that can be hot-swapped/replaced without pausing your ongoing production line[cite: 8].",
+    "<strong>HD Resolution</strong> supporting up to 1200 x 2400 dpi for pin-sharp 2D codes, barcodes, and logos[cite: 8].",
+    "<strong>Smart Consumables</strong> where the single cartridge printhead only needs replacement after consuming 4L of ink (approx. 5 tanks)[cite: 8]."
+  ],
+  videoUrl: "https://www.youtube.com/embed/G_GgKgstkuk?si=Hdl6I6IEiWNibdqQ",
+  image: TIJDyplon
+},
+   {
+  id: "keryon",
+  name: "Keryon",
+  description: "The <strong>Famjet Keryon</strong> combines breakthrough <strong>HP TIJ 4.0 technology</strong> with a robust, high-performance printing platform engineered for demanding, high-speed production environments. It delivers exceptional print quality, maximum uptime, and significantly lower operating costs, making it a future-proof solution for industrial coding, marking, and variable data printing. With an extended throw distance of up to 9mm, it offers unparalleled installation flexibility across diverse packaging shapes.",
+  scheme: "Top side, Lateral side, Bottom side",
+  features: [
+    "<strong>Massive 108mm Print Height</strong> powered by advanced HP 4.0 technology for large-scale graphics and data.",
+    "<strong>High-Speed Production</strong> reaching up to 480 m/min while maintaining sharp 1200 dpi resolution[cite: 8].",
+    "<strong>Micro-Recirculation Technology</strong> that actively prevents ink from drying during production standstills[cite: 8].",
+    "<strong>775 mL Bulk System</strong> supporting an impressive printhead cartridge life of approximately 15 liters[cite: 8].",
+    "<strong>10-Inch Display Screen</strong> integrated with TCP/IP protocol support for streamlined industrial control[cite: 8]."
+  ],
+  videoUrl: "https://www.youtube.com/embed/your_video_id_here",
+  image: TIJKeryon
+}
+    ]
+  },
+{
+  id: "tij-mobile",
+  title: "Thermal Inkjet Mobile Printer", 
+  subtitle: "PORTABLE & WIRELESS TIJ SOLUTIONS",
+  description: "Innovative portable, wireless, and ultra-lightweight thermal inkjet printing devices designed to print multiline messages on a large range of porous and non-porous surfaces without requiring a conveyor.",
+  image: DKandMaximobile,
+  logo: FamHplogo, 
+  machines: [
+    {
+      id: "famjet-dk-mini-mobile",
+      name: "Famjet DK Mini Mobile", 
+      description: "The <strong>Famjet DK Mini Mobile</strong> is an innovative, ultra-compact, and wireless portable printing device based on high-performance thermal ink jet technology. Weighing less than 1 kg, it is equipped with disposable 42ml cartridges containing water or solvent-based inks. It serves as the perfect modern replacement for traditional stencils, stamps, roll coders, and other obsolete contact printing systems, allowing users to print multi-line messages without any conveyor system.",
+      scheme: "Top side, left lateral side, right lateral side, bottom section", 
+      features: [
+        "<strong>12.7mm (0.5\") Printing Height</strong> supporting alphanumeric characters, auto-date, expiry dates, batch codes, logos, QR codes, and barcodes.",
+        "<strong>Hi-Definition 750 DPI Resolution</strong> ensuring precise, sharp, and high-contrast marking on porous, semi-porous, and non-porous materials.",
+        "<strong>3.5\" Intuitive Touch Screen Display</strong> offering a seamless and user-friendly standalone user interface for message editing.",
+        "<strong>Dual/Quad Wheel Configuration</strong> equipped with a 2W Encoder (2 wheels) or 4W Encoder (4 wheels) for stable hand tracking on different surfaces.",
+        "<strong>Massive 8GB Internal Memory</strong> (expandable to 16/32 GB optional) for storing large libraries of print messages and custom templates."
+      ],
+      videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY", 
+      image:DKMinimobile 
+    },
+    {
+  id: "famjet-maxi-mini-mobile",
+  name: "Famjet Maxi-MiniMobile", 
+  description: "The <strong>Famjet Maxi Mini Mobile</strong> is a powerful, wireless, and lightweight portable thermal inkjet printer designed for large format marking. Utilizing premium 25.4 mm Kao Collins® disposable cartridges, it completely eliminates complex alignment issues. Weighing less than 1 kg, this standalone system is the perfect modern alternative to traditional stencils, stamps, and obsolete contact roll coders, allowing users to print detailed messages on the move without a conveyor.",
+  scheme: "Top section, left lateral side, right lateral side, bottom section",
+  features: [
+    "<strong>25.4mm (1\") Printing Height</strong> using a single high-capacity 42ml cartridge, ideal for large characters, corporate logos, and clear shipping data.",
+    "<strong>High-Resolution Industrial Marking</strong> up to 750 dpi for super-sharp alphanumeric text, precise 1D barcodes, QR codes, and complex Datamatrix.",
+    "<strong>3.5\" Touch Screen Display</strong> featuring an integrated standalone software wizard to easily create and edit templates right on the spot.",
+    "<strong>Robust Storage Capacity</strong> with 8 GB of internal memory (expandable up to 16/32 GB) to store massive message libraries.",
+    "<strong>Flexible Encoder Options</strong> available in a 2W configuration (2 wheels) or a 4W configuration (4 wheels) for stable manual tracking across diverse physical surfaces."
+  ],
+  videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY", 
+  image: Maximinimobile
+}
+  ]
+}
+];
+
+
+//3. DOD RANGE
+
+// 1. DOD PRINTING DATA WITH INTEGRATED MACHINE DETAILS FOR DIRECT REDIRECTION
+export const dodPrintingData: LabellingCategory[] = [
+  {
+    id: "makro-mobile",
+    title: "Famjet Makro 116 Mobile",
+    subtitle: "PORTABLE INDUSTRIAL HANDHELD",
+    description: "The <strong>Famjet Makro 116 Mobile</strong> is a robust, handheld <strong>Drop on Demand (DOD)</strong> solution built explicitly for heavy-duty portable industrial marking. Engineered for ultimate adaptability, this device functions as an all-in-one powerhouse that prints precisely and clearly on incredibly tough surfaces including <strong>concrete, metal, glass, textiles, plastic, cardboard, or wood</strong>. It puts precise, reliable printing right into your hands, eliminating the constraints of static conveyor installations.",
+    image: MakroMobile, 
+    logo: FamHplogo,
+    scheme: "Handheld Portable Configuration",
+    features: [
+      "<strong>16-Dot Printing Printhead</strong> capable of firing large characters with a maximum height layout up to 60mm.",
+      "<strong>Advanced Guide Wheels</strong> that seamlessly track and adapt to the operator's hand speed to maintain crystal clear print orientation.",
+      "<strong>3.5\" Touch Screen Display</strong> enabling seamless on-the-fly text editing and message modifications directly on the floor.",
+      "<strong>Flexible Substrate Marking</strong> ensuring premium clarity on challenging materials like porous wood, uneven stone, or smooth metallic pipes.",
+      "<strong>Versatile Ink Compatibility</strong> allowing easy swaps between Water, Ethanol, or MEK-based industrial grade inks."
+    ],
+    videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY?si=156H5HT8RUzEbB53",
+    machines: [] 
+  },
+  {
+    id: "makro-plus",
+    title: "Famjet Makro Plus",
+    subtitle: "INDUSTRIAL INK-JET PRINTING SYSTEM",
+    description: "The <strong>Famjet Makro Plus</strong> is an advanced industrial ink-jet printing system utilizing high-performance <strong>electromagnetic drop-on-demand (DOD) technology</strong>. Purpose-built to thrive in the most punishing industrial environments, it features a <strong>solvent-proof glass touch screen panel</strong> and an IP53 protection rating to withstand heavy dust, humidity, vibrations, and extreme temperature fluctuations. It is the ultimate heavy-duty setup for continuous marking on pipes, bags, extruded packaging, and fabrics.",
+    image: MakroPlus,   
+    logo: FamHplogo,
+    scheme: "Top side,Bottom side,Lateral side", 
+    features: [
+      "<strong>Scalable Printing Height</strong> supporting multi-dot head arrays including 7 dots (24mm), 16 dots (60mm), and up to 32 dots (128mm) sizes.",
+      "<strong>Rugged IP53 Protection</strong> specifically hardened against dust ingress, environmental moisture, and aggressive industrial compounds.",
+      "<strong>Smart Connectivity Integration</strong> packed with built-in LAN, RS232 ports, and specialized scanner customized communication protocols.",
+      "<strong>Advanced IO Controller Interface</strong> enabling on-the-fly print actions, database queries over LAN, and external message selection (8 inputs / 5 outputs).",
+      "<strong>High-Speed Coding Output</strong> engineered to operate flawlessly at continuous production line tracks up to 60 meters per minute."
+    ],
+    videoUrl: "https://www.youtube.com/embed/dMyN6cOfWaI?si=36TEUpSw33g7jbO4", 
+    machines: []   
+  },
+  
 ];
