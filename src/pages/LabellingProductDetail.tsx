@@ -1,14 +1,17 @@
 import { useParams, Link ,useNavigate} from "react-router-dom";
+// import { useState} from "react";
 import { labellingData, thermalInkjetData,dodPrintingData } from "../data/labellingData"; 
 import ApplicationScheme from "@/components/ApplicationScheme";
+import BrochureModal from "@/components/BrochureModal";
 
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const LabellingProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
+  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -209,7 +212,7 @@ let currentModel: any = null;
             {/* Custom Download Action Button Link Wrapper (Navy Blue -> Hover Orange) */}
             <div className="pt-2">
               <button 
-                onClick={() => alert("Brochure download process placeholder.")}
+                onClick={() => setIsBrochureModalOpen(true) }
                 className="inline-flex items-center gap-3 bg-[#0B192C] hover:bg-[#F97316] text-white font-bold text-xs uppercase tracking-widest px-7 py-4 rounded transition-all duration-300 shadow-sm active:scale-95 group"
               >
                 <svg className="w-4 h-4 text-white transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -234,7 +237,12 @@ let currentModel: any = null;
         </section>
 
       </main>
-
+       <BrochureModal 
+        isOpen={isBrochureModalOpen} 
+        onClose={() => setIsBrochureModalOpen(false)} 
+        productName={currentModel?.name || ""}
+        brochureUrl={currentModel?.brochure || "#"}
+      />
       <Footer />
     </div>
   );

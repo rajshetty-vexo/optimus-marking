@@ -36,6 +36,7 @@ export interface ProductMachine {
   features: string[]; 
   videoUrl?: string; 
   image: string; 
+  brochureUrl?: string;
  
 }
 
@@ -263,7 +264,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "Flexible setup generated directly by the controller or PC software with easy external network interface"
   ],
   videoUrl: "https://www.youtube.com/embed/H9VcMeB-sfQ?si=9ypiqLujssw76qJ4",
-  image: TIJM5
+  image: TIJM5,
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1t0kYTqWtM5CU0hx_d404tmteU8J6aloX"
 },
 
   {
