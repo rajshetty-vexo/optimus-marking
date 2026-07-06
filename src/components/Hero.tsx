@@ -40,37 +40,37 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden"
-    >
+    className="relative w-full min-h-screen  pt-14 overflow-hidden flex items-center"
+  >
       {/* Background video */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-10"
+        className="absolute inset-0 w-full h-full object-cover opacity-100"
       >
-        <source src="https://res.cloudinary.com/dsxnp5rjt/video/upload/q_auto/f_auto/v1781785789/Hero_Section_Visual_y6tcx4.mp4" />
+        <source src="https://res.cloudinary.com/rjfewkks/video/upload/v1783089525/Nozzle-Sealing_02_xjatre.mp4" />
       </video>
 
       {/* Dot texture overlay */}
-      <div
+      {/* <div
         className="absolute inset-0 pointer-events-none opacity-[0.18]"
         style={{
           backgroundImage: `radial-gradient(rgb(255, 255, 255) 1px, transparent 1px)`,
           backgroundSize: "4px 4px",
         }}
-      />
+      /> */}
 
       {/* Large background hexagon */}
       <div className="absolute top-1/3  lg:top-1/2 lg:left-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
         <div
           className="hexagon-clip w-[300px] sm:w-[500px] lg:w-[700px] aspect-[0.866] bg-orange"
-          style={{ opacity: 0.065 }}
+          style={{ opacity: 0.0 }}
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-0 sm:pt-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-w-0">
           <motion.div
             className="min-w-0"
@@ -114,7 +114,7 @@ const Hero = () => {
 
             {/* TAGLINE: Adjusted PC spacing (lg:mt-6) for uniform "common space" */}
             <div className="mt-3 sm:mt-2 lg:mt-4 text-[#1E1951] font-display font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[11.5px] sm:text-xs lg:text-[0.9rem] uppercase">
-              CODE • MARK • LABEL • VERIFY
+              CODE • MARK • LABEL • IDENTIFY
             </div>
 
             {/* PARAGRAPH: Adjusted PC spacing (lg:mt-6) to match the above spacing perfectly */}
@@ -202,7 +202,7 @@ const Hero = () => {
           </motion.div>
 
           {/* ===================== PRODUCT SHOWCASE ===================== */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -210,7 +210,7 @@ const Hero = () => {
           >
             <div className="relative w-[600px] h-[600px] translate-x-6">
               
-              {/* DEDICATED INVISIBLE HOVER CATCHER (DESKTOP) */}
+         
               <div 
                 className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
               >
@@ -225,7 +225,7 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Orange Breathing Background (Mathematically Centered) */}
+     
               <motion.div
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ zIndex: 0 }}
@@ -238,7 +238,6 @@ const Hero = () => {
                 />
               </motion.div>
 
-              {/* Dynamic Flow Rendering */}
               <AnimatePresence>
                 {items.map((item, i) => {
                   if (i !== prevIndex && i !== index && i !== nextIndex) return null;
@@ -253,7 +252,7 @@ const Hero = () => {
                   return (
                     <motion.div
                       key={i}
-                      // Keep images strictly visual so they never interfere with the mouse
+
                       className="absolute inset-0 flex items-center justify-center pointer-events-none"
                       variants={{
                         hiddenEnter: { x: 250, y: -250, scale: 0.2, opacity: 0.5, zIndex: 5, filter: "blur(8px)" },
@@ -300,10 +299,10 @@ const Hero = () => {
                 })}
               </AnimatePresence>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* ============= MOBILE PRODUCT SHOWCASE ============= */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1.1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -311,7 +310,7 @@ const Hero = () => {
           >
             <div className="relative w-[270px] h-[270px]">
 
-              {/* DEDICATED INVISIBLE HOVER CATCHER (MOBILE) */}
+
               <div 
                 className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
               >
@@ -326,7 +325,7 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Orange Breathing Background (Mathematically Centered) */}
+
               <motion.div
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ zIndex: 0 }}
@@ -339,7 +338,7 @@ const Hero = () => {
                 />
               </motion.div>
 
-              {/* Dynamic Flow Rendering */}
+           
               <AnimatePresence>
                 {items.map((item, i) => {
                   if (i !== prevIndex && i !== index && i !== nextIndex) return null;
@@ -354,7 +353,7 @@ const Hero = () => {
                   return (
                     <motion.div
                       key={`mobile-${i}`}
-                      // Keep images strictly visual so they never interfere with the mouse
+
                       className="absolute inset-0 flex items-center justify-center pointer-events-none"
                       variants={{
                         hiddenEnter: { x: 110, y: -110, scale: 0.2, opacity: 0.5, zIndex: 5, filter: "blur(8px)" },
@@ -398,7 +397,7 @@ const Hero = () => {
                 })}
               </AnimatePresence>
             </div>
-          </motion.div>
+          </motion.div> */}
           {/* =========== END MOBILE PRODUCT SHOWCASE =========== */}
 
         </div>

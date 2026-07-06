@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import HeroSlider from "@/components/HeroSlider";
 import Products from "@/components/Products";
 import Services from "@/components/Services";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
+import Clients from "@/components/Clients";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials"
 
@@ -33,12 +32,11 @@ const { hash } = useLocation();
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
+      <HeroSlider />
       <Products />
       <Services />
-      <About />
+      <Clients />
       <Testimonials/>
-      <Contact />
       <Footer />
      
     </div>

@@ -8,6 +8,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import OpeningAnimation from "@/components/ui/opening-animation";
 import Navbar from "../src/components/Navbar";
 
+
+
 // Paths updated because App.tsx is outside the src directory
 import Index from "../src/pages/Index.tsx";
 import NotFound from "../src/pages/NotFound.tsx";
@@ -16,6 +18,8 @@ import Solutions from './pages/Solutions';
 import LabellingRange from "../src/pages/LabellingRange.tsx";
 import LabellingCategory from "../src/pages/LabellingCategory.tsx";
 import LabellingProductDetail from "../src/pages/LabellingProductDetail.tsx";
+import Company from "../src/pages/Company.tsx";
+import ContactPage from "../src/pages/ContactPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +45,8 @@ export default function App(){
           <Route path="/labelling/product/:productId" element={<LabellingProductDetail />} />
           <Route path="/services" element={<Services />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/company" element={<Company />} />
+          <Route path="/contact" element={<ContactPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

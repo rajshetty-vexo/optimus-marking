@@ -319,7 +319,7 @@ export default function ApplicationScheme({ scheme }: { scheme: string }) {
     <section className="my-16 max-w-5xl mx-auto bg-gradient-to-br from-gray-50/70 to-white border border-gray-200/60 rounded-lg p-10 shadow-sm relative overflow-hidden text-center">
       <div className="border-b border-gray-100 pb-4 mb-10">
         <h3 className="text-xs font-black text-[#0B192C] uppercase tracking-widest inline-block relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-10 after:h-0.5 after:bg-[#F97316]">
-          Application Scheme Design
+          Printing Positions
         </h3>
       </div>
 

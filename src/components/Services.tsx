@@ -24,7 +24,7 @@ const services = [
   },
   {
     icon: HandCoins,
-    title: "Rental and Flexipay Options",
+    title: "Flexipay Options",
     description: "Flexible rental plans and cost-effective print models tailored for your production scale.",
   },
   {
@@ -226,6 +226,7 @@ const Services = () => {
         .hex-row-mid {
           position: relative;
           z-index: 2;
+          gap:30px
         }
 
         .hex-row-bot {
@@ -338,6 +339,7 @@ const Services = () => {
         @media (max-width: 680px) {
           .hex-wrapper { width: 130px; height: 150px; }
           .hex-row { gap: 10px; }
+          .hex-row-mid { gap: 20px !important; }
           .hex-row-top { margin-bottom: -12px; }
           .hex-row-bot { margin-top: -12px; }
           .service-icon { width: 18px; height: 18px; margin-bottom: 5px; }
@@ -348,6 +350,7 @@ const Services = () => {
         @media (max-width: 420px) {
           .hex-wrapper { width: 108px; height: 125px; }
           .hex-row { gap: 3px; }
+          .hex-row-mid { gap: 12px !important; }
           .hex-row-top { margin-bottom: -16px; }
           .hex-row-bot { margin-top: -16px; }
           .service-title { font-size: 6.5px; }

@@ -46,7 +46,7 @@ const LabellingRange = () => {
 
           {/* 🎯 SECTION 1: Thermal Inkjet (TIJ) Product Range */}
     
-          <div id="tij" className="scroll-mt-24">
+          <div id="tij" className="scroll-mt-24 pt-6 pb-6 lg:py-0">
             <ProductRow 
               title="Thermal Inkjet (TIJ) Printing Range" 
               products={thermalInkjetData} 
@@ -54,7 +54,7 @@ const LabellingRange = () => {
           </div>
 
           {/* 🎯 SECTION 2: Drop-On-Demand (DOD) Product Range */}
-          <div id="dod" className="scroll-mt-24"> 
+          <div id="dod" className="scroll-mt-24 pt-6 pb-6 lg:py-0"> 
             <ProductRow 
               title="Drop-On-Demand (DOD) Printing Range" 
               products={dodPrintingData} 
@@ -62,7 +62,7 @@ const LabellingRange = () => {
           </div>
 
           {/* 🎯 SECTION 3: Standard Labelling Product Range */}
-          <div id="label" className="scroll-mt-24">
+          <div id="label" className="scroll-mt-24 pt-6 pb-6 lg:py-0">
             <ProductRow 
               title="LABELING Product Range" 
               products={labellingData} 

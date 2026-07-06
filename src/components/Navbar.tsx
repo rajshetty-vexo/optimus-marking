@@ -16,6 +16,7 @@ const navLinks = [
       { label: "CIJ",   href: "/labelling-range", isScroll: true, hashId: "cij" },
       { label: "Laser", href: "/labelling-range", isScroll: true, hashId: "laser" },
       { label: "TIJ",   href: "/labelling-range", isScroll: true, hashId: "tij" },
+      { label: "DOD",   href: "/labelling-range", isScroll: true, hashId: "dod" },
       { label: "Label", href: "/labelling-range", isScroll: true, hashId: "label" },
     ],
   },
@@ -38,8 +39,8 @@ const navLinks = [
       { label: "Integrated Solution", href: "/solutions#integrated-solution", isScroll: true, hashId: "integrated-solution"},
     ],
   },
-  { label: "Company", href: "/",  isScroll: true,  hashId: "about"   },
-  { label: "Contact", href: "/",  isScroll: true,  hashId: "contact" },
+  { label: "Company", href: "/company",  isScroll: true,  hashId: "about"   },
+  { label: "Contact", href: "/contact",  isScroll: true,  hashId: "contact" },
 ];
 
 // ── Type ─────────────────────────────────────────────────────────────────────
@@ -112,83 +113,57 @@ const handleNavLinkClick = (link: any) => {
             />
           </Link>
 
-          {/* ── Desktop Nav ─────────────────────────────────────────────── */}
-          <div className="hidden md:flex items-center gap-8 h-full">
-            {navLinks.map((link) => {
-              if (link.dropdown) {
-                return (
-                  <div
-                    key={link.label}
-                    className="relative flex items-center h-full cursor-pointer"
-                    onMouseEnter={() => setActiveDropdown(link.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    {/* Trigger button */}
-                    <button
-                      onClick={() => handleNavLinkClick(link)}
-                      className={`flex items-center gap-1 text-sm font-medium font-display tracking-wider uppercase py-6 bg-transparent outline-none transition-colors
-                        ${isActive(link) ? "text-orange font-semibold" : "text-[#1E1951] hover:text-orange"}`}
-                    >
-                      {link.label}
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === link.label ? "rotate-180" : ""}`}
-                      />
-                    </button>
+{/* ── DESKTOP NAVIGATION LINKS MATRIX ─────────────────────────────────── */}
+<div className="hidden lg:flex items-stretch gap-8 h-full">
+  {navLinks.map((link) => {
+    // ── CASE 1: DROPDOWN LINKS (PRODUCTS / SERVICES) ─────────────────
+    if (link.dropdown) {
+      return (
+        <div key={link.label} className="relative group flex items-center h-full">
+          <button
+            onClick={() => handleNavLinkClick(link)}
+            className={`flex items-center gap-1 text-sm font-medium font-display tracking-wider uppercase h-full bg-transparent outline-none transition-colors border-b-2 border-transparent cursor-pointer
+              ${isActive(link) ? "text-orange font-semibold" : "text-[#1E1951] hover:text-orange"}`}
+          >
+            {link.label}
+            <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+          </button>
 
-                    {/* Dropdown panel */}
-                    <AnimatePresence>
-                      {activeDropdown === link.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.15, ease: "easeOut" }}
-                          className={`
-                            absolute top-[calc(100%-10px)] pt-4 pb-2 z-50
-                            bg-white ring-1 ring-white/10 rounded-3xl shadow-2xl
-                            border border-gray-200 border-t-white overflow-hidden
-                            ${link.label === "Services" || link.label === "Solutions"
-                              ? "-left-[65px] w-[220px]"
-                              : "-left-[35px] w-40"}
-                          `}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/5 to-transparent pointer-events-none" />
-                          <div className="relative flex flex-col items-center gap-1 px-4 text-center">
-                            {link.dropdown.map((sub) => (
-                              <button
-                                key={sub.label}
-                                onClick={() => handleNavLinkClick(sub)}
-                                className="w-full text-[#1E1951] hover:text-orange py-1.5 text-sm whitespace-pre-line leading-tight bg-transparent outline-none transition-colors"
-                              >
-                                {sub.label}
-                              </button>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              }
-
-              // Plain link
-              return (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavLinkClick(link)}
-                  className={`text-sm font-medium font-display tracking-wider uppercase bg-transparent outline-none transition-colors border-b-2 border-transparent pb-1 cursor-pointer
-                    ${isActive(link)
-                      ? "text-orange border-orange font-semibold"
-                      : "text-[#1E1951] hover:text-orange hover:border-orange/30"}`}
-                >
-                  {link.label}
-                </button>
-              );
-            })}
+          {/* Mega Dropdown Menu Panel Overlay */}
+          <div className="absolute top-[100%] left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md shadow-xl border border-gray-100 rounded-3xl py-4 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col gap-1">
+            {link.dropdown.map((sub) => (
+              <button
+                key={sub.label}
+                onClick={() => handleNavLinkClick(sub)}
+              className="block w-full text-center px-4 py-2 text-sm font-medium font-body text-[#1E1951]/80 hover:text-orange hover:bg-orange/5 whitespace-pre-line leading-snug bg-transparent outline-none transition-all cursor-pointer"
+  >
+                {sub.label}
+              </button>
+            ))}
           </div>
+        </div>
+      );
+    }
+
+    // ── CASE 2: PLAIN LINKS (HOME / GALLERY / CONTACT US) ─────────────
+    return (
+      <div key={link.label} className="flex items-center h-full">
+        <button
+          onClick={() => handleNavLinkClick(link)}
+          className={`text-sm font-medium font-display tracking-wider uppercase h-full bg-transparent outline-none transition-colors border-b-2 border-transparent cursor-pointer flex items-center
+            ${isActive(link)
+              ? "text-orange border-orange font-semibold"
+              : "text-[#1E1951] hover:text-orange"}`}
+        >
+          {link.label}
+        </button>
+      </div>
+    );
+  })}
+</div>
 
           {/* ── Desktop Call button ─────────────────────────────────────── */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href="tel:+919503729925"
               className="group flex items-center gap-2 text-[#1E1951] border-[3px] border-[#1E1951]
@@ -204,7 +179,7 @@ const handleNavLinkClick = (link: any) => {
           {/* ── Mobile toggle ───────────────────────────────────────────── */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-foreground p-1 outline-none"
+            className="lg:hidden text-foreground p-1 outline-none"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -219,7 +194,7 @@ const handleNavLinkClick = (link: any) => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-border overflow-hidden"
+            className="lg:hidden bg-white border-t border-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
