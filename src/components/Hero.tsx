@@ -40,7 +40,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-    className="relative w-full min-h-screen  pt-14 overflow-hidden flex items-center"
+    className="relative w-full min-h-[calc(100vh-4.6rem)] pt-14 overflow-hidden flex items-center"
   >
       {/* Background video */}
       <video
@@ -126,7 +126,7 @@ const Hero = () => {
             <div className="mt-4 sm:mt-8 flex flex-wrap gap-4">
               <a
                 href="#products"
-                className="group relative overflow-hidden inline-flex items-center gap-2 text-accent-foreground px-7 py-3.5 font-display font-semibold tracking-wide text-sm uppercase transition-colors rounded-3xl hover:scale-105 transition-transform duration-300"
+                className="group relative overflow-hidden inline-flex items-center gap-2 text-accent-foreground px-7 py-3.5 font-display font-semibold tracking-wide text-sm uppercase transition-transform duration-300 rounded-3xl hover:scale-105"
               >
                 <span className="absolute inset-0 bg-orange z-0" />
                 <span className="absolute inset-0 z-0 translate-x-[-100%] bg-gradient-to-r from-orange-500 via-[rgb(252,120,59)] to-orange-600 transition-transform duration-700 group-hover:translate-x-0" />

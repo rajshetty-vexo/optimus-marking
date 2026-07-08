@@ -37,11 +37,12 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
         </div>
       </div>
 
-      {/* Hexagon Layout Matrix: Mobile Swiper / Desktop Responsive Grid */}
+   
+    {/* Hexagon Layout Matrix: Mobile/Tablet Swiper ── Desktop Grid Only */}
       <div 
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex overflow-x-auto pb-6 pt-4 md:grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-16 justify-items-center w-full px-6 pl-8 md:px-4 snap-x snap-mandatory scrollbar-none md:overflow-x-visible"
+        className="flex overflow-x-auto pb-6 pt-4 xl:grid xl:grid-cols-4 gap-x-6 xl:gap-x-8 gap-y-16 justify-items-center w-full px-6 pl-8 xl:px-4 snap-x snap-mandatory scrollbar-none xl:overflow-x-visible"
       >
         {products.map((cat, index) => {
           const isHovered = activeCard === cat.id;
@@ -140,7 +141,7 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
       </div>
 
       {/* Mobile-Only Dynamic Scroll Assistant Display */}
-      <div className="flex flex-col items-center justify-center mt-2 md:hidden">
+<div className="flex flex-col items-center justify-center mt-2 xl:hidden">
         <AnimatePresence>
           {currentActiveIndex < products.length - 1 && (
             <motion.div 

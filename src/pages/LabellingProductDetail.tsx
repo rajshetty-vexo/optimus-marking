@@ -241,7 +241,7 @@ let currentModel: any = null;
         isOpen={isBrochureModalOpen} 
         onClose={() => setIsBrochureModalOpen(false)} 
         productName={currentModel?.name || ""}
-        brochureUrl={currentModel?.brochure || "#"}
+        brochureUrl={currentModel?.brochureUrl || "#"}
       />
       <Footer />
     </div>

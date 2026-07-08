@@ -97,7 +97,8 @@ const slides: HeroSlide[] = [
     ctaLabel: "View TIJ Range",
     ctaHref: "/labelling-range",
     // TODO: Replace these placeholder URLs with real product model images
-    productImages: [TIJ_22mm ,
+    productImages: [
+TIJ_22mm ,
       "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676976/marking2_xdkjxm.jpg",
       "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676978/marking3_swcewh.jpg",
     ],
@@ -150,6 +151,15 @@ const HeroSlider = () => {
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // ── Responsive fix: measure the ACTUAL rendered height of the active slide
+  // and use that (or the viewport floor, whichever is bigger) as the section's
+  // min-height. Because the slides are position:absolute (needed for the swipe
+  // transition), the wrapper's own CSS min-height never grows with content —
+  // that was the root cause of clipped / internally-scrolling content on
+  // mobile & tablet. This effect fixes that for every screen size dynamically.
+  const slideContentRef = useRef<HTMLDivElement>(null);
+  const [dynamicMinHeight, setDynamicMinHeight] = useState<number | null>(null);
 
   const total = slides.length + 1;
 
@@ -219,12 +229,41 @@ useEffect(() => {
   return () => window.removeEventListener("hashchange", checkHashAndSwitchSlide);
 }, [go]);
 
+  // 💡 Dynamic height measurement — runs whenever the slide changes, on resize,
+  // and once after transition/image-load settles (350ms). This is what makes
+  // the slider genuinely responsive on iPad Mini/Air/Pro, Samsung phones, etc.
+  useEffect(() => {
+    const measure = () => {
+      if (current === 0) {
+        // Hero (index 0) manages its own layout/height — don't override it.
+        setDynamicMinHeight(null);
+        return;
+      }
+      const navOffset = window.innerWidth <= 1024 ? 64 : 73.6; // matches CSS media query below
+      const viewportFloor = window.innerHeight - navOffset;
+      const contentHeight = slideContentRef.current?.scrollHeight ?? 0;
+      setDynamicMinHeight(Math.max(viewportFloor, contentHeight));
+    };
+
+    measure();
+    const raf = requestAnimationFrame(measure);
+    const settleTimer = setTimeout(measure, 350);
+    window.addEventListener("resize", measure);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(settleTimer);
+      window.removeEventListener("resize", measure);
+    };
+  }, [current]);
+
   const slide = slides[current];
 
   return (
     <section
       id="hero-slider-section"
       className="hs-root"
+      style={dynamicMinHeight ? { minHeight: `${dynamicMinHeight}px` } : undefined}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
@@ -248,13 +287,16 @@ useEffect(() => {
   }
 
     {/* ── INDEX 1: CIJ Technology (Cijproduct image ke saath) ── */}
-    {current === 1 && (
-      <div className="relative w-full h-full min-h-screen lg:h-screen flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-20 pb-20 lg:py-0 px-6 sm:px-12 lg:px-20 gap-6 sm:gap-8 overflow-y-auto lg:overflow-hidden">
+{current === 1 && (
+  <div
+    ref={slideContentRef}
+    className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+  >
         <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
           <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
             {slides[0].tag}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
             {slides[0].heading}
           </h2>
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
@@ -263,13 +305,13 @@ useEffect(() => {
           <div className="pt-2">
             <Link
               to={slides[0].ctaHref}
-              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-8 py-3.5 rounded-3xl uppercase tracking-wider text-sm transition-all inline-block shadow-md"
+              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-6 sm:px-8 py-3 sm:py-3.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md"
             >
               {slides[0].ctaLabel}
             </Link>
           </div>
         </div>
-        <div className="w-full h-[28vh] sm:h-[40vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-4 lg:mt-0">
+        <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
           <img 
             src={slides[0].mediaSrc} 
             alt="CIJ Printer" 
@@ -280,13 +322,16 @@ useEffect(() => {
     )}
 
     {/* ── INDEX 2: TIJ Technology (Product variants image row layout) ── */}
-    {current === 2 && (
-      <div className="relative w-full h-full min-h-screen lg:h-screen flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-20 pb-20 lg:py-0 px-6 sm:px-12 lg:px-20 gap-6 sm:gap-8 overflow-y-auto lg:overflow-hidden">
+{current === 2 && (
+  <div
+    ref={slideContentRef}
+    className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+  >
         <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
           <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
             {slides[1].tag}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
             {slides[1].heading}
           </h2>
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
@@ -294,11 +339,11 @@ useEffect(() => {
           </p>
           {/* Product variants indicator row if available */}
           {slides[1].productImages && (
-            <div className="flex gap-4 pt-2 overflow-x-auto">
+            <div className="flex gap-3 sm:gap-4 pt-2 overflow-x-auto">
               {slides[1].productImages.map((img, i) => (
-                <div key={i} className="flex flex-col items-center border border-gray-200 p-2 rounded bg-gray-50 min-w-[70px]">
-                  <img src={img} alt="" className="w-12 h-12 object-contain" />
-                  <span className="text-xs text-orange-500 font-bold mt-1">{slides[1].productLabels?.[i]}</span>
+                <div key={i} className="flex flex-col items-center border border-gray-200 p-2 rounded bg-gray-50 min-w-[64px] sm:min-w-[70px]">
+                  <img src={img} alt="" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                  <span className="text-[11px] sm:text-xs text-orange-500 font-bold mt-1">{slides[1].productLabels?.[i]}</span>
                 </div>
               ))}
             </div>
@@ -306,13 +351,13 @@ useEffect(() => {
           <div className="pt-2">
             <Link
               to={slides[1].ctaHref}
-              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-8 py-3.5 rounded-3xl uppercase tracking-wider text-sm transition-all inline-block shadow-md"
+              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-6 sm:px-8 py-3 sm:py-3.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md"
             >
               {slides[1].ctaLabel}
             </Link>
           </div>
         </div>
-        <div className="w-full h-[28vh] sm:h-[40vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-4 lg:mt-0">
+        <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
           <img 
             src={slides[1].mediaSrc} 
             alt="TIJ Printer" 
@@ -323,13 +368,16 @@ useEffect(() => {
     )}
 
     {/* ── INDEX 3: Laser Coding Technology (Laser details perfectly synced) ── */}
-    {current === 3 && (
-      <div className="relative w-full h-full min-h-screen lg:h-screen flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-20 pb-20 lg:py-0 px-6 sm:px-12 lg:px-20 gap-6 sm:gap-8 overflow-y-auto lg:overflow-hidden">
+{current === 3 && (
+  <div
+    ref={slideContentRef}
+    className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+  >
         <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
           <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
             {slides[2].tag}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
             {slides[2].heading}
           </h2>
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
@@ -338,13 +386,13 @@ useEffect(() => {
           <div className="pt-2">
             <Link
               to={slides[2].ctaHref}
-              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-8 py-3.5 rounded-3xl uppercase tracking-wider text-sm transition-all inline-block shadow-md"
+              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-6 sm:px-8 py-3 sm:py-3.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md"
             >
               {slides[2].ctaLabel}
             </Link>
           </div>
         </div>
-        <div className="w-full h-[28vh] sm:h-[40vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-4 lg:mt-0">
+        <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
           <img 
             src={slides[2].mediaSrc} 
             alt="Laser Machine" 
@@ -355,13 +403,16 @@ useEffect(() => {
     )}
 
     {/* ── INDEX 4: Label Print & Apply (Perfect layout mapping with LabelSlide1) ── */}
-    {current === 4 && (
-      <div className="relative w-full h-full min-h-screen lg:h-screen flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-20 pb-20 lg:py-0 px-6 sm:px-12 lg:px-20 gap-6 sm:gap-8 overflow-y-auto lg:overflow-hidden">
+{current === 4 && (
+  <div
+    ref={slideContentRef}
+    className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+  >
         <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
           <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
             {slides[3].tag}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
             {slides[3].heading}
           </h2>
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
@@ -370,13 +421,13 @@ useEffect(() => {
           <div className="pt-2">
             <Link
               to={slides[3].ctaHref}
-              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-8 py-3.5 rounded-3xl uppercase tracking-wider text-sm transition-all inline-block shadow-md"
+              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-6 sm:px-8 py-3 sm:py-3.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md"
             >
               {slides[3].ctaLabel}
             </Link>
           </div>
         </div>
-        <div className="w-full h-[28vh] sm:h-[40vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-4 lg:mt-0">
+        <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
           <img 
             src={slides[3].mediaSrc} 
             alt="Labelling Machine" 
@@ -420,7 +471,7 @@ useEffect(() => {
         aria-label={`Go to slide ${index + 1}`}
         className="hs-dot"
         animate={{
-          width: isActive ? 24 : 8,
+          width: isActive ? 22 : 8,
           // 👇 Yahan dhyan se dekho: isse dots har background par chamkenge!
           backgroundColor: isActive 
             ? "#F97316" // Active dot hamesha premium Orange rahega
@@ -442,32 +493,29 @@ useEffect(() => {
   })}
 </div>
 
-      {/* ── Progress bar ── */}
-      {/* {!paused && (
-        <motion.div
-          key={`progress-${current}`}
-          className="hs-progress"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: AUTOPLAY_DELAY / 3000, ease: "linear" }}
-        />
-      )} */}
-
       <style>{`
      /* ── Root ── */
 .hs-root {
   position: relative;
-  height: 100vh;
-  height: 100dvh;
+  min-height: calc(100vh - 4.6rem);
+  min-height: calc(100dvh - 4.6rem);
   width: 100%;
-  overflow-y: auto;
+  /* Horizontal hidden (needed for the swipe transition),
+     vertical VISIBLE — never trap content in an internal scrollbar
+     and never clip it. The dynamicMinHeight inline style (set from JS)
+     is what keeps the box tall enough on every device. */
+  overflow-x: hidden;
+  overflow-y: visible;
   user-select: none;
-
+  transition: min-height 0.25s ease;
 }
 
-/* Purani media query heights ko nikal do taaki screen responsive rahe */
-@media (min-width: 768px)  { .hs-root { min-height: 100vh; } }
-@media (min-width: 1024px) { .hs-root { min-height: 100vh; } }
+@media (max-width: 1024px) {
+  .hs-root {
+    min-height: calc(100vh - 4rem);
+    min-height: calc(100dvh - 4rem);
+  }
+}
 
         /* ── Slide wrapper ── */
         .hs-slide {
@@ -540,7 +588,7 @@ useEffect(() => {
 
         /* Heading */
         .hs-heading {
-          font-size: clamp(28px, 5vw, 52px);
+          font-size: clamp(26px, 5vw, 52px);
           font-weight: 800;
           color: #ffffff;
           line-height: 1.1;
@@ -638,73 +686,104 @@ useEffect(() => {
           text-align: center;
         }
 
-        /* ── Prev / Next arrows ── */
-       .hs-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 20;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,255,255,0.1);
-  display: none; 
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.25s, border-color 0.25s;
-}
+        /* ── Prev / Next arrows ──
+           Visible from tablet (768px) upward — tablets have enough room
+           for them, size steps up again at desktop (1024px). */
+        .hs-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 20;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: rgba(0,0,0,0.3);
+          border: 1px solid rgba(255,255,255,0.1);
+          display: none;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.25s, border-color 0.25s;
+        }
 
-@media (min-width: 1024px) {
-  .hs-arrow {
-    display: flex; 
-  }
-}
+        @media (min-width: 768px) {
+          .hs-arrow {
+            display: flex;
+            width: 38px;
+            height: 38px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .hs-arrow {
+            width: 44px;
+            height: 44px;
+          }
+        }
+
         .hs-arrow:hover {
           background: #F97316;
           border-color: #F97316;
         }
-        .hs-arrow-left  { left: 12px; }
-        .hs-arrow-right { right: 12px; }
+        .hs-arrow-left  { left: 10px; }
+        .hs-arrow-right { right: 10px; }
+
         @media (min-width: 768px) {
+          .hs-arrow-left  { left: 16px; }
+          .hs-arrow-right { right: 16px; }
+        }
+        @media (min-width: 1024px) {
           .hs-arrow-left  { left: 20px; }
           .hs-arrow-right { right: 20px; }
         }
         .hs-arrow-icon {
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
           color: #fff;
           stroke-width: 2.5;
         }
+        @media (min-width: 1024px) {
+          .hs-arrow-icon { width: 20px; height: 20px; }
+        }
 
-        /* ── Dots ── */
-   .hs-dots {
-  position: absolute;
-  bottom: 24px; 
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 30;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
+        /* ── Dots ──
+           Positioned with a clean, positive bottom offset — no more
+           negative-margin clipping trick. Because .hs-root's height is
+           now correctly sized (via dynamicMinHeight from JS), this always
+           lands right at the true bottom of the slide, on every device. */
+        .hs-dots {
+          position: absolute;
+          bottom: 12px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 50;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        @media (min-width: 640px) {
+          .hs-dots {
+            bottom: 18px;
+            gap: 8px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .hs-dots {
+            bottom: 24px;
+          }
+        }
 
         .hs-dot {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          // background: rgba(255,255,255,0.35);
           border: none;
           cursor: pointer;
           padding: 0;
           transition: background 0.25s, transform 0.25s;
         }
-        // .hs-dot-active {
-        //   background: #F97316;
-        //   transform: scale(1.35);
-        // }
-
       `}</style>
     </section>
   );

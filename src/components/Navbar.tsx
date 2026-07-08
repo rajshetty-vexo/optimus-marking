@@ -113,73 +113,68 @@ const handleNavLinkClick = (link: any) => {
             />
           </Link>
 
-{/* ── DESKTOP NAVIGATION LINKS MATRIX ─────────────────────────────────── */}
-<div className="hidden lg:flex items-stretch gap-8 h-full">
-  {navLinks.map((link) => {
-    // ── CASE 1: DROPDOWN LINKS (PRODUCTS / SERVICES) ─────────────────
-    if (link.dropdown) {
-      return (
-        <div key={link.label} className="relative group flex items-center h-full">
-          <button
-            onClick={() => handleNavLinkClick(link)}
-            className={`flex items-center gap-1 text-sm font-medium font-display tracking-wider uppercase h-full bg-transparent outline-none transition-colors border-b-2 border-transparent cursor-pointer
-              ${isActive(link) ? "text-orange font-semibold" : "text-[#1E1951] hover:text-orange"}`}
-          >
-            {link.label}
-            <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-          </button>
+          {/* ── DESKTOP NAVIGATION LINKS MATRIX ─────────────────────────────────── */}
+          <div className="hidden xl:flex items-stretch gap-8 h-full">
+            {navLinks.map((link) => {
+              if (link.dropdown) {
+                return (
+                  <div key={link.label} className="relative group flex items-center h-full">
+                    <button
+                      onClick={() => handleNavLinkClick(link)}
+                      className={`flex items-center gap-1 text-sm font-medium font-display tracking-wider uppercase h-full bg-transparent outline-none transition-colors border-b-2 border-transparent cursor-pointer ${
+                        isActive(link) ? "text-orange font-semibold" : "text-[#1E1951] hover:text-orange"
+                      }`}
+                    >
+                      {link.label}
+                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                    </button>
 
-          {/* Mega Dropdown Menu Panel Overlay */}
-          <div className="absolute top-[100%] left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md shadow-xl border border-gray-100 rounded-3xl py-4 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col gap-1">
-            {link.dropdown.map((sub) => (
-              <button
-                key={sub.label}
-                onClick={() => handleNavLinkClick(sub)}
-              className="block w-full text-center px-4 py-2 text-sm font-medium font-body text-[#1E1951]/80 hover:text-orange hover:bg-orange/5 whitespace-pre-line leading-snug bg-transparent outline-none transition-all cursor-pointer"
-  >
-                {sub.label}
-              </button>
-            ))}
+                    <div className="absolute top-[100%] left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md shadow-xl border border-gray-100 rounded-3xl py-4 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col gap-1">
+                      {link.dropdown.map((sub) => (
+                        <button
+                          key={sub.label}
+                          onClick={() => handleNavLinkClick(sub)}
+                          className="block w-full text-center px-4 py-2 text-sm font-medium font-body text-[#1E1951]/80 hover:text-orange hover:bg-orange/5 whitespace-pre-line leading-snug bg-transparent outline-none transition-all cursor-pointer"
+                        >
+                          {sub.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div key={link.label} className="flex items-center h-full">
+                  <button
+                    onClick={() => handleNavLinkClick(link)}
+                    className={`text-sm font-medium font-display tracking-wider uppercase h-full bg-transparent outline-none transition-colors border-b-2 border-transparent cursor-pointer flex items-center ${
+                      isActive(link) ? "text-orange border-orange font-semibold" : "text-[#1E1951] hover:text-orange"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      );
-    }
-
-    // ── CASE 2: PLAIN LINKS (HOME / GALLERY / CONTACT US) ─────────────
-    return (
-      <div key={link.label} className="flex items-center h-full">
-        <button
-          onClick={() => handleNavLinkClick(link)}
-          className={`text-sm font-medium font-display tracking-wider uppercase h-full bg-transparent outline-none transition-colors border-b-2 border-transparent cursor-pointer flex items-center
-            ${isActive(link)
-              ? "text-orange border-orange font-semibold"
-              : "text-[#1E1951] hover:text-orange"}`}
-        >
-          {link.label}
-        </button>
-      </div>
-    );
-  })}
-</div>
 
           {/* ── Desktop Call button ─────────────────────────────────────── */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3">
             <a
               href="tel:+919503729925"
-              className="group flex items-center gap-2 text-[#1E1951] border-[3px] border-[#1E1951]
-                hover:bg-[rgb(237,105,29)] hover:text-white hover:border-[rgb(237,105,29)]
-                px-4 py-2.5 rounded-3xl text-sm font-semibold font-display tracking-wide
-                transition-all duration-300 ease-in-out hover:scale-105"
+              className="group flex items-center gap-2 text-[#1E1951] border-[3px] border-[#1E1951] hover:bg-[rgb(237,105,29)] hover:text-white hover:border-[rgb(237,105,29)] px-4 py-2.5 rounded-3xl text-sm font-semibold font-display tracking-wide transition-all duration-300 ease-in-out hover:scale-105"
             >
               <Phone className="w-4 h-4 translate-x-0.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125" />
               Call Now
             </a>
           </div>
 
-          {/* ── Mobile toggle ───────────────────────────────────────────── */}
+          {/* ── Tablet/Mobile toggle ───────────────────────────────────────────── */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-foreground p-1 outline-none"
+            className="text-foreground p-1 outline-none xl:hidden"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -194,7 +189,7 @@ const handleNavLinkClick = (link: any) => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-border overflow-hidden"
+            className="bg-white border-t border-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (

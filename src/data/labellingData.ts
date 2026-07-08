@@ -266,6 +266,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   videoUrl: "https://www.youtube.com/embed/H9VcMeB-sfQ?si=9ypiqLujssw76qJ4",
   image: TIJM5,
   brochureUrl: "https://drive.google.com/uc?export=download&id=1t0kYTqWtM5CU0hx_d404tmteU8J6aloX"
+  
 },
 
   {
@@ -357,7 +358,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "<strong>Smart Consumables</strong> where the single cartridge printhead only needs replacement after consuming 4L of ink (approx. 5 tanks)[cite: 8]."
   ],
   videoUrl: "https://www.youtube.com/embed/G_GgKgstkuk?si=Hdl6I6IEiWNibdqQ",
-  image: TIJDyplon
+  image: TIJDyplon,
+   brochureUrl: "https://drive.google.com/uc?export=download&id=1WuOYfAHZEEhgs2wVSXSt72o9Q8eGE98g"
 },
    {
   id: "keryon",
