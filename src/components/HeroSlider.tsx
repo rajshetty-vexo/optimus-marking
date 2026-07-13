@@ -9,27 +9,7 @@ import LabelSlide1 from "../assets/Slides/LabelSlide1.png";
 import TIJ_M9Slide from "../assets/Slides/TIJ_M9Slide.jpg";
 import Cijproduct1 from "../assets/Slides/Cijproduct1.png";
 import TIJ_22mm from "../assets/Slides/TIJ_22mm.png";
-// ─────────────────────────────────────────────────────────────────────────────
-// SLIDE DATA — Edit freely. Each slide can be "video" or "image".
-//
-// TODO: Replace placeholder values with real content:
-//   - For video slides: set `mediaSrc` to your CDN video URL (mp4)
-//   - For image slides: set `mediaSrc` to your image URL
-//   - `posterSrc` is the thumbnail shown before video loads (optional but recommended)
-//   - `tag` = small label top-left (e.g. "TIJ Technology")
-//   - `heading` = big headline
-//   - `subheading` = smaller line below heading (optional)
-//   - `description` = paragraph text (optional)
-//   - `ctaLabel` / `ctaHref` = button text and link (optional, remove to hide button)
-//   - `productImages` = array of product image URLs shown in a row at bottom (optional)
-//     Great for showing model variants like 22mm / 12.7mm / CCS100 etc.
-//   - `productLabels` = labels matching each productImages item (optional)
-//
-// Example slide types included:
-//   1. Full-screen video slide (like Leibinger)
-//   2. Image slide with product variant row (like FAM Jet TIJ)
-//   3. Plain image slide with CTA
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 export type SlideMedia = "video" | "image";
 
@@ -67,29 +47,13 @@ const slideVariants = {
 };
 
 const slides: HeroSlide[] = [
-  // ── SLIDE 1: Video — replace mediaSrc with your CDN video URL ──────────────
-  {
-    id: "slide-cij",
-    mediaType: "image",
-    // TODO: Replace with your actual CDN video URL
-    mediaSrc: Cijproduct1,
-    // TODO: Replace with a thumbnail image shown before video loads
-    tag: "Applications & Outputs",
-    heading: "Crisp & Reliable\nBatch Coding",
-    subheading: "New Thinking. New Efficiency. New Possibilities.",
-    description:
-      "See our real-time high-speed printing results. Clear, smudge-proof printing of Batch Numbers, MRP, and Expiry Dates on dairy foils, caps, and containers.",
-    ctaLabel: "Get Solution For Your Product",
-    ctaHref: "#contact",
-    layout: "left",
-  },
-
-  // ── SLIDE 2: TIJ product variants — add real product images ────────────────
+  // ── SLIDE 1: TIJ Technology (Product variants image row layout) ─────────────
   {
     id: "slide-tij",
-    mediaType: "image",
+    mediaType: "video",
     // TODO: Replace with a real background/showcase image for TIJ
-    mediaSrc: TIJ_M9Slide,
+    // mediaSrc: TIJ_M9Slide,
+    mediaSrc:"https://res.cloudinary.com/rjfewkks/video/upload/v1783755393/InShot_20260711_124001275_erruqd.mp4",
     tag: "TIJ Technology",
     heading: "FAMJet TIJ\nPrecision in Every Drop",
     description:
@@ -97,16 +61,16 @@ const slides: HeroSlide[] = [
     ctaLabel: "View TIJ Range",
     ctaHref: "/labelling-range",
     // TODO: Replace these placeholder URLs with real product model images
-    productImages: [
-TIJ_22mm ,
-      "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676976/marking2_xdkjxm.jpg",
-      "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676978/marking3_swcewh.jpg",
-    ],
-    productLabels: ["22mm", "12.7mm", "CCS100"],
+    // productImages: [
+    //  TIJ_22mm ,
+    //   "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676976/marking2_xdkjxm.jpg",
+    //   "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676978/marking3_swcewh.jpg",
+    // ],
+    // productLabels: ["22mm", "12.7mm"],
     layout: "left",
   },
 
-  // ── SLIDE 3: Laser — add real image ────────────────────────────────────────
+  // ── SLIDE 2: Laser — add real image ────────────────────────────────────────
   {
     id: "slide-laser",
     mediaType: "image",
@@ -122,12 +86,26 @@ TIJ_22mm ,
     layout: "left",
   },
 
+  // SLIDE-3 DOD Range Drop On Demand
+  {
+    id: "slide-dod",
+    mediaType: "image",
+    mediaSrc: "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676976/marking2_xdkjxm.jpg", // TODO: Yahan apna MakroMobile ya MakroPlus ka slide image daal dena
+    tag: "DOD Technology",
+    heading: "Famjet Makro\nHeavy-Duty Industrial Printing",
+    description: "High-performance electromagnetic Drop on Demand (DOD) technology. Built for tough environments to print on concrete, metal, pipes, and wood.",
+    ctaLabel: "Explore DOD Range",
+    ctaHref: "/labelling-range#dod",
+    layout: "left",
+  },
+  
   // ── SLIDE 4: Label Print & Apply ───────────────────────────────────────────
   {
     id: "slide-labelling",
-    mediaType: "image",
+    mediaType: "video",
     // TODO: Replace with real labelling machine image
-    mediaSrc:LabelSlide1,
+    // mediaSrc:LabelSlide1,
+    mediaSrc:"https://res.cloudinary.com/rjfewkks/video/upload/v1783755460/InShot_20260711_125724467_y7drzh.mp4",
     tag: "Label Print & Apply",
     heading: "Smart Labelling\nat Line Speed",
     description:
@@ -136,6 +114,22 @@ TIJ_22mm ,
     ctaHref: "/labelling-range#label",
     layout: "left",
   },
+
+     // // ── SLIDE 3: CIJ Technology (Product Images) ───────────────────────────────
+  //  {
+  //   id: "slide-cij",
+  //   mediaType: "image",
+  //   mediaSrc: Cijproduct1,
+  //   // TODO: Replace with a thumbnail image shown before video loads
+  //   tag: "Applications & Outputs",
+  //   heading: "Crisp & Reliable\nBatch Coding",
+  //   subheading: "New Thinking. New Efficiency. New Possibilities.",
+  //   description:
+  //     "See our real-time high-speed printing results. Clear, smudge-proof printing of Batch Numbers, MRP, and Expiry Dates on dairy foils, caps, and containers.",
+  //   ctaLabel: "Get Solution For Your Product",
+  //   ctaHref: "#contact",
+  //   layout: "left",
+  // },
 
   // ── Add more slides here following the same structure ─────────────────────
 ];
@@ -152,12 +146,6 @@ const HeroSlider = () => {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  // ── Responsive fix: measure the ACTUAL rendered height of the active slide
-  // and use that (or the viewport floor, whichever is bigger) as the section's
-  // min-height. Because the slides are position:absolute (needed for the swipe
-  // transition), the wrapper's own CSS min-height never grows with content —
-  // that was the root cause of clipped / internally-scrolling content on
-  // mobile & tablet. This effect fixes that for every screen size dynamically.
   const slideContentRef = useRef<HTMLDivElement>(null);
   const [dynamicMinHeight, setDynamicMinHeight] = useState<number | null>(null);
 
@@ -204,12 +192,12 @@ useEffect(() => {
     const hash = window.location.hash.replace("#", "").toLowerCase();
     
     if (hash) {
-      // Apne slides array ke items ke mutabik index match karo:
       if (hash === "home") go(0, 1);
-      else if (hash === "cij") go(1, 1);   // Slide 1: CIJ
+      else if (hash === "tij") go(1, 1);   // Slide 1: TIJ 
       else if (hash === "laser") go(2, 1); // Slide 2: Laser
-      else if (hash === "tij") go(3, 1);   // Slide 3: TIJ (Check kar lena tumhara index 3 hai ya nahi)
+      else if (hash === "dod") go(3, 1);   // Slide 3: DOD
       else if (hash === "label") go(4, 1); // Slide 4: Label Print
+      else if (hash === "cij") go(5, 1);  // Slide 5: CIJ
 
       // 100ms ka chhota break dekar slider wale main element par scroll jump maro
       setTimeout(() => {
@@ -286,7 +274,7 @@ useEffect(() => {
     {current === 0 && <Hero />
   }
 
-    {/* ── INDEX 1: CIJ Technology (Cijproduct image ke saath) ── */}
+     {/* ── INDEX 1: TIJ Technology (Product variants image row layout) ── */}
 {current === 1 && (
   <div
     ref={slideContentRef}
@@ -302,6 +290,17 @@ useEffect(() => {
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
             {slides[0].description}
           </p>
+          {/* Product variants indicator row if available */}
+          {slides[0].productImages && (
+            <div className="flex gap-3 sm:gap-4 pt-2 overflow-x-auto">
+              {slides[0].productImages.map((img, i) => (
+                <div key={i} className="flex flex-col items-center border border-gray-200 p-2 rounded bg-gray-50 min-w-[64px] sm:min-w-[70px]">
+                  <img src={img} alt="" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                  <span className="text-[11px] sm:text-xs text-orange-500 font-bold mt-1">{slides[0].productLabels?.[i]}</span>
+                </div>
+              ))}
+            </div>
+          )}
           <div className="pt-2">
             <Link
               to={slides[0].ctaHref}
@@ -312,16 +311,29 @@ useEffect(() => {
           </div>
         </div>
         <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
-          <img 
-            src={slides[0].mediaSrc} 
-            alt="CIJ Printer" 
-            className="w-full h-full object-contain drop-shadow-2xl"
-          />
+      {slides[0].mediaType === "video" ? (
+<video 
+  src={slides[0].mediaSrc} 
+  autoPlay 
+  loop 
+  muted 
+  playsInline
+  className="w-full lg:max-w-[95%] lg:h-[60vh] object-cover drop-shadow-2xl rounded-2xl border border-gray-100"
+/>
+) : (
+  <img 
+    src={slides[3].mediaSrc} 
+    alt="Labelling Machine" 
+    className="w-full h-full object-contain drop-shadow-2xl"
+  />
+)}
         </div>
       </div>
     )}
 
-    {/* ── INDEX 2: TIJ Technology (Product variants image row layout) ── */}
+   
+
+ {/* ── INDEX 2: Laser Coding Technology (Laser details perfectly synced) ── */}
 {current === 2 && (
   <div
     ref={slideContentRef}
@@ -337,17 +349,6 @@ useEffect(() => {
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
             {slides[1].description}
           </p>
-          {/* Product variants indicator row if available */}
-          {slides[1].productImages && (
-            <div className="flex gap-3 sm:gap-4 pt-2 overflow-x-auto">
-              {slides[1].productImages.map((img, i) => (
-                <div key={i} className="flex flex-col items-center border border-gray-200 p-2 rounded bg-gray-50 min-w-[64px] sm:min-w-[70px]">
-                  <img src={img} alt="" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
-                  <span className="text-[11px] sm:text-xs text-orange-500 font-bold mt-1">{slides[1].productLabels?.[i]}</span>
-                </div>
-              ))}
-            </div>
-          )}
           <div className="pt-2">
             <Link
               to={slides[1].ctaHref}
@@ -360,14 +361,14 @@ useEffect(() => {
         <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
           <img 
             src={slides[1].mediaSrc} 
-            alt="TIJ Printer" 
+            alt="Laser Machine" 
             className="w-full h-full object-contain drop-shadow-2xl"
           />
         </div>
       </div>
     )}
 
-    {/* ── INDEX 3: Laser Coding Technology (Laser details perfectly synced) ── */}
+    {/* ── INDEX 3: DOD Technology (New Slide Layer mapping) ── */}
 {current === 3 && (
   <div
     ref={slideContentRef}
@@ -375,7 +376,7 @@ useEffect(() => {
   >
         <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
           <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
-            {slides[2].tag}
+            {slides[2].tag} {/* Array element 2 handles DOD meta tags */}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
             {slides[2].heading}
@@ -395,13 +396,13 @@ useEffect(() => {
         <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
           <img 
             src={slides[2].mediaSrc} 
-            alt="Laser Machine" 
+            alt="DOD Machine" 
             className="w-full h-full object-contain drop-shadow-2xl"
           />
         </div>
       </div>
-    )}
-
+    )}   
+    
     {/* ── INDEX 4: Label Print & Apply (Perfect layout mapping with LabelSlide1) ── */}
 {current === 4 && (
   <div
@@ -428,14 +429,63 @@ useEffect(() => {
           </div>
         </div>
         <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
-          <img 
-            src={slides[3].mediaSrc} 
-            alt="Labelling Machine" 
-            className="w-full h-full object-contain drop-shadow-2xl"
-          />
+       {slides[3].mediaType === "video" ? (
+  <video 
+    src={slides[3].mediaSrc} 
+    autoPlay 
+    loop 
+    muted 
+    playsInline
+    className="w-full lg:max-w-[95%] lg:h-[60vh] object-cover drop-shadow-2xl rounded-2xl border border-gray-100"
+  />
+) : (
+  <img 
+    src={slides[4].mediaSrc} 
+    alt="Labelling Machine" 
+    className="w-full h-full object-contain drop-shadow-2xl"
+  />
+)}
         </div>
       </div>
     )}
+
+         {/* ── INDEX 5: CIJ Technology (Product Images) ── */}
+         
+ {current === 5 && (
+  <div
+    ref={slideContentRef}
+    className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+  >
+        <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
+          <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
+            {slides[4].tag}
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1E1951] font-display leading-tight whitespace-pre-line">
+            {slides[4].heading}
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base lg:text-lg font-body leading-relaxed">
+            {slides[4].description}
+          </p>
+          <div className="pt-2">
+            <Link
+              to={slides[4].ctaHref}
+              className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold font-display px-6 sm:px-8 py-3 sm:py-3.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md"
+            >
+              {slides[4].ctaLabel}
+            </Link>
+          </div>
+        </div>
+        <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
+   <img 
+    src={slides[4].mediaSrc} 
+    alt="Labelling Machine" 
+    className="w-full h-full object-contain drop-shadow-2xl"
+  /> 
+
+        </div>
+      </div>
+    )}
+
   </motion.div>
 </AnimatePresence>
 
@@ -790,3 +840,6 @@ useEffect(() => {
 };
 
 export default HeroSlider;
+
+
+

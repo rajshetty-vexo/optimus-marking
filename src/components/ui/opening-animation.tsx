@@ -55,12 +55,12 @@ export default function OpeningAnimation({ onComplete }: Props) {
                             alt="Optimus Logo"
                             className="w-[130px] mb-2"
                         />
-                        <p className="text-[7px] font-bold text-[#ff8000] leading-tight">
+                        {/* <p className="text-[7px] font-bold text-[#ff8000] leading-tight">
                             Need a Solution?  Think OPTIMUS
                         </p>
                         <p className="mt-[1.5px] text-[5px] font-semibold tracking-widest text-[#1E1951]">
                             CODE • MARK • LABEL • VERIFY
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </motion.div>

@@ -359,31 +359,40 @@ const Services = () => {
           .hex-content { width: 76%; }
         }
 @media (max-width: 1025px) {
-  .services-section {
-    padding: 40px 24px !important; /* Top/Bottom padding kam ki */
-  }
-  .services-layout {
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start !important; /* Content ko upar push karega, beech mein space nahi chhodega */
-    gap: 0px !important; 
-  }
-  .services-text {
-    text-align: center;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 0px !important;
-  }
-  .pan-india-badge {
-    justify-content: center;
-    margin-top: 12px;
-  }
-  .hex-flower {
-    margin-top: -10px !important; /* Hexagon flower ko zabardasti upar text ke paas kheechega */
-    transform: scale(0.95);
-    transform-origin: top center; /* Scale upar se lock rahega */
-  }
-}
+          .services-section {
+            padding: 60px 24px !important;
+          }
+          .services-layout {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: flex-start !important; 
+            gap: 24px !important; 
+          }
+          .services-text {
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+          }
+          .pan-india-badge {
+            justify-content: center;
+            margin-top: 16px;
+          }
+          .hex-flower {
+            margin-top: 0px !important;
+            transform: scale(0.95);
+            transform-origin: top center;
+          }
+
+          /* 🎯 SPECIFIC FIX FOR IPAD & TABLETS  */
+          @media (min-width: 681px) {
+            .services-layout {
+              gap: 10px !important; 
+            }
+            .hex-flower {
+              margin-top: -90px !important; 
+            }
+          }
+        }
 
 
       `}</style>

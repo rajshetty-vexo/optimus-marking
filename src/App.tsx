@@ -18,6 +18,7 @@ import Solutions from './pages/Solutions';
 import LabellingRange from "../src/pages/LabellingRange.tsx";
 import LabellingCategory from "../src/pages/LabellingCategory.tsx";
 import LabellingProductDetail from "../src/pages/LabellingProductDetail.tsx";
+import ConsumableDetails from "../src/pages/ConsumableDetails.tsx";
 import Company from "../src/pages/Company.tsx";
 import ContactPage from "../src/pages/ContactPage.tsx";
 
@@ -47,6 +48,7 @@ export default function App(){
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/consumable/:slug" element={<ConsumableDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductRow from "@/components/ProductRow";
 import { labellingData, thermalInkjetData, dodPrintingData } from "../data/labellingData";
+import ConsumablesRow from "@/components/ConsumablesRow";
+import { consumablesData } from "../data/consumablesData";
 
 const LabellingRange = () => {
   const location = useLocation();
@@ -66,6 +68,14 @@ const LabellingRange = () => {
             <ProductRow 
               title="LABELING Product Range" 
               products={labellingData} 
+            />
+          </div>
+              
+          {/* ── 🎯 NEW SECTION 4: CONSUMABLES RANGE ── */}
+          <div id="consumables" className="scroll-mt-24 pt-6 pb-6 lg:py-0">
+            <ConsumablesRow 
+              title="CONSUMABLES RANGE" 
+              products={consumablesData} 
             />
           </div>
 

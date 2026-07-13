@@ -14,7 +14,7 @@ const Footer = () => {
               className="h-10 w-auto mb-3 select-none"
             />
             <p className="text-foreground/60 text-sm">
-              Industrial Coding & Marking Solutions
+              Industrial Coding Marking & Labeling Solutions
             </p>
           </div>
 

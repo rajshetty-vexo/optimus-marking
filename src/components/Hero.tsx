@@ -157,19 +157,19 @@ const Hero = () => {
               <div className="w-px h-10 bg-primary-foreground/10" />
 
               <div>
-                <Counter to={14} suffix="+" />
+                <Counter to={500} suffix="+" />
                 <div className="text-xs font-display uppercase tracking-wider text-[#1E1951]">
                   <span className="block lg:hidden">
-                    Branch Offices
-                    <br />
+                    Active Coustomer
+                    {/* <br />
                     <span className="whitespace-nowrap">PAN India</span>
                     <br />
-                    Coverage
+                    Coverage */}
                   </span>
                   <span className="hidden lg:block">
-                    <span className="whitespace-nowrap">Branch Offices</span>
-                    <br />
-                    PAN India Coverage
+                    <span className="whitespace-nowrap">Active Coustomer</span>
+                    {/* <br />
+                    PAN India Coverage */}
                   </span>
                 </div>
               </div>

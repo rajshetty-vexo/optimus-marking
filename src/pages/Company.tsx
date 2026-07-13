@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import PartnerBrand from "@/components/PartnerBrands";
 
 const Company = () => {
   return (
@@ -12,7 +13,7 @@ const Company = () => {
       <main className="flex-grow pt-24 font-display overflow-hidden">
 
         <About />
-        
+        <PartnerBrand />
 
       </main>
 

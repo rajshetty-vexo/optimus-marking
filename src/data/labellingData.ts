@@ -254,11 +254,11 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-m5",
   name: "Famjet M5",
   description: "<strong>Famjet M5</strong> is a high-performance, advanced technology thermal inkjet printer equipped with HP TIJ technology. It offers an affordable price point and an easy-to-use interface for most industrial applications, featuring a compact design reduced in volume to perfectly suit any production line workflow.",
-  scheme: "Top side, Lateral side,Bottom side", // Tumhare structural layout ke mutabik unchanged rakha hai
+  scheme: "left lateral side,Top side,right lateral side,", // Tumhare structural layout ke mutabik unchanged rakha hai
   features: [
-    "Android Touch 5\" Controller supporting 1 or 2 HP pen stalls",
+    "Screen Touch 5\" Controller supporting 1 or 2 HP pen stalls",
     "Powerful printing of texts, counters, autodata, logos, and 1D & 2D barcodes (static or dynamic)",
-    "Serialization and Track & Trace management through TCPIP network protocol",
+    "Serialization and Track & Trace management through TCP/IP network protocol",
     "A-Level high legibility of Datamatrix & QR codes",
     "Maintenance-free operations with inks for porous, semi-porous, and non-porous substrates",
     "Flexible setup generated directly by the controller or PC software with easy external network interface"
@@ -273,9 +273,9 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-m9",
   name: "Famjet M9",
   description: "<strong>Famjet M9</strong> is the best high-resolution printer designed for <strong>multi-head applications</strong> and complex coding requirements. Equipped with HP TIJ technology, it supports printing on both porous and non-porous substrates like cardboards, plastics, metal, and aluminum, offering a <strong>compact design</strong> that requires <strong>no maintenance</strong> or spare parts.",
-  scheme: "Top side, Lateral side, Bottom side",
+  scheme: "Top side, left lateral side,right lateral side",
   features: [
-    "<strong>9\" touch screen display</strong> with integrated Android software for simple and intuitive direct data entry.",
+    "<strong>9\" touch screen display</strong> with integrated software for simple and intuitive direct data entry.",
     "<strong>Printing height up to 50.8 mm</strong> (up to 50mm with quadruple printhead) in a single image or with different messages.",
     "<strong>Advanced communication protocol</strong> ideal for remote operations and high-speed serialization of 2D codes.",
     "<strong>New I/O port</strong> to connect an external warning levels lamp and automatic printing message selection.",
@@ -299,9 +299,9 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "pleyon",
   name: "Pleyon",
   description: "<strong>Famjet Pleyon</strong> introduces the future of TIJ printing with its advanced <strong>HP Bulk technology</strong>. It offers a field-proven, highly reliable ink regulation solution that reduces overall printing costs while providing maximum versatility for complex production lines.",
-  scheme: "Lateral side,Top side",
+  scheme: " Left Lateral side,Top side,Right lateral side",
   features: [
-    "<strong>9\" Touch Screen Display</strong> with integrated Android software for intuitive data entry of texts, counters, and logos.",
+    "<strong>9\" Touch Screen Display</strong> with integrated software for intuitive data entry of texts, counters, and logos.",
     "<strong>Advanced Bulk System</strong> utilizing an AKIT that includes 3x400ml bulks and a 35ml cartridge to print 1.2 liters seamlessly[cite: 7].",
     "<strong>Sturdy Steel Printheads</strong> available in single or dual pen versions, managed by a dependable ink level feedback sensor[cite: 7].",
     "<strong>4.0 Connectivity & I/O Port</strong> enabling remote operations, automatic message selection, and counter resets[cite: 7].",
@@ -325,7 +325,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-m7",
   name: "Famjet M7",
   description: "The <strong>Famjet M7</strong> is the first TIJ printer in the world featuring <strong>Collins 1\" disposable cartridges</strong>. It has been specifically designed to handle high-resolution printing jobs up to <strong>2400 dpi</strong> on porous, semi-porous, and non-porous materials. By utilizing a single 1\" print engine setup, it completely eliminates complicated cartridge alignments that lead to poor print quality, making it the ideal choice for reliable industrial serialization.",
-  scheme: " left Lateral side,right lateral side",
+  scheme: " left Lateral side,right lateral side,Top side",
   features: [
     "<strong>25.4mm (1\") Print Height</strong> with a single cartridge, expandable up to 100mm (4\") using a quadruple printhead.",
     "<strong>Hi-Definition Capabilities</strong> for perfect alphanumeric characters, logos, barcodes, and complex 2D codes[cite: 8].",
@@ -349,7 +349,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "dyplon",
   name: "Dyplon",
   description: "The <strong>Famjet Dyplon</strong> is a latest-generation thermal inkjet printer powered by cutting-edge <strong>HP TIJ 4.0 technology</strong>. It delivers a massive <strong>22mm printing area per single head</strong> and can print from a distance of up to 9mm, making it perfect for irregular or uneven surfaces. Engineered for heavy-duty, high-speed industrial environments, it operates at speeds four times faster than previous TIJ generations, providing an exceptionally efficient and reliable coding solution.",
-  scheme: "Multi-side configuration",
+  scheme: "Top side,Right lateral side,Left lateral side",
   features: [
     "<strong>HP TIJ 4.0 Power</strong> offering up to 22mm print height with a single head, and up to 44mm with a dual head setup.",
     "<strong>Ultra-Fast Speeds</strong> reaching up to 732 meters/minute without compromising on clarity or quality[cite: 8].",
@@ -365,7 +365,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "keryon",
   name: "Keryon",
   description: "The <strong>Famjet Keryon</strong> combines breakthrough <strong>HP TIJ 4.0 technology</strong> with a robust, high-performance printing platform engineered for demanding, high-speed production environments. It delivers exceptional print quality, maximum uptime, and significantly lower operating costs, making it a future-proof solution for industrial coding, marking, and variable data printing. With an extended throw distance of up to 9mm, it offers unparalleled installation flexibility across diverse packaging shapes.",
-  scheme: "Top side, Lateral side, Bottom side",
+  scheme: "Top side, left Lateral side,right lateral side ",
   features: [
     "<strong>Massive 108mm Print Height</strong> powered by advanced HP 4.0 technology for large-scale graphics and data.",
     "<strong>High-Speed Production</strong> reaching up to 480 m/min while maintaining sharp 1200 dpi resolution[cite: 8].",
@@ -384,7 +384,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   subtitle: "PORTABLE & WIRELESS TIJ SOLUTIONS",
   description: "Innovative portable, wireless, and ultra-lightweight thermal inkjet printing devices designed to print multiline messages on a large range of porous and non-porous surfaces without requiring a conveyor.",
   image: DKandMaximobile,
-  logo: FamHplogo, 
+  logo: Famlogo, 
   machines: [
     {
       id: "famjet-dk-mini-mobile",
@@ -424,42 +424,42 @@ export const thermalInkjetData: LabellingCategory[] = [
 //3. DOD RANGE
 
 // 1. DOD PRINTING DATA WITH INTEGRATED MACHINE DETAILS FOR DIRECT REDIRECTION
-export const dodPrintingData: LabellingCategory[] = [
-  {
-    id: "makro-mobile",
-    title: "Famjet Makro 116 Mobile",
-    subtitle: "PORTABLE INDUSTRIAL HANDHELD",
-    description: "The <strong>Famjet Makro 116 Mobile</strong> is a robust, handheld <strong>Drop on Demand (DOD)</strong> solution built explicitly for heavy-duty portable industrial marking. Engineered for ultimate adaptability, this device functions as an all-in-one powerhouse that prints precisely and clearly on incredibly tough surfaces including <strong>concrete, metal, glass, textiles, plastic, cardboard, or wood</strong>. It puts precise, reliable printing right into your hands, eliminating the constraints of static conveyor installations.",
-    image: MakroMobile, 
-    logo: FamHplogo,
-    scheme: "Handheld Portable Configuration",
-    features: [
-      "<strong>16-Dot Printing Printhead</strong> capable of firing large characters with a maximum height layout up to 60mm.",
-      "<strong>Advanced Guide Wheels</strong> that seamlessly track and adapt to the operator's hand speed to maintain crystal clear print orientation.",
-      "<strong>3.5\" Touch Screen Display</strong> enabling seamless on-the-fly text editing and message modifications directly on the floor.",
-      "<strong>Flexible Substrate Marking</strong> ensuring premium clarity on challenging materials like porous wood, uneven stone, or smooth metallic pipes.",
-      "<strong>Versatile Ink Compatibility</strong> allowing easy swaps between Water, Ethanol, or MEK-based industrial grade inks."
-    ],
-    videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY?si=156H5HT8RUzEbB53",
-    machines: [] 
-  },
-  {
-    id: "makro-plus",
-    title: "Famjet Makro Plus",
-    subtitle: "INDUSTRIAL INK-JET PRINTING SYSTEM",
-    description: "The <strong>Famjet Makro Plus</strong> is an advanced industrial ink-jet printing system utilizing high-performance <strong>electromagnetic drop-on-demand (DOD) technology</strong>. Purpose-built to thrive in the most punishing industrial environments, it features a <strong>solvent-proof glass touch screen panel</strong> and an IP53 protection rating to withstand heavy dust, humidity, vibrations, and extreme temperature fluctuations. It is the ultimate heavy-duty setup for continuous marking on pipes, bags, extruded packaging, and fabrics.",
-    image: MakroPlus,   
-    logo: FamHplogo,
-    scheme: "Top side,Bottom side,Lateral side", 
-    features: [
-      "<strong>Scalable Printing Height</strong> supporting multi-dot head arrays including 7 dots (24mm), 16 dots (60mm), and up to 32 dots (128mm) sizes.",
-      "<strong>Rugged IP53 Protection</strong> specifically hardened against dust ingress, environmental moisture, and aggressive industrial compounds.",
-      "<strong>Smart Connectivity Integration</strong> packed with built-in LAN, RS232 ports, and specialized scanner customized communication protocols.",
-      "<strong>Advanced IO Controller Interface</strong> enabling on-the-fly print actions, database queries over LAN, and external message selection (8 inputs / 5 outputs).",
-      "<strong>High-Speed Coding Output</strong> engineered to operate flawlessly at continuous production line tracks up to 60 meters per minute."
-    ],
-    videoUrl: "https://www.youtube.com/embed/dMyN6cOfWaI?si=36TEUpSw33g7jbO4", 
-    machines: []   
-  },
-  
-];
+  export const dodPrintingData: LabellingCategory[] = [
+    {
+      id: "makro-mobile",
+      title: "Famjet Makro 116 Mobile",
+      subtitle: "PORTABLE INDUSTRIAL HANDHELD",
+      description: "The <strong>Famjet Makro 116 Mobile</strong> is a robust, handheld <strong>Drop on Demand (DOD)</strong> solution built explicitly for heavy-duty portable industrial marking. Engineered for ultimate adaptability, this device functions as an all-in-one powerhouse that prints precisely and clearly on incredibly tough surfaces including <strong>concrete, metal, glass, textiles, plastic, cardboard, or wood</strong>. It puts precise, reliable printing right into your hands, eliminating the constraints of static conveyor installations.",
+      image: MakroMobile, 
+      logo: Famlogo,
+      scheme: "Handheld Portable Configuration",
+      features: [
+        "<strong>16-Dot Printing Printhead</strong> capable of firing large characters with a maximum height layout up to 60mm.",
+        "<strong>Advanced Guide Wheels</strong> that seamlessly track and adapt to the operator's hand speed to maintain crystal clear print orientation.",
+        "<strong>3.5\" Touch Screen Display</strong> enabling seamless on-the-fly text editing and message modifications directly on the floor.",
+        "<strong>Flexible Substrate Marking</strong> ensuring premium clarity on challenging materials like porous wood, uneven stone, or smooth metallic pipes.",
+        "<strong>Versatile Ink Compatibility</strong> allowing easy swaps between Water, Ethanol, or MEK-based industrial grade inks."
+      ],
+      videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY?si=156H5HT8RUzEbB53",
+      machines: [] 
+    },
+    {
+      id: "makro-plus",
+      title: "Famjet Makro Plus",
+      subtitle: "INDUSTRIAL INK-JET PRINTING SYSTEM",
+      description: "The <strong>Famjet Makro Plus</strong> is an advanced industrial ink-jet printing system utilizing high-performance <strong>electromagnetic drop-on-demand (DOD) technology</strong>. Purpose-built to thrive in the most punishing industrial environments, it features a <strong>solvent-proof glass touch screen panel</strong> and an IP53 protection rating to withstand heavy dust, humidity, vibrations, and extreme temperature fluctuations. It is the ultimate heavy-duty setup for continuous marking on pipes, bags, extruded packaging, and fabrics.",
+      image: MakroPlus,   
+      logo: Famlogo,
+      scheme: "Top side,Bottom side,Lateral side", 
+      features: [
+        "<strong>Scalable Printing Height</strong> supporting multi-dot head arrays including 7 dots (24mm), 16 dots (60mm), and up to 32 dots (128mm) sizes.",
+        "<strong>Rugged IP53 Protection</strong> specifically hardened against dust ingress, environmental moisture, and aggressive industrial compounds.",
+        "<strong>Smart Connectivity Integration</strong> packed with built-in LAN, RS232 ports, and specialized scanner customized communication protocols.",
+        "<strong>Advanced IO Controller Interface</strong> enabling on-the-fly print actions, database queries over LAN, and external message selection (8 inputs / 5 outputs).",
+        "<strong>High-Speed Coding Output</strong> engineered to operate flawlessly at continuous production line tracks up to 60 meters per minute."
+      ],
+      videoUrl: "https://www.youtube.com/embed/dMyN6cOfWaI?si=36TEUpSw33g7jbO4", 
+      machines: []   
+    },
+    
+  ];
