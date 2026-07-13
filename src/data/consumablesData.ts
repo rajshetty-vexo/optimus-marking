@@ -123,7 +123,7 @@ export const consumablesData: ConsumableItem[] = [
     topDescription: "Labels available in varied sizes for Label Print and Apply printers sizes varying from 4 inch to 6 inch. Premium Ribbons for Flat Edge TTR Printers (Label Print and Apply Printer) as well as Near Edge TTO Printers have been developed to suit all the applications.",
     variants: [
       {
-        title: "Premium Die-Cut Shipping & Barcode Labels",
+        title: "Premium Shipping & Barcode Labels",
         image: "/assets/label-range-1.png",
         description: "High-grade semi-gloss and direct thermal labels with advanced adhesive matrix.",
         colors: "White, Custom Pre-printed borders",
@@ -134,7 +134,7 @@ export const consumablesData: ConsumableItem[] = [
         subSection: ""
       },
       {
-        title: "Wax-Resin Premium TTR Ribbon",
+        title: " Flat Edge TTR Ribbon",
         image: "/assets/ribbon-ttr.png",
         description: "Excellent print quality for flat-head industrial printers with smudge resistance.",
         colors: "Black",
@@ -145,7 +145,7 @@ export const consumablesData: ConsumableItem[] = [
         subSection: "TTR Ribbons"
       },
       {
-        title: "Near-Edge Premium TTO Ribbon",
+        title: "Near-Edge TTO Ribbon",
         image: "/assets/ribbon-tto.png",
         description: "Specialized high-performance thermal ribbon for near-edge flexible packaging systems.",
         colors: "Black, White, Metallic Silver",

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'; // Imported useEffect for handling intersection/scroll events
 import { Link, useLocation } from 'react-router-dom'; // Imported useLocation to monitor incoming URL hashes
 import { motion } from 'framer-motion';
+import Footer from "@/components/Footer"; // Footer component for consistent page layout
 
 const solutionData = [
   {
@@ -96,6 +97,7 @@ const Solutions = () => {
           ))}
         </div>
       </div>
+      <Footer/> 
     </div>
   );
 };

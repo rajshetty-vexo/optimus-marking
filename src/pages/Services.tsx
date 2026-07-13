@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'; 
 import { Link, useLocation } from 'react-router-dom'; 
 import { motion } from 'framer-motion';
+import Footer from "@/components/Footer";
 
 const serviceData = [
   {
@@ -100,6 +101,7 @@ const Services = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

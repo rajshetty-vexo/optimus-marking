@@ -254,7 +254,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-m5",
   name: "Famjet M5",
   description: "<strong>Famjet M5</strong> is a high-performance, advanced technology thermal inkjet printer equipped with HP TIJ technology. It offers an affordable price point and an easy-to-use interface for most industrial applications, featuring a compact design reduced in volume to perfectly suit any production line workflow.",
-  scheme: "left lateral side,Top side,right lateral side,", // Tumhare structural layout ke mutabik unchanged rakha hai
+  scheme: "Top side, Left & right lateral side,", // Tumhare structural layout ke mutabik unchanged rakha hai
   features: [
     "Screen Touch 5\" Controller supporting 1 or 2 HP pen stalls",
     "Powerful printing of texts, counters, autodata, logos, and 1D & 2D barcodes (static or dynamic)",
@@ -273,7 +273,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-m9",
   name: "Famjet M9",
   description: "<strong>Famjet M9</strong> is the best high-resolution printer designed for <strong>multi-head applications</strong> and complex coding requirements. Equipped with HP TIJ technology, it supports printing on both porous and non-porous substrates like cardboards, plastics, metal, and aluminum, offering a <strong>compact design</strong> that requires <strong>no maintenance</strong> or spare parts.",
-  scheme: "Top side, left lateral side,right lateral side",
+  scheme: "left & right lateral side,Top side",
   features: [
     "<strong>9\" touch screen display</strong> with integrated software for simple and intuitive direct data entry.",
     "<strong>Printing height up to 50.8 mm</strong> (up to 50mm with quadruple printhead) in a single image or with different messages.",
@@ -299,14 +299,14 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "pleyon",
   name: "Pleyon",
   description: "<strong>Famjet Pleyon</strong> introduces the future of TIJ printing with its advanced <strong>HP Bulk technology</strong>. It offers a field-proven, highly reliable ink regulation solution that reduces overall printing costs while providing maximum versatility for complex production lines.",
-  scheme: " Left Lateral side,Top side,Right lateral side",
+  scheme: "left & right lateral side,Top side",
   features: [
     "<strong>9\" Touch Screen Display</strong> with integrated software for intuitive data entry of texts, counters, and logos.",
-    "<strong>Advanced Bulk System</strong> utilizing an AKIT that includes 3x400ml bulks and a 35ml cartridge to print 1.2 liters seamlessly[cite: 7].",
-    "<strong>Sturdy Steel Printheads</strong> available in single or dual pen versions, managed by a dependable ink level feedback sensor[cite: 7].",
-    "<strong>4.0 Connectivity & I/O Port</strong> enabling remote operations, automatic message selection, and counter resets[cite: 7].",
-    "<strong>High-Speed Serialization</strong> of perfectly readable 2D codes designed to interface flawlessly with optical vision systems[cite: 7].",
-    "<strong>Multi-Substrate Printing</strong> using water-based, solvent-based, or UV curable inks for porous and non-porous surfaces[cite: 7]."
+    "<strong>Advanced Bulk System</strong> utilizing an AKIT that includes 3x400ml bulks and a 35ml cartridge to print 1.2 liters seamlessly.",
+    "<strong>Sturdy Steel Printheads</strong> available in single or dual pen versions, managed by a dependable ink level feedback sensor.",
+    "<strong>4.0 Connectivity & I/O Port</strong> enabling remote operations, automatic message selection, and counter resets.",
+    "<strong>High-Speed Serialization</strong> of perfectly readable 2D codes designed to interface flawlessly with optical vision systems.",
+    "<strong>Multi-Substrate Printing</strong> using water-based, solvent-based, or UV curable inks for porous and non-porous surfaces."
   ],
   videoUrl: "https://www.youtube.com/embed/YJmvfvJofiw?si=B8Lhrvvw28JWeRws",
   image: TIJPleyon
@@ -325,12 +325,12 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-m7",
   name: "Famjet M7",
   description: "The <strong>Famjet M7</strong> is the first TIJ printer in the world featuring <strong>Collins 1\" disposable cartridges</strong>. It has been specifically designed to handle high-resolution printing jobs up to <strong>2400 dpi</strong> on porous, semi-porous, and non-porous materials. By utilizing a single 1\" print engine setup, it completely eliminates complicated cartridge alignments that lead to poor print quality, making it the ideal choice for reliable industrial serialization.",
-  scheme: " left Lateral side,right lateral side,Top side",
+  scheme: "Top side, Left & right lateral side,",
   features: [
     "<strong>25.4mm (1\") Print Height</strong> with a single cartridge, expandable up to 100mm (4\") using a quadruple printhead.",
-    "<strong>Hi-Definition Capabilities</strong> for perfect alphanumeric characters, logos, barcodes, and complex 2D codes[cite: 8].",
-    "<strong>7\" Touch Screen Display</strong> offering an intuitive and seamless data entry interface for the operator[cite: 8].",
-    "<strong>Robust Interface</strong> equipped with USB, Ethernet, and optional Wi-Fi connectivity[cite: 8]."
+    "<strong>Hi-Definition Capabilities</strong> for perfect alphanumeric characters, logos, barcodes, and complex 2D codes.",
+    "<strong>7\" Touch Screen Display</strong> offering an intuitive and seamless data entry interface for the operator.",
+    "<strong>Robust Interface</strong> equipped with USB, Ethernet, and optional Wi-Fi connectivity."
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
   image: TIJM7
@@ -349,13 +349,13 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "dyplon",
   name: "Dyplon",
   description: "The <strong>Famjet Dyplon</strong> is a latest-generation thermal inkjet printer powered by cutting-edge <strong>HP TIJ 4.0 technology</strong>. It delivers a massive <strong>22mm printing area per single head</strong> and can print from a distance of up to 9mm, making it perfect for irregular or uneven surfaces. Engineered for heavy-duty, high-speed industrial environments, it operates at speeds four times faster than previous TIJ generations, providing an exceptionally efficient and reliable coding solution.",
-  scheme: "Top side,Right lateral side,Left lateral side",
+  scheme: "left & right lateral side,Top side",
   features: [
     "<strong>HP TIJ 4.0 Power</strong> offering up to 22mm print height with a single head, and up to 44mm with a dual head setup.",
-    "<strong>Ultra-Fast Speeds</strong> reaching up to 732 meters/minute without compromising on clarity or quality[cite: 8].",
-    "<strong>775ml Bulk Ink Tanks</strong> that can be hot-swapped/replaced without pausing your ongoing production line[cite: 8].",
-    "<strong>HD Resolution</strong> supporting up to 1200 x 2400 dpi for pin-sharp 2D codes, barcodes, and logos[cite: 8].",
-    "<strong>Smart Consumables</strong> where the single cartridge printhead only needs replacement after consuming 4L of ink (approx. 5 tanks)[cite: 8]."
+    "<strong>Ultra-Fast Speeds</strong> reaching up to 732 meters/minute without compromising on clarity or quality.",
+    "<strong>775ml Bulk Ink Tanks</strong> that can be hot-swapped/replaced without pausing your ongoing production line.",
+    "<strong>HD Resolution</strong> supporting up to 1200 x 2400 dpi for pin-sharp 2D codes, barcodes, and logos.",
+    "<strong>Smart Consumables</strong> where the single cartridge printhead only needs replacement after consuming 4L of ink (approx. 5 tanks)."
   ],
   videoUrl: "https://www.youtube.com/embed/G_GgKgstkuk?si=Hdl6I6IEiWNibdqQ",
   image: TIJDyplon,
@@ -365,13 +365,13 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "keryon",
   name: "Keryon",
   description: "The <strong>Famjet Keryon</strong> combines breakthrough <strong>HP TIJ 4.0 technology</strong> with a robust, high-performance printing platform engineered for demanding, high-speed production environments. It delivers exceptional print quality, maximum uptime, and significantly lower operating costs, making it a future-proof solution for industrial coding, marking, and variable data printing. With an extended throw distance of up to 9mm, it offers unparalleled installation flexibility across diverse packaging shapes.",
-  scheme: "Top side, left Lateral side,right lateral side ",
+  scheme: "Top side, Left & right lateral side,",
   features: [
     "<strong>Massive 108mm Print Height</strong> powered by advanced HP 4.0 technology for large-scale graphics and data.",
-    "<strong>High-Speed Production</strong> reaching up to 480 m/min while maintaining sharp 1200 dpi resolution[cite: 8].",
-    "<strong>Micro-Recirculation Technology</strong> that actively prevents ink from drying during production standstills[cite: 8].",
-    "<strong>775 mL Bulk System</strong> supporting an impressive printhead cartridge life of approximately 15 liters[cite: 8].",
-    "<strong>10-Inch Display Screen</strong> integrated with TCP/IP protocol support for streamlined industrial control[cite: 8]."
+    "<strong>High-Speed Production</strong> reaching up to 480 m/min while maintaining sharp 1200 dpi resolution.",
+    "<strong>Micro-Recirculation Technology</strong> that actively prevents ink from drying during production standstills.",
+    "<strong>775 mL Bulk System</strong> supporting an impressive printhead cartridge life of approximately 15 liters.",
+    "<strong>10-Inch Display Screen</strong> integrated with TCP/IP protocol support for streamlined industrial control."
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
   image: TIJKeryon
@@ -390,7 +390,7 @@ export const thermalInkjetData: LabellingCategory[] = [
       id: "famjet-dk-mini-mobile",
       name: "Famjet DK Mini Mobile", 
       description: "The <strong>Famjet DK Mini Mobile</strong> is an innovative, ultra-compact, and wireless portable printing device based on high-performance thermal ink jet technology. Weighing less than 1 kg, it is equipped with disposable 42ml cartridges containing water or solvent-based inks. It serves as the perfect modern replacement for traditional stencils, stamps, roll coders, and other obsolete contact printing systems, allowing users to print multi-line messages without any conveyor system.",
-      scheme: "Top side, left lateral side, right lateral side, bottom section", 
+      scheme: "Top side, left lateral side, right lateral side", 
       features: [
         "<strong>12.7mm (0.5\") Printing Height</strong> supporting alphanumeric characters, auto-date, expiry dates, batch codes, logos, QR codes, and barcodes.",
         "<strong>Hi-Definition 750 DPI Resolution</strong> ensuring precise, sharp, and high-contrast marking on porous, semi-porous, and non-porous materials.",
@@ -405,7 +405,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   id: "famjet-maxi-mini-mobile",
   name: "Famjet Maxi-MiniMobile", 
   description: "The <strong>Famjet Maxi Mini Mobile</strong> is a powerful, wireless, and lightweight portable thermal inkjet printer designed for large format marking. Utilizing premium 25.4 mm Kao Collins® disposable cartridges, it completely eliminates complex alignment issues. Weighing less than 1 kg, this standalone system is the perfect modern alternative to traditional stencils, stamps, and obsolete contact roll coders, allowing users to print detailed messages on the move without a conveyor.",
-  scheme: "Top section, left lateral side, right lateral side, bottom section",
+  scheme: "Top section, left lateral side, right lateral side",
   features: [
     "<strong>25.4mm (1\") Printing Height</strong> using a single high-capacity 42ml cartridge, ideal for large characters, corporate logos, and clear shipping data.",
     "<strong>High-Resolution Industrial Marking</strong> up to 750 dpi for super-sharp alphanumeric text, precise 1D barcodes, QR codes, and complex Datamatrix.",

@@ -1,6 +1,16 @@
 import optimusLogo from "@/assets/optimus-logo.svg";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const footerLinks = [
+    { name: "Products", path: "/labelling-range" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Consumables", path: "/labelling-range#consumables" },
+    { name: "Services", path: "/services" },
+    { name: "About", path: "/company" },
+    { name: "Contact", path: "/Contact" }
+  ];
+
   return (
     <footer className="bg-white border-t border-border py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,14 +29,14 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-center">
-            {["Products", "Services", "About", "Contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+            {footerLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
                 className="text-foreground/60 hover:text-orange text-sm font-display tracking-wider uppercase transition-colors"
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </div>
 

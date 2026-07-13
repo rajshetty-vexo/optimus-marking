@@ -34,7 +34,7 @@ const About = () => {
             </p>
             
             <p className="font-medium text-foreground text-lg border-l-4 border-orange pl-4 italic bg-muted/30 py-2 rounded-r">
-              At Optimus Marking Systems, we help manufacturers print, mark, label, and identify products with confidence.
+              At Optimus Marking Systems, we help manufacturers code, mark, label, and identify products with confidence.
             </p>
             
             <p>
@@ -77,7 +77,7 @@ const About = () => {
                 Need a <span className="text-orange">Solution?</span> Think <span className="text-orange">Optimus </span>
               </p>
               <p className="mt-3 text-sm sm:text-base font-bold tracking-widest uppercase text-black font-display flex flex-wrap gap-2 items-center">
-                <span>Print</span> • <span>Mark</span> • <span>Label</span> • <span>Identify</span>
+                <span>Code</span> • <span>Mark</span> • <span>Label</span> • <span>Identify</span>
               </p>
             </div>
           </div>
