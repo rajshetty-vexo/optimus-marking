@@ -76,7 +76,7 @@ const About = () => {
               <p className="font-display font-bold text-[#1E1951] text-xl sm:text-2xl">
                 Need a <span className="text-orange">Solution?</span> Think <span className="text-orange">Optimus </span>
               </p>
-              <p className="mt-3 text-sm sm:text-base font-bold tracking-widest uppercase text-black font-display flex flex-wrap gap-2 items-center">
+              <p className="mt-3 text-sm sm:text-base font-bold tracking-widest uppercase text-[#1E1951] font-display flex flex-wrap gap-2 items-center">
                 <span>Code</span> • <span>Mark</span> • <span>Label</span> • <span>Identify</span>
               </p>
             </div>
