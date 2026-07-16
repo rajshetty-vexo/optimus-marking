@@ -3,8 +3,8 @@ import TIJCartridges from "/src/assets/Consumables/TIJ Cartridges.jpg"
 import LaserPrinter from "/src/assets/Consumables/Laser Printer.png"
 import LabelsRibbons from "/src/assets/Consumables/Labels and Ribbons.png"
 import TIJ42ML from "/src/assets/Consumables/TIJ 42ML.png"
-import TIJ400ML from "/src/assets/Consumables/TIJ 400ML.png"
-import TIJ60ML from "/src/assets/Consumables/TIJ 60ML.png"
+import TIJ400ML from "/src/assets/Consumables/TIJ 400ML.jpg"
+import TIJ60ML from "/src/assets/Consumables/TIJ 60ML.jpg"
 import TIJ775ML from "/src/assets/Consumables/TIJ 775ML.png"
 export interface ProductVariant {
   title: string;
@@ -39,7 +39,7 @@ export const consumablesData: ConsumableItem[] = [
     variants: [
       {
         title: "Thermal Inkjet 2.5 Cartridges 42mL",
-        image: TIJ42ML,
+        image: TIJCartridges,
         description: "Standard performance cartridge engineered for localized industrial production batch printing.",
         colors: "Black (Mostly Used), Blue, and other colors on specific requirement",
         chemicalBase: "Water Base and Solvent Base",
@@ -108,7 +108,7 @@ export const consumablesData: ConsumableItem[] = [
         image: ConsumableMakro,
         description: "Optimus offers a complete range of inks, top-up fluids, and cleaning solvents compatible with Famjet Makro® DOD printers,Each batch is manufactured in compliance with strict technical specifications, ensuring continuous quality control and full traceability across the entire production chain.",
         colors: "Black,Blue,Red,Green,White (White is only available in MEK base)",
-        chemicalBase: "Oil Base & Solvent Base",
+        chemicalBase: "Oil Solvent & Water Base",
       
         suitableWith: "Famjet Makro 116 Mobile & Makro Plus standard modules"
       }

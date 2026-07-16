@@ -6,7 +6,7 @@ import Products from "@/components/Products";
 import Services from "@/components/Services";
 import Clients from "@/components/Clients";
 import Footer from "@/components/Footer";
-import Testimonials from "@/components/Testimonials"
+// import Testimonials from "@/components/Testimonials"
 
 const Index = () => {
 const { hash } = useLocation(); 
@@ -36,7 +36,7 @@ const { hash } = useLocation();
       <Products />
       <Services />
       <Clients />
-      <Testimonials/>
+      {/* <Testimonials/> */}
       <Footer />
      
     </div>

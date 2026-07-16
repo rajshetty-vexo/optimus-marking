@@ -26,49 +26,97 @@ const About = () => {
           
           {/* Main narrative block built for wide landscape readability */}
           <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed text-base sm:text-lg text-justify lg:text-left">
-            <p>
-              <strong>Optimus Marking Systems Private Limited</strong> is an Indian corporate company 
-              headquartered in Pune, India—the city of technology and innovation. Founded with a vision 
-              to deliver world-class product identification solutions, Optimus serves manufacturers across 
-              diverse industries with reliable, innovative, and customer-focused technologies.
-            </p>
-            
-            <p className="font-medium text-foreground text-lg border-l-4 border-orange pl-4 italic bg-muted/30 py-2 rounded-r">
-              At Optimus Marking Systems, we help manufacturers code, mark, label, and identify products with confidence.
+         <p>
+              <strong className="text-[#1E1951]">Optimus Marking Systems Private Limited</strong> is an Indian technology company 
+              headquartered in Pune—the city of engineering, technology, and innovation. Established with 
+              a vision to deliver world-class product identification solutions, Optimus specializes in 
+              industrial coding, marking, labeling, and traceability technologies that help manufacturers 
+              improve productivity, quality, and operational excellence.
             </p>
             
             <p>
-              Whether it's applying production codes, marking packaging, labeling products, or implementing 
-              complete identification systems, we deliver reliable solutions that help manufacturers improve 
-              efficiency, maintain quality, and meet evolving industry requirements.
+              Optimus Marking Systems is a specialized spin-off from the <strong>Coding, Marking & Labeling 
+              Division of iAIDC Technologies Private Limited</strong>. Built on years of industrial experience, 
+              application expertise, and customer trust, the company was established with a focused mission 
+              to provide advanced product identification solutions tailored to the evolving needs of modern manufacturing.
+            </p>
+            
+          <p className="font-medium text-foreground text-lg border-l-4 border-orange pl-4 italic bg-muted/30 py-3 rounded-r">
+              At Optimus, we help manufacturers <strong>Code, Mark, Label, and Identify</strong> every product with precision and confidence.
             </p>
             
             <p>
-              We believe that every product has a story to tell, and every mark, code, and label plays a vital 
-              role in communicating that story. From the production floor to the point of consumption, effective 
-              product identification helps businesses protect their brands, inform their customers, and optimize 
-              their operations.
+              From applying production codes and variable data to laser marking, product labeling, print-and-apply 
+              systems, and fully integrated traceability solutions, our technologies enable businesses to 
+              improve efficiency, ensure regulatory compliance, strengthen brand protection, and achieve complete 
+              product traceability throughout the manufacturing process.
+            </p>
+            
+          <p>
+              We believe every product has a story, and every code, mark, and label is an essential part of 
+              that story. From the production line to the point of consumption, effective product identification 
+              empowers manufacturers to optimize operations, protect their brands, maintain customer confidence, 
+              and meet increasingly stringent global quality standards.
+            </p>
+
+            {/* Comprehensive Portfolio List with Hexagon Bullets */}
+            <div className="pt-2">
+              <h3 className="text-lg font-bold text-foreground mb-4 font-display">
+                Our comprehensive portfolio includes:
+              </h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left list-none pl-0">
+                <li className="flex items-center gap-3">
+                  {/* ⚡ Hexagon Bullet Design using CSS Clip Path */}
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Continuous Inkjet (CIJ) Printers</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Thermal Inkjet (TIJ) Printers</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Laser Marking Systems</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Thermal Transfer Overprinters (TTO)</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Label Print & Apply Systems</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Product Labeling Solutions</span>
+                </li>
+                <li className="flex items-center gap-3 md:col-span-2">
+                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span>Integrated Product Identification & Traceability Systems</span>
+                </li>
+              </ul>
+            </div>
+            
+          <p className="pt-2">
+              Through strategic partnerships with globally recognized technology leaders, including <strong>FAM 
+              Printing</strong> and <strong>IMA Phoenix</strong>, we bring proven, world-class technologies to 
+              manufacturers across India. Supported by the extensive engineering expertise and nationwide service 
+              capabilities of <strong>iAIDC Technologies</strong>, together with experienced global technology 
+              professionals and industry partners, we deliver solutions that maximize uptime, productivity, 
+              consistency, and long-term value.
             </p>
             
             <p>
-              Our portfolio includes industrial coding and marking systems, labeling solutions, print-and-apply 
-              systems, and product identification technologies designed to meet the needs of modern manufacturing environments.
+              Our approach extends beyond supplying equipment. We work closely with customers to understand 
+              their manufacturing challenges, recommend the right technologies, and provide comprehensive 
+              application support, technical service, and lifecycle assistance that deliver measurable business outcomes.
             </p>
             
-            <p>
-              Through our strategic partnerships with industry-leading organizations including <strong>FAM Printing</strong> and 
-              <strong> IMA Phoenix</strong>, we bring world-class technologies and expertise to manufacturers across India, 
-              enabling them to achieve greater productivity, consistency, and operational excellence.
-            </p>
-            
-            <p>
-              At Optimus, we value innovation, reliability, responsiveness, and long-term customer relationships. 
-              We listen carefully, understand challenges, and provide practical solutions that deliver measurable results.
-            </p>
-            
-            <p>
-              As we continue to grow, our vision is to become India's preferred partner for product identification solutions, 
-              helping manufacturers build smarter, more efficient, and more competitive operations.
+           <p>
+              Driven by innovation, reliability, responsiveness, and long-term customer relationships, our 
+              vision is to become India's most trusted partner for coding, marking, labeling, and product 
+              identification solutions—helping manufacturers build smarter, more efficient, and globally 
+              competitive operations.
             </p>
 
          

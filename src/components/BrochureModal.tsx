@@ -29,18 +29,58 @@ const BrochureModal = ({ isOpen, onClose, productName, brochureUrl }: BrochureMo
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // ── INPUT SANITIZATION FUNCTION ──
+  // Safely escapes special HTML characters to prevent script injection (XSS attacks)
+  const sanitizeInput = (text: string): string => {
+    if (!text) return "";
+    return text
+      .trim()
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#x27;")
+      .replace(/\//g, "&#x2F;");
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitMessage(null);
     setSubmitError(null);
     setIsSubmitting(true);
 
+    // ── CLIENT-SIDE RATE LIMITING ──
+    // Limit submission rate to once every 60 seconds to prevent abuse/spamming
+    const lastSubmission = localStorage.getItem("brochure_last_submission");
+    const now = Date.now();
+
+    if (lastSubmission && now - parseInt(lastSubmission) < 60000) {
+      const secondsLeft = Math.ceil((60000 - (now - parseInt(lastSubmission))) / 1000);
+      setSubmitError(`Too many download attempts. Please wait ${secondsLeft} seconds before trying again.`);
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (formData.website !== "") {
+      setIsSubmitting(false);
+      return; // Silent block for honeypot bot triggers
+    }
+
+    // Apply sanitization to text variables while keeping standard email formats clean
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: formData.email.trim().toLowerCase(),
+      company: sanitizeInput(formData.company),
+      phone: sanitizeInput(formData.phone),
+      website: formData.website,
+    };
+
     try {
       const response = await fetch("/api/brochure", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
+          ...sanitizedData,
           productName,
           brochureUrl,
         }),
@@ -55,6 +95,9 @@ const BrochureModal = ({ isOpen, onClose, productName, brochureUrl }: BrochureMo
         "Brochure sent to your email! Please check your inbox. (Note: if email is not found, check your spam folder.)"
       );
       setFormData({ name: "", email: "", phone: "", company: "", website: "" });
+
+      // Save submission time stamp on success
+      localStorage.setItem("brochure_last_submission", Date.now().toString());
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to send brochure.";
       setSubmitError(message);
