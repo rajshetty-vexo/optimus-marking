@@ -88,7 +88,7 @@ const Navbar = () => {
   return (
     /* 🛠️ FIXED MAIN CONTAINER: Z-index system and placement forced to top */
     <div className="fixed top-4 left-0 right-0 z-[99999] w-full flex justify-center px-4 sm:px-6 lg:px-8 pointer-events-none isolate">
-      {/* 🛠️ DYNAMIC RADIUS: Jab menu open hoga tab rounded-3xl ho jayega taaki corners scale down ho sakein */}
+      {/* 🛠️ DYNAMIC RADIUS*/}
       <nav className={`w-full max-w-7xl bg-white shadow-[0_10px_35px_rgba(30,25,81,0.15)] border border-gray-100/80 overflow-visible pointer-events-auto transition-all duration-300 ${
         isOpen ? "rounded-3xl" : "rounded-full"
       }`}>
@@ -114,7 +114,7 @@ const Navbar = () => {
   {navLinks.map((link) => {
     if (link.dropdown) {
       return (
-        /* 🛠️ FIX: 'relative' div ensure karega ki dropdown isi text ke center ke hisab se position ho */
+        
         <div key={link.label} className="relative group flex items-center h-full">
           <button
             onClick={() => handleNavLinkClick(link)}
@@ -126,13 +126,13 @@ const Navbar = () => {
             <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
           </button>
 
-          {/* 🛠️ ULTRA FIX: top-[100%] left-1/2 -translate-x-1/2 se dropdown box ekdum bichmai (center) aayega */}
+    
           <div className="absolute top-[100%] left-1/2 -translate-x-1/2 bg-white shadow-[0_15px_35px_rgba(30,25,81,0.15)] border border-gray-100 rounded-2xl py-3 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col gap-0.5">
             {link.dropdown.map((sub) => (
               <button
                 key={sub.label}
                 onClick={() => handleNavLinkClick(sub)}
-                /* 🛠️ FIX: 'text-center' se text box ke bilkul center mein dikhega */
+                
                 className="block w-full text-center px-4 py-2.5 text-sm font-semibold font-body text-[#1E1951]/80 hover:text-orange hover:bg-orange/5 whitespace-pre-line leading-snug bg-transparent outline-none transition-all cursor-pointer"
               >
                 {sub.label}

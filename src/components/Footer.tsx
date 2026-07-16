@@ -14,6 +14,9 @@ const Footer = () => {
           {/* ── COLUMN 1: BRAND LOGO & PARENT RELATION ── */}
           <div className="flex flex-col items-center sm:items-start justify-between space-y-8">
             <div className="flex flex-col items-center sm:items-start">
+              <Link to="/" className="block focus:outline-none" onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}>
               <img
                 src={optimusLogo}
                 alt="Optimus Marking"
@@ -21,6 +24,7 @@ const Footer = () => {
                 draggable={false}
                 className="h-14 w-auto object-contain mb-4 select-none rounded-md"
               />
+              </Link>
               <p className="text-white/60 text-xs tracking-wide uppercase font-medium max-w-[250px]">
                 Industrial Coding Marking & Labeling Solutions
               </p>
