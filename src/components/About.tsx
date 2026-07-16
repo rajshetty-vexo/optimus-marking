@@ -26,7 +26,7 @@ const About = () => {
           
           {/* Main narrative block built for wide landscape readability */}
           <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed text-base sm:text-lg text-justify lg:text-left">
-         <p>
+            <p>
               <strong className="text-[#1E1951]">Optimus Marking Systems Private Limited</strong> is an Indian technology company 
               headquartered in Pune—the city of engineering, technology, and innovation. Established with 
               a vision to deliver world-class product identification solutions, Optimus specializes in 
@@ -41,7 +41,7 @@ const About = () => {
               to provide advanced product identification solutions tailored to the evolving needs of modern manufacturing.
             </p>
             
-          <p className="font-medium text-foreground text-lg border-l-4 border-orange pl-4 italic bg-muted/30 py-3 rounded-r">
+            <p className="font-medium text-foreground text-lg border-l-4 border-orange pl-4 italic bg-muted/30 py-3 rounded-r">
               At Optimus, we help manufacturers <strong>Code, Mark, Label, and Identify</strong> every product with precision and confidence.
             </p>
             
@@ -52,52 +52,52 @@ const About = () => {
               product traceability throughout the manufacturing process.
             </p>
             
-          <p>
+            <p>
               We believe every product has a story, and every code, mark, and label is an essential part of 
               that story. From the production line to the point of consumption, effective product identification 
               empowers manufacturers to optimize operations, protect their brands, maintain customer confidence, 
               and meet increasingly stringent global quality standards.
             </p>
 
-            {/* Comprehensive Portfolio List with Hexagon Bullets */}
+            {/* Comprehensive Portfolio List with Unified Hexagon Bullets */}
             <div className="pt-2">
               <h3 className="text-lg font-bold text-foreground mb-4 font-display">
                 Our comprehensive portfolio includes:
               </h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left list-none pl-0">
                 <li className="flex items-center gap-3">
-                  {/* ⚡ Hexagon Bullet Design using CSS Clip Path */}
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  {/* Matching Hexagon Bullet Design using identical global hexagon-clip class */}
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Continuous Inkjet (CIJ) Printers</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Thermal Inkjet (TIJ) Printers</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Laser Marking Systems</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Thermal Transfer Overprinters (TTO)</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Label Print & Apply Systems</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Product Labeling Solutions</span>
                 </li>
                 <li className="flex items-center gap-3 md:col-span-2">
-                  <span className="w-3 h-3 bg-orange shrink-0" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+                  <span className="w-3 h-3 hexagon-clip bg-orange flex-shrink-0" />
                   <span>Integrated Product Identification & Traceability Systems</span>
                 </li>
               </ul>
             </div>
             
-          <p className="pt-2">
+            <p className="pt-2">
               Through strategic partnerships with globally recognized technology leaders, including <strong>FAM 
               Printing</strong> and <strong>IMA Phoenix</strong>, we bring proven, world-class technologies to 
               manufacturers across India. Supported by the extensive engineering expertise and nationwide service 
@@ -112,14 +112,13 @@ const About = () => {
               application support, technical service, and lifecycle assistance that deliver measurable business outcomes.
             </p>
             
-           <p>
+            <p>
               Driven by innovation, reliability, responsiveness, and long-term customer relationships, our 
               vision is to become India's most trusted partner for coding, marking, labeling, and product 
               identification solutions—helping manufacturers build smarter, more efficient, and globally 
               competitive operations.
             </p>
 
-         
             <div className="pt-6 border-t border-muted-foreground/10 text-left">
               <p className="font-display font-bold text-[#1E1951] text-xl sm:text-2xl">
                 Need a <span className="text-orange">Solution?</span> Think <span className="text-orange">Optimus </span>
@@ -157,7 +156,7 @@ const About = () => {
             </div>
           </motion.div>
 
-      {/* ── LOWER RIGHT SIDE: PERFECT RESPONSIVE MULTI-HEXAGON LAYOUT ── */}
+          {/* ── LOWER RIGHT SIDE: PERFECT RESPONSIVE MULTI-HEXAGON LAYOUT ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -165,10 +164,9 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-5 w-full flex justify-center items-center py-12 lg:py-4 px-2"
           >
-            {/* 🛠️ Main responsive container: Iska max-width mobile par manage kiya taaki width squeeze na ho */}
             <div className="relative w-full max-w-[320px] sm:max-w-[420px] h-[280px] sm:h-[320px] lg:h-[360px] flex items-center justify-between mx-auto">
               
-              {/* 1. Main Corporate Navy Hexagon (Mobile par iska size scale down kiya taaki space bache) */}
+              {/* 1. Main Corporate Navy Hexagon */}
               <div className="w-48 sm:w-64 aspect-[0.866] hexagon-clip bg-navy flex items-center justify-center shadow-xl z-10">
                 <div className="text-center">
                   <div className="text-4xl sm:text-6xl font-display font-bold text-primary-foreground">10+</div>
@@ -178,13 +176,13 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Right Side Stack: Ekdum right edge par constant distance maintain karega */}
+              {/* Right Side Stack */}
               <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-between h-full py-2 pointer-events-none lg:pointer-events-auto">
                 
-                {/* 2. Tech Aesthetic Teal Accent Hexagon (Mobile par size balanced kiya) */}
+                {/* 2. Tech Aesthetic Teal Accent Hexagon */}
                 <div className="w-14 sm:w-20 aspect-[0.866] hexagon-clip bg-teal/20 self-end" />
                 
-                {/* 3. Geographical Identity Hexagon (Mobile par size dynamic aur position shift thoda right ki) */}
+                {/* 3. Geographical Identity Hexagon */}
                 <div className="w-20 sm:w-28 aspect-[0.866] hexagon-clip bg-orange flex items-center justify-center shadow-lg self-end z-20 transform translate-x-2 lg:translate-x-0">
                   <div className="text-center">
                     <div className="text-xs sm:text-lg font-display font-bold text-accent-foreground">IN</div>
