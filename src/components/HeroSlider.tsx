@@ -247,7 +247,7 @@ const HeroSlider = () => {
       const navOffset = window.innerWidth <= 1024 ? 64 : 73.6; 
       const viewportFloor = window.innerHeight - navOffset;
       const contentHeight = slideContentRef.current?.scrollHeight ?? 0;
-      const extraPadding = window.innerWidth < 1024 ? 60 : 20;
+      const extraPadding = window.innerWidth < 1024 ? 140: 20;
       setDynamicMinHeight(Math.max(viewportFloor, contentHeight + extraPadding));
     };
 
