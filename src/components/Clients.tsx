@@ -159,7 +159,7 @@ const Clients = () => {
           <span className="text-orange text-sm font-display font-semibold tracking-widest uppercase">
             Trusted by
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold font-display text-foreground">
+          <h2 className="mt-2 text-3xl sm:text-4xl font-bold font-display text-[#1E1951]">
             Our Valuable Clients
           </h2>
         </motion.div>

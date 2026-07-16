@@ -38,7 +38,7 @@ const LabellingRange = () => {
           {/* Master Global Portfolio Central Identifier */}
           <div className="w-full mb-16 text-center">
             <span className="text-orange text-lg sm:text-2xl font-bold tracking-widest uppercase inline-block">
-              Optimus Portfolio
+              Products Range
             </span>
           </div>
 
@@ -48,7 +48,7 @@ const LabellingRange = () => {
 
           {/* 🎯 SECTION 1: Thermal Inkjet (TIJ) Product Range */}
     
-          <div id="tij" className="scroll-mt-24 pt-6 pb-6 lg:py-0">
+          <div id="tij" className="scroll-mt-24 pt-6 pb-6 lg:py-0 text-[#1E1951]">
             <ProductRow 
               title="Thermal Inkjet (TIJ) Printing Range" 
               products={thermalInkjetData} 

@@ -158,7 +158,7 @@ const Services = () => {
           margin-top: 12px;
           font-size: clamp(32px, 3.5vw, 42px);
           font-weight: 800;
-          color: #1a1a2e;
+          color: #1E1951;
           line-height: 1.2;
           white-space: normal;
           max-w: 100%;

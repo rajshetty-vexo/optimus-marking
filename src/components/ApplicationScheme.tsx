@@ -135,19 +135,19 @@ function RightSticker({
 }
 // 🎯 DYNAMIC CONTROL ISOMETRIC CORNER STICKER (PERFECT FLAT & SQUARE LOOK)
 interface CornerStickerProps {
-  xCenter?: number; // ↔️ Corner ka main junction point (Default: 70)
-  yCenter?: number; // ↕️ Corner ka vertical placement (Default: 70)
-  size?: number;     // 📐 Dono faces ke stickers ka size control (Default: 20)
+  xCenter?: number; 
+  yCenter?: number; 
+  size?: number;    
 }
 
 function CornerSticker({
-  xCenter = 70,   // Box ka center corner line pivot
+  xCenter = 70,   
   yCenter = 87,   
-  size = 24      // Ise badha kar tum dono sides ka size ek sath control kar sakte ho
+  size = 24      
 }: CornerStickerProps) {
 
-  const w = size;     // Slant width along isometric grids
-  const h = size * 1.1; // Pure square proportion balance karne ke liye vertical height
+  const w = size;     
+  const h = size * 1.1; 
 
   // 📐 LEFT SIDE POLYGON POINTS (Left Wall Projection)
   const l_p1_x = xCenter - w;

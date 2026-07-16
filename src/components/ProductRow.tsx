@@ -30,7 +30,7 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
       {/* Row / Section Title Setup */}
       <div className="w-full mb-12 px-6 pl-8 md:px-4">
         <div className="text-left">
-          <h2 className="text-xl sm:text-2xl font-bold text-navy uppercase tracking-wide">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1E1951] uppercase tracking-wide">
             {title}
           </h2>
           <div className="w-20 h-1 bg-orange mt-3"></div>
@@ -121,16 +121,15 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
                     }`}
                   >
                     {/* 🔄 DYNAMIC REDIRECTING LINK */}
-<Link
-  to={
-    cat.machines && cat.machines.length > 0
-      ? `/labelling/${cat.id}`             
-      : `/labelling/product/${cat.id}`      
-  }
-  className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm bg-[#F97316]"
->
-  Discover More
-</Link>
+                  <Link
+                    to={
+                   cat.machines && cat.machines.length > 0
+                     ? `/labelling/${cat.id}`             
+                       : `/labelling/product/${cat.id}`      
+                      }
+                   className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm bg-[#F97316]">
+                  Discover More
+                    </Link>
                   </div>
 
                 </div>

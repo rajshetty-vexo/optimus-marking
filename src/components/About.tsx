@@ -20,7 +20,7 @@ const About = () => {
           <span className="text-orange text-xs sm:text-sm font-display font-semibold tracking-widest uppercase bg-orange/10 px-3 py-1 rounded">
             About Us
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#1E1951] leading-tight">
             Optimus Marking Systems Private Limited
           </h2>
           

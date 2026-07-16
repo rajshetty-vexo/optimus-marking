@@ -157,7 +157,7 @@ const Contact = () => {
               <span className="text-[#F97316] text-xs font-bold tracking-widest uppercase inline-block bg-orange/10 px-3 py-1 rounded-full">
                 Get In Touch
               </span>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-bold font-display text-slate-900">
+              <h2 className="mt-3 text-3xl sm:text-4xl font-bold font-display text-[#1E1951]">
                 Let's Discuss Your Coding Marking & Labelling Needs
               </h2>
               <p className="mt-4 text-slate-600 leading-relaxed font-body">

@@ -82,7 +82,7 @@ const PartnerBrands = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display font-bold text-4xl sm:text-4xl text-foreground">
+          <h2 className="font-display font-bold text-4xl sm:text-4xl  text-[#1E1951]">
             Our Partner Brands
           </h2>
         </motion.div>

@@ -177,7 +177,7 @@ const Products = () => {
           <span className="text-[#F97316] text-sm font-semibold tracking-widest uppercase">
             Our Products
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B192C] uppercase">
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1951] uppercase">
             Coding, Marking & Labeling Technologies
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm">

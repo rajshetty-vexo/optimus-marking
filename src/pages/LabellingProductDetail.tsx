@@ -66,7 +66,7 @@ let currentModel: any = null;
             Product Not Found
           </h2>
           <Link to="/labelling" className="text-xs font-bold uppercase tracking-widest text-[#F97316] hover:underline">
-            Back to Portfolio
+            Back to Products
           </Link>
         </div>
         <Footer />
@@ -82,12 +82,12 @@ let currentModel: any = null;
   // 🔄 SMART BREADCRUMB DYNAMIC ROUTING
     const isDirectProduct = !parentCategory?.machines || parentCategory.machines.length === 0;
   
-  // Safe Fallback check agar parentCategory ya uski id directly available na ho
+  
   const safeCategoryId = parentCategory?.id || productId || "";
-  const safeCategoryTitle = parentCategory?.title || "Portfolio";
+  const safeCategoryTitle = parentCategory?.title || "Products";
 
   const backLinkPath = isDirectProduct ? "/labelling" : `/labelling/${safeCategoryId}`;
-  const backLinkLabel = isDirectProduct ? "Portfolio" : `${safeCategoryTitle} Portfolio`;
+  const backLinkLabel = isDirectProduct ? "Products" : `${safeCategoryTitle} Products`;
 
   return (
     <div className="min-h-screen flex flex-col bg-white font-sans">

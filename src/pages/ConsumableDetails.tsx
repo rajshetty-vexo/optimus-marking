@@ -23,7 +23,6 @@ const ConsumableDetails = () => {
     );
   }
 
-  // Heading duplication track karne ke liye temporary variables
   let lastSection = "";
   let lastSubSection = "";
 
@@ -35,7 +34,7 @@ const ConsumableDetails = () => {
           onClick={() => navigate(-1)} 
           className="mb-8 text-xs font-bold text-[#F97316] uppercase tracking-wider hover:underline flex items-center gap-1"
         >
-          ← Back to Portfolio
+          ← Back to Products
         </button>
 
         {/* ── 🌅 LAYER 1: PREMIUM TOP BANNER (Only shows if topDescription exists) ── */}
@@ -59,7 +58,7 @@ const ConsumableDetails = () => {
 
         {/* Main Content White Card */}
         <div className="bg-white p-6 sm:p-10 rounded-3xl border border-gray-100 shadow-sm">
-          {/* Agar upar banner nahi hai tabhi yeh default title dikhega */}
+        
           {!currentCategory.topDescription && (
             <>
               <span className="text-[#F97316] font-bold text-xs uppercase tracking-widest block">
@@ -98,8 +97,7 @@ const ConsumableDetails = () => {
 
               return (
                 <div key={index} className="w-full">
-                  
-                  {/* ── Badi Main Heading (e.g., LABEL RANGE, RIBBON RANGE) ── */}
+              
                   {showMainSection && (
                     <div className="w-full mt-12 mb-6 pt-6 border-t border-gray-100 first:border-0 first:mt-0">
                       <h3 className="text-xl sm:text-2xl font-black text-[#1E1951] uppercase tracking-wider bg-slate-100 px-5 py-2.5 rounded-xl inline-block border-l-4 border-[#F97316]">
@@ -123,7 +121,7 @@ const ConsumableDetails = () => {
 <div className="bg-gray-50 rounded-2xl p-6 flex flex-col items-center justify-center border border-gray-200/60 min-h-[350px] shadow-inner relative group overflow-hidden">
   <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
   
-  {/* ⚡ UPDATED: Andar ka container responsive bada kiya hai taaki image mast aur badi dikhe */}
+
   <div className="w-full max-w-[320px] h-[250px] sm:h-[280px] bg-white border border-gray-100 shadow-md flex items-center justify-center rounded-2xl p-6 transition-transform duration-300 group-hover:scale-105">
     <img 
       src={variant.image} 

@@ -10,7 +10,7 @@ import LabelSlide1 from "../assets/Slides/LabelSlide1.png";
 import TIJ_M9Slide from "../assets/Slides/TIJ_M9Slide.jpg";
 import Cijproduct1 from "../assets/Slides/Cijproduct1.png";
 import TIJ_22mm from "../assets/Slides/TIJ_22mm.png";
-import consumables from "../assets/Slides/Consumables.png";
+import consumables from "../assets/Slides/consumables.png";
 
 
 export type SlideMedia = "video" | "image";
