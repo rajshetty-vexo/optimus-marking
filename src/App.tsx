@@ -7,17 +7,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import OpeningAnimation from "@/components/ui/opening-animation";
 import Navbar from "../src/components/Navbar";
+import ScrollToTop from "../src/components/ScrollToTop.tsx";
 
-
-
-// Paths updated because App.tsx is outside the src directory
 import Index from "../src/pages/Index.tsx";
 import NotFound from "../src/pages/NotFound.tsx";
 import Services from './pages/Services';
 import Solutions from './pages/Solutions';
-import LabellingRange from "../src/pages/LabellingRange.tsx";
-import LabellingCategory from "../src/pages/LabellingCategory.tsx";
-import LabellingProductDetail from "../src/pages/LabellingProductDetail.tsx";
+import ProductRange from "../src/pages/ProductRange.tsx";
+import ProductCategory from "../src/pages/ProductCategory.tsx";
+import ProductDetail from "../src/pages/ProductDetail.tsx";
 import ConsumableDetails from "../src/pages/ConsumableDetails.tsx";
 import Company from "../src/pages/Company.tsx";
 import ContactPage from "../src/pages/ContactPage.tsx";
@@ -35,15 +33,16 @@ export default function App(){
       {showIntro && <OpeningAnimation onComplete={() => setShowIntro(false)} />}
        {!showIntro && (
       <BrowserRouter>
+      <ScrollToTop />
       <Navbar/>
         <Routes>
           {/* Main Landing/Home Page */}
           <Route path="/" element={<Index />} />
           
-          {/* Naye Multi-page Labelling Routes */}
-          <Route path="/labelling-range" element={<LabellingRange />} />
-          <Route path="/labelling/:categoryId" element={<LabellingCategory />} />
-          <Route path="/labelling/product/:productId" element={<LabellingProductDetail />} />
+         
+          <Route path="/product-range" element={<ProductRange />} />
+          <Route path="/product-category/:categoryId" element={<ProductCategory />} />
+          <Route path="/product/:productId" element={<ProductDetail />} />
           <Route path="/services" element={<Services />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/company" element={<Company />} />

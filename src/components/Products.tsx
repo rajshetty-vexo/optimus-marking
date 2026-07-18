@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { labellingData, thermalInkjetData, dodPrintingData } from "../data/labellingData";
+import { labelingData, thermalInkjetData, dodPrintingData } from "../data/productData";
 import { consumablesData } from "../data/consumablesData";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -11,7 +11,7 @@ import { consumablesData } from "../data/consumablesData";
 const allProducts = [
   ...thermalInkjetData,
   ...dodPrintingData,
-  ...labellingData,
+  ...labelingData,
   ...consumablesData,
 ];
 
@@ -52,8 +52,8 @@ const HexCard = ({ cat, cardKey, activeCard, setActiveCard }: HexCardProps) => {
   const linkTo = isConsumable 
     ? `/consumable/${cat.slug || cat.id}` 
     : cat.machines && cat.machines.length > 0
-      ? `/labelling/${cat.id}`
-      : `/labelling/product/${cat.id}`;
+      ? `/product-category/${cat.id}`
+      : `/product/${cat.id}`;
 
   return (
     <div
@@ -240,7 +240,7 @@ const Products = () => {
         {/* View All CTA */}
         <div className="w-full flex justify-center mt-16">
           <Link
-            to="/labelling-range"
+            to="/product-range"
             className="bg-[#0B192C] hover:bg-[#F97316] text-white text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-sm shadow-md transition-all duration-300"
           >
             View All Products

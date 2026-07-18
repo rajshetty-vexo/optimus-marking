@@ -8,15 +8,15 @@ const navLinks = [
   { label: "Home", href: "/", isScroll: true, hashId: "home" },
   {
     label: "Products",
-    href: "/labelling-range",
+    href: "/product-range",
     isScroll: false,
-    hashId: "/labelling-range",
+    hashId: "/product-range",
     dropdown: [
-      { label: "TIJ",   href: "/labelling-range", isScroll: true, hashId: "tij" },
-      { label: "Laser", href: "/labelling-range", isScroll: true, hashId: "laser" },
-      { label: "DOD",   href: "/labelling-range", isScroll: true, hashId: "dod" },
-      { label: "Labelling & Print and apply", href: "/labelling-range", isScroll: true, hashId: "label" },
-      { label: "Consumables", href: "/labelling-range", isScroll: true, hashId: "consumables" },
+      { label: "TIJ",   href: "/product-range", isScroll: true, hashId: "tij" },
+      { label: "Laser", href: "/product-range", isScroll: true, hashId: "laser" },
+      { label: "DOD",   href: "/product-range", isScroll: true, hashId: "dod" },
+      { label: "Labelling & Print and apply", href: "/product-range", isScroll: true, hashId: "label" },
+      { label: "Consumables", href: "/product-range", isScroll: true, hashId: "consumables" },
     ],
   },
   {

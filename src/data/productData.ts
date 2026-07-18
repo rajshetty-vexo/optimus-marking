@@ -40,7 +40,7 @@ export interface ProductMachine {
  
 }
 
-export interface LabellingCategory {
+export interface ProductCategory {
   id: string;
   title: string;
   subtitle: string;
@@ -48,13 +48,13 @@ export interface LabellingCategory {
   image: string;
   logo?:string;
   machines: ProductMachine[];
-  
   scheme?: string;
   features?: string[];
   videoUrl?: string;
+  brochureUrl?: string;
 }
 
-export const labellingData: LabellingCategory[] = [
+export const labelingData: ProductCategory[] = [
   {
     id: "print-apply",
     title: "Label Print & Apply",
@@ -241,7 +241,7 @@ export const labellingData: LabellingCategory[] = [
 
 
 // 2.THERMAL INKJET RANGE DATA
-export const thermalInkjetData: LabellingCategory[] = [
+export const thermalInkjetData: ProductCategory[] = [
   {
     id: "tij-2.5",
     title: "Thermal Inkjet 2.5",
@@ -265,7 +265,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/H9VcMeB-sfQ?si=9ypiqLujssw76qJ4",
   image: TIJM5,
-  brochureUrl: "https://drive.google.com/uc?export=download&id=1t0kYTqWtM5CU0hx_d404tmteU8J6aloX"
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1KaecXPXoZWvQa9I9LUY6NW_gA8jlL4L6"
   
 },
 
@@ -283,7 +283,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "<strong>Industrial efficiency</strong> providing automatic reverse printing and seamless integration in harsh environments."
   ],
   videoUrl: "https://www.youtube.com/embed/zA9VvKYSqnc?si=WvU0g1hgJE1JCcTH", 
-  image: TIJM9
+  image: TIJM9,
+   brochureUrl: "https://drive.google.com/uc?export=download&id=1zMNoSOjlgnr_1UKTk_J3GgufLL38hhWu"
 }
     ]
   },
@@ -309,7 +310,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "<strong>Multi-Substrate Printing</strong> using water-based, solvent-based, or UV curable inks for porous and non-porous surfaces."
   ],
   videoUrl: "https://www.youtube.com/embed/YJmvfvJofiw?si=B8Lhrvvw28JWeRws",
-  image: TIJPleyon
+  image: TIJPleyon,
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1QliDhYbqiVI8xiSYApO53GjAs8tMvT0B"
 }
     ]
   },
@@ -333,7 +335,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "<strong>Robust Interface</strong> equipped with USB, Ethernet, and optional Wi-Fi connectivity."
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
-  image: TIJM7
+  image: TIJM7,
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1bJuP2pSkJ3YnWjp20FIywg6aT3gDj7Xm"
  }
     ]
   },
@@ -359,7 +362,7 @@ export const thermalInkjetData: LabellingCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/G_GgKgstkuk?si=Hdl6I6IEiWNibdqQ",
   image: TIJDyplon,
-   brochureUrl: "https://drive.google.com/uc?export=download&id=1WuOYfAHZEEhgs2wVSXSt72o9Q8eGE98g"
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1djDgpmmHMbGEqwp4do7XjKXBzThS4V40"
 },
    {
   id: "keryon",
@@ -374,7 +377,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "<strong>10-Inch Display Screen</strong> integrated with TCP/IP protocol support for streamlined industrial control."
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
-  image: TIJKeryon
+  image: TIJKeryon,
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1_k-sgdK92GObxsJrfdZhji5-Ti5Rg4QF"
 }
     ]
   },
@@ -399,7 +403,8 @@ export const thermalInkjetData: LabellingCategory[] = [
         "<strong>Massive 8GB Internal Memory</strong> (expandable to 16/32 GB optional) for storing large libraries of print messages and custom templates."
       ],
       videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY", 
-      image:DKMinimobile 
+      image:DKMinimobile,
+      brochureUrl: "https://drive.google.com/uc?export=download&id=1mB6X1pwF057p8KwB7T_BSyfKtDXADMHW"
     },
     {
   id: "famjet-maxi-mini-mobile",
@@ -414,7 +419,8 @@ export const thermalInkjetData: LabellingCategory[] = [
     "<strong>Flexible Encoder Options</strong> available in a 2W configuration (2 wheels) or a 4W configuration (4 wheels) for stable manual tracking across diverse physical surfaces."
   ],
   videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY", 
-  image: Maximinimobile
+  image: Maximinimobile,
+   brochureUrl: "https://drive.google.com/uc?export=download&id=1w6A4Zk6026CFxzGBP70XKhMQ8Blqj8JN"
 }
   ]
 }
@@ -424,7 +430,7 @@ export const thermalInkjetData: LabellingCategory[] = [
 //3. DOD RANGE
 
 // 1. DOD PRINTING DATA WITH INTEGRATED MACHINE DETAILS FOR DIRECT REDIRECTION
-  export const dodPrintingData: LabellingCategory[] = [
+  export const dodPrintingData: ProductCategory[] = [
     {
       id: "makro-mobile",
       title: "Famjet Makro 116 Mobile",
@@ -441,6 +447,7 @@ export const thermalInkjetData: LabellingCategory[] = [
         "<strong>Versatile Ink Compatibility</strong> allowing easy swaps between Water, Ethanol, or MEK-based industrial grade inks."
       ],
       videoUrl: "https://www.youtube.com/embed/KB35yJj1PFY?si=156H5HT8RUzEbB53",
+      brochureUrl: "https://drive.google.com/uc?export=download&id=18L7jzL_212_3PmusILmXyXAZmlyXDC2R",
       machines: [] 
     },
     {
@@ -459,6 +466,7 @@ export const thermalInkjetData: LabellingCategory[] = [
         "<strong>High-Speed Coding Output</strong> engineered to operate flawlessly at continuous production line tracks up to 60 meters per minute."
       ],
       videoUrl: "https://www.youtube.com/embed/dMyN6cOfWaI?si=36TEUpSw33g7jbO4", 
+      brochureUrl: "https://drive.google.com/uc?export=download&id=1g9UgjE_se1Dxc2Qd5DSIrBM4UamX13s4",
       machines: []   
     },
     

@@ -9,7 +9,7 @@ import Cijproduct from "../assets/Slides/Cijproduct.png";
 import LabelSlide1 from "../assets/Slides/LabelSlide1.png";
 import TIJ_M9Slide from "../assets/Slides/TIJ_M9Slide.jpg";
 import Cijproduct1 from "../assets/Slides/Cijproduct1.png";
-import TIJ_22mm from "../assets/Slides/TIJ_22mm.png";
+import DOD_Slide from "../assets/Slides/DOD Slide.jpeg";
 import consumables from "../assets/Slides/consumables.png";
 
 
@@ -59,7 +59,7 @@ const slides: HeroSlide[] = [
     description:
       "Thermal Inkjet systems available in 22mm, 12.7mm and wider formats — ideal for pharmaceutical, food & beverage, and logistics coding.",
     ctaLabel: "View TIJ Range",
-    ctaHref: "/labelling-range",
+    ctaHref: "/product-range",
     layout: "left",
   },
 
@@ -82,12 +82,12 @@ const slides: HeroSlide[] = [
   {
     id: "slide-dod",
     mediaType: "image",
-    mediaSrc: "https://res.cloudinary.com/dsxnp5rjt/image/upload/v1782676976/marking2_xdkjxm.jpg",
+    mediaSrc: DOD_Slide,
     tag: "DOD Technology",
     heading: "Famjet Makro\nHeavy-Duty Industrial Printing",
     description: "High-performance electromagnetic Drop on Demand (DOD) technology. Built for tough environments to print on plastic, metal, pipes, wood & concrete.",
     ctaLabel: "Explore DOD Range",
-    ctaHref: "/labelling-range#dod",
+    ctaHref: "/product-range#dod",
     layout: "left",
   },
   
@@ -101,7 +101,7 @@ const slides: HeroSlide[] = [
     description:
       "Automated label application systems for top, side, front-back, and wraparound labelling — seamlessly integrated with your packaging line.",
     ctaLabel: "See Labelling Solutions",
-    ctaHref: "/labelling-range#label",
+    ctaHref: "/product-range#label",
     layout: "left",
   },
 
@@ -114,7 +114,7 @@ const slides: HeroSlide[] = [
     heading: "High-Speed Industrial\nLabelling Systems",
     description: "Custom-engineered labelling machinery designed for flawless deployment across primary packaging lines, flat surfaces, or high-speed conveyor belts.",
     ctaLabel: "Discover Machinery",
-    ctaHref: "/labelling-range#label",
+    ctaHref: "/product-range#label",
     layout: "left"
   },
 
@@ -127,7 +127,7 @@ const slides: HeroSlide[] = [
     heading: "Premium Fluids\nFor All Coders",
     description: "High-grade industrial inks, solvents, make-ups, and cleaning solutions engineered for maximum performance, minimum downtime, and flawless printing quality.",
     ctaLabel: "View Consumables",
-    ctaHref: "/labelling-range#consumables",
+    ctaHref: "/product-range#consumables",
     layout: "left"
   },
 
@@ -247,7 +247,15 @@ const HeroSlider = () => {
       const navOffset = window.innerWidth <= 1024 ? 64 : 73.6; 
       const viewportFloor = window.innerHeight - navOffset;
       const contentHeight = slideContentRef.current?.scrollHeight ?? 0;
-      const extraPadding = window.innerWidth < 1024 ? 140: 20;
+      const extraPadding = window.innerWidth < 1024 ? 60: 20;
+      const finalHeight = Math.max(viewportFloor, contentHeight + extraPadding);
+
+console.log("Viewport:", viewportFloor);
+console.log("Content:", contentHeight);
+console.log("Extra:", extraPadding);
+console.log("Final:", finalHeight);
+
+setDynamicMinHeight(finalHeight);
       setDynamicMinHeight(Math.max(viewportFloor, contentHeight + extraPadding));
     };
 
@@ -302,7 +310,7 @@ const HeroSlider = () => {
           {current === 1 && (
             <div
               ref={slideContentRef}
-className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-28 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+               className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
             >
               <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
@@ -322,8 +330,22 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[0].ctaLabel}
                   </Link>
                 </div>
+                  {/* Dots - slide */}
+                  <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+                  {Array.from({ length: total }).map((_, index) => (
+                   <motion.button
+                 key={index}
+                  onClick={() => go(index, index > current ? 1 : -1)}
+                  animate={{
+                   width: index === current ? 22 : 8,
+                   backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)",}}
+                  transition={{ duration: 0.3 }}
+                   style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }} />))}
+                  </div>
+
+                <div className="h-14 lg:hidden" />
               </div>
-              <div className="w-full max-w-xl mx-auto flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0 aspect-[3/4] sm:aspect-video lg:aspect-square xl:aspect-video">
+              <div className="w-full h-[38vh] sm:h-[45vh] md:h-[50vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <video 
                   src={slides[0].mediaSrc} 
                   autoPlay 
@@ -340,7 +362,7 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
           {current === 2 && (
             <div
               ref={slideContentRef}
-              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-28 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
             >
               <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
@@ -360,6 +382,20 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[1].ctaLabel}
                   </Link>
                 </div>
+                {/* Dots - slide */}
+               <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+              {Array.from({ length: total }).map((_, index) => (
+              <motion.button
+              key={index}
+              onClick={() => go(index, index > current ? 1 : -1)}
+              animate={{
+              width: index === current ? 22 : 8,
+              backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)",}}
+              transition={{ duration: 0.3 }}
+             style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }}/>))}
+            </div>
+
+                <div className="h-14 lg:hidden" />
               </div>
               <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <img 
@@ -375,7 +411,7 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
           {current === 3 && (
             <div
               ref={slideContentRef}
-              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-28 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
             >
               <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
@@ -395,14 +431,28 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[2].ctaLabel}
                   </Link>
                 </div>
-              </div>
+                  {/* Dots - slide */}
+              <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+              {Array.from({ length: total }).map((_, index) => (
+              <motion.button
+              key={index}
+              onClick={() => go(index, index > current ? 1 : -1)}
+              animate={{
+             width: index === current ? 22 : 8,
+             backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)", }}
+             transition={{ duration: 0.3 }}
+             style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }} />))}
+            </div>
+                <div className="h-14 lg:hidden" />
+             </div>
               <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <img 
                   src={slides[2].mediaSrc} 
                   alt="DOD Machine" 
-                  className="w-full h-full object-contain drop-shadow-2xl"
+                  className="w-full h-full object-contain drop-shadow-2xl rounded-2xl border border-gray-100"
                 />
               </div>
+              
             </div>
           )}   
           
@@ -410,7 +460,7 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
           {current === 4 && (
             <div
               ref={slideContentRef}
-             className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-28 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+             className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
             >
               <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
@@ -430,8 +480,21 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[3].ctaLabel}
                   </Link>
                 </div>
+                <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+                {Array.from({ length: total }).map((_, index) => (
+                <motion.button
+               key={index}
+               onClick={() => go(index, index > current ? 1 : -1)}
+              animate={{
+              width: index === current ? 22 : 8,
+              backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)",}}
+             transition={{ duration: 0.3 }}
+             style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }}/> ))}
               </div>
-               <div className="w-full max-w-xl mx-auto flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0 aspect-[3/4] sm:aspect-video lg:aspect-square xl:aspect-video">
+
+                <div className="h-14 lg:hidden" />
+              </div>
+               <div className="w-full h-[38vh] sm:h-[45vh] md:h-[50vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <video 
                   src={slides[3].mediaSrc} 
                   autoPlay 
@@ -448,7 +511,7 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
           {current === 5 && (
             <div
               ref={slideContentRef}
-className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-28 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
             >
               <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
@@ -468,8 +531,22 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[4].ctaLabel}
                   </Link>
                 </div>
+                            
+              <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+             {Array.from({ length: total }).map((_, index) => (
+             <motion.button
+              key={index}
+              onClick={() => go(index, index > current ? 1 : -1)}
+             animate={{
+             width: index === current ? 22 : 8,
+            backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)",}}
+            transition={{ duration: 0.3 }}
+            style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }} />))}
               </div>
-              <div className="w-full max-w-xl mx-auto flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0 aspect-[3/4] sm:aspect-video lg:aspect-square xl:aspect-video">
+
+                <div className="h-14 lg:hidden" />
+              </div>
+              <div className="w-full h-[38vh] sm:h-[45vh] md:h-[50vh] lg:h-[65vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <video 
                   src={slides[4].mediaSrc} 
                   autoPlay 
@@ -506,6 +583,20 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[5].ctaLabel}
                   </Link>
                 </div>
+
+               <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+              {Array.from({ length: total }).map((_, index) => (
+              <motion.button
+              key={index}
+              onClick={() => go(index, index > current ? 1 : -1)}
+              animate={{
+              width: index === current ? 22 : 8,
+              backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)",}}
+              transition={{ duration: 0.3 }}
+              style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }} />))}
+              </div>
+             
+             <div className="h-14 lg:hidden" />
               </div>
              <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <img 
@@ -521,7 +612,7 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
           {current === 7 && (
             <div
               ref={slideContentRef}
-              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-28 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
+              className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:grid lg:grid-cols-2 items-center justify-center bg-white pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-16 px-5 sm:px-10 md:px-14 lg:px-20 gap-6 sm:gap-8 overflow-hidden"
             >
               <div className="flex flex-col justify-center text-left space-y-3 sm:space-y-5 max-w-xl z-10 order-2 lg:order-1 w-full">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
@@ -541,6 +632,20 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
                     {slides[6].ctaLabel}
                   </Link>
                 </div>
+                  {/* Dots - slide*/}
+                <div className="flex items-center justify-center gap-2 pt-4 pb-2 lg:hidden">
+                 {Array.from({ length: total }).map((_, index) => (
+                  <motion.button
+                  key={index}
+                 onClick={() => go(index, index > current ? 1 : -1)}
+                 animate={{
+                width: index === current ? 22 : 8,
+                backgroundColor: index === current ? "#F97316" : "rgba(30, 25, 81, 0.3)", }}
+                 transition={{ duration: 0.3 }}
+                 style={{ height: "8px", borderRadius: "9999px", border: "none", padding: 0, cursor: "pointer" }}/>))}
+                </div>
+
+                <div className="h-14 lg:hidden" />
               </div>
               <div className="w-full h-[32vh] sm:h-[42vh] md:h-[52vh] lg:h-[70vh] flex items-center justify-center order-1 lg:order-2 mt-2 lg:mt-0">
                 <img 
@@ -571,12 +676,10 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
         <ChevronRight className="hs-arrow-icon" />
       </button>
 
-{/* ── Dot indicators ── */}
-<div className="hs-dots" role="tablist" aria-label="Slide indicators">
+      {/* ── Desktop Dot indicators ── */}
+<div className="hs-dots hidden lg:flex" role="tablist">
   {Array.from({ length: total }).map((_, index) => {
     const isActive = index === current;
-    const isHeroActive = current === 0; 
-
     return (
       <motion.button
         key={index}
@@ -586,11 +689,11 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
         className="hs-dot"
         animate={{
           width: isActive ? 22 : 8,
-          backgroundColor: isActive 
-            ? "#F97316" 
-            : isHeroActive 
-              ? "rgba(255, 255, 255, 0.4)" 
-              : "rgba(30, 25, 81, 0.3)",   
+          backgroundColor: isActive
+            ? "#F97316"
+            : current === 0
+              ? "rgba(255, 255, 255, 0.4)"
+              : "rgba(30, 25, 81, 0.3)",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         onClick={() => go(index, index > current ? 1 : -1)}
@@ -601,14 +704,13 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
           outline: "none",
           padding: 0,
           margin: 0,
-          display: "inline-block",
           cursor: "pointer",
-          verticalAlign: "middle"
         }}
       />
     );
   })}
 </div>
+
 
     <style>{`
   .hs-root {
@@ -845,22 +947,23 @@ className="relative w-full h-auto min-h-[calc(100vh-4.6rem)] flex flex-col lg:gr
   }
 
   /* ⚡ CLEAN & FIX EXTRA PADDING FOR GLOBAL DOTS */
-  .hs-dots {
-    position: absolute;
-    bottom: 24px;   /* Default safer bottom distance */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 99;    /* Pure overlap priority stack rule */
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    pointer-events: auto;
-  }
+.hs-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
 
   /* Mobile screen safety so text cannot overlap dots */
-  @media (max-width: 1024px) {
+  @media (min-width: 1025px) {
     .hs-dots {
-      bottom: 12px !important;
+      //  position: absolute;
+      // bottom: 16px;
+      display:flex;
     }
   }
 

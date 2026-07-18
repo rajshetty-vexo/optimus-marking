@@ -12,48 +12,48 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 border-b border-white/10 pb-12 text-center sm:text-left">
           
           {/* ── COLUMN 1: NOW CONTACT INFORMATION (INTERCHANGED) ── */}
-          <div className="flex flex-col items-center sm:items-start space-y-4">
-            <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-1 font-display">
-              Contact Us
-            </h3>
-            
-            <div className="space-y-3.5 text-sm text-white/70 w-full flex flex-col items-center sm:items-start">
-              {/* Phone Row */}
-              <div className="flex items-start justify-center sm:justify-start gap-3 mt-1 group">
-                <Phone size={16} className="shrink-0 text-white/50 mt-0.5 group-hover:text-orange-500 transition-colors" />
-                <div className="flex flex-col">
-                  <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-0.5">Phone</span>
-                  <a href="tel:+919503729925" className="text-white/90 hover:text-orange-500 transition-colors font-medium">
-                    +91 95037 29925
-                  </a>
-                </div>
-              </div>
+<div className="flex flex-col items-center sm:items-start space-y-4">
+  <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-1 font-display">
+    Contact Us
+  </h3>
+  
+  <div className="space-y-5 text-sm text-white/70 w-full flex flex-col">
+    {/* Phone Row */}
+    <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+      <Phone size={16} className="shrink-0 text-white/50 sm:mt-0.5 group-hover:text-orange-500 transition-colors" />
+      <div className="flex flex-col items-center sm:items-start">
+        <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Phone</span>
+        <a href="tel:+919503729925" className="text-white/90 hover:text-orange-500 transition-colors font-medium">
+          +91 95037 29925
+        </a>
+      </div>
+    </div>
 
-              {/* Email Row */}
-              <div className="flex items-start justify-center sm:justify-start gap-3 group">
-                <Mail size={16} className="shrink-0 text-white/50 mt-0.5 group-hover:text-orange-500 transition-colors" />
-                <div className="flex flex-col">
-                  <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-0.5">Email</span>
-                  <a href="mailto:sales@optimusmarking.com" className="text-white/90 hover:text-orange-500 transition-colors">
-                    sales@optimusmarking.com
-                  </a>
-                </div>
-              </div>
+    {/* Email Row */}
+    <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+      <Mail size={16} className="shrink-0 text-white/50 sm:mt-0.5 group-hover:text-orange-500 transition-colors" />
+      <div className="flex flex-col items-center sm:items-start">
+        <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Email</span>
+        <a href="mailto:sales@optimusmarking.com" className="text-white/90 hover:text-orange-500 transition-colors">
+          sales@optimusmarking.com
+        </a>
+      </div>
+    </div>
 
-              {/* Address/Location Row */}
-              <div className="flex items-start justify-center sm:justify-start gap-3 group">
-                <MapPin size={16} className="shrink-0 text-white/50 mt-0.5 group-hover:text-orange-500 transition-colors" />
-                <div className="flex flex-col">
-                  <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-0.5">Address</span>
-                  <p className="text-white/90 leading-relaxed text-xs sm:text-sm">
-                    Optimus Marking Systems Pvt Ltd<br />
-                    2, Vitthal Park, Manjari BK,<br />
-                    Pune-412307
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Address/Location Row */}
+    <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+      <MapPin size={16} className="shrink-0 text-white/50 sm:mt-1 group-hover:text-orange-500 transition-colors" />
+      <div className="flex flex-col items-center sm:items-start">
+        <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Address</span>
+        <p className="text-white/90 leading-relaxed text-xs sm:text-sm">
+          Optimus Marking Systems Pvt Ltd<br />
+          2, Vitthal Park, Manjari BK,<br />
+          Pune-412307
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
           {/* ── COLUMN 2: PRODUCTS RANGE (UNTOUCHED) ── */}
           <div className="flex flex-col items-center sm:items-start">
@@ -61,11 +61,11 @@ const Footer = () => {
               Products
             </h3>
             <ul className="space-y-2.5 text-sm text-white/70">
-              <li><Link to="/labelling-range#tij" className="hover:text-orange-500 transition-colors block">TIJ Technology</Link></li>
-              <li><Link to="/labelling-range#laser" className="hover:text-orange-500 transition-colors block">Laser Systems</Link></li>
-              <li><Link to="/labelling-range#dod" className="hover:text-orange-500 transition-colors block">DOD Technology</Link></li>
-              <li><Link to="/labelling-range#label" className="hover:text-orange-500 transition-colors block">Labelling & Print and Apply</Link></li>
-              <li><Link to="/labelling-range#consumables" className="hover:text-orange-500 transition-colors block">Consumables Range</Link></li>
+              <li><Link to="/product-range#tij" className="hover:text-orange-500 transition-colors block">TIJ Technology</Link></li>
+              <li><Link to="/product-range#laser" className="hover:text-orange-500 transition-colors block">Laser Systems</Link></li>
+              <li><Link to="/product-range#dod" className="hover:text-orange-500 transition-colors block">DOD Technology</Link></li>
+              <li><Link to="/product-range#label" className="hover:text-orange-500 transition-colors block">Labelling & Print and Apply</Link></li>
+              <li><Link to="/product-range#consumables" className="hover:text-orange-500 transition-colors block">Consumables Range</Link></li>
             </ul>
           </div>
 

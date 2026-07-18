@@ -1,11 +1,11 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { LabellingCategory } from "../data/labellingData";
+import { ProductCategory } from "../data/productData";
 
 interface ProductRowProps {
   title: string;
-  products: LabellingCategory[];
+  products: ProductCategory[];
 }
 
 const ProductRow = ({ title, products }: ProductRowProps) => {
@@ -124,8 +124,8 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
                   <Link
                     to={
                    cat.machines && cat.machines.length > 0
-                     ? `/labelling/${cat.id}`             
-                       : `/labelling/product/${cat.id}`      
+                     ? `/product-category/${cat.id}`             
+                       : `/product/${cat.id}`      
                       }
                    className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm bg-[#F97316]">
                   Discover More

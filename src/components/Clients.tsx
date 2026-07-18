@@ -20,7 +20,7 @@ import tbkLogo from "../assets/clients-logo/tbk.png";
 import brandenburgLogo from "../assets/clients-logo/brandenburg.png";
 import schaefflerLogo from "../assets/clients-logo/schaeffler.png";
 import bobstLogo from "../assets/clients-logo/bobst.png";
-import hirschvogelLogo from "../assets/clients-logo/hirschvogel.png";
+// import hirschvogelLogo from "../assets/clients-logo/hirschvogel.png";
 import elWeighLogo from "../assets/clients-logo/el_weigh.png";
 import swarovskiLogo from "../assets/clients-logo/swarovski.png";
 
@@ -48,7 +48,7 @@ const rowTwo = [
   { name: "Brandenburg", logo: brandenburgLogo, large: true },
   { name: "Schaeffler", logo: schaefflerLogo, large: true },
   { name: "Bobst", logo: bobstLogo, large: true },
-  { name: "Hirschvogel", logo: hirschvogelLogo, large: true },
+  // { name: "Hirschvogel", logo: hirschvogelLogo, large: true },
   { name: "El-Weigh", logo: elWeighLogo },
   { name: "Swarovski", logo: swarovskiLogo },
 ];

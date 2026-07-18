@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductRow from "@/components/ProductRow";
-import { labellingData, thermalInkjetData, dodPrintingData } from "../data/labellingData";
+import { labelingData, thermalInkjetData, dodPrintingData } from "../data/productData";
 import ConsumablesRow from "@/components/ConsumablesRow";
 import { consumablesData } from "../data/consumablesData";
 
-const LabellingRange = () => {
+const ProductRange = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const LabellingRange = () => {
           <div id="label" className="scroll-mt-24 pt-6 pb-6 lg:py-0">
             <ProductRow 
               title="LABELING Product Range" 
-              products={labellingData} 
+              products={labelingData} 
             />
           </div>
               
@@ -87,4 +87,4 @@ const LabellingRange = () => {
   );
 };
 
-export default LabellingRange;
+export default ProductRange;

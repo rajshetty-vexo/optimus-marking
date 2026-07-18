@@ -152,8 +152,8 @@ const BrochureModal = ({ isOpen, onClose, productName, brochureUrl }: BrochureMo
                 </p>
                 <p className="text-xs text-gray-500 leading-relaxed">
                   For more details, contact us at{" "}
-                  <a href="tel:+917709249499" className="text-[#F97316] font-medium">
-                    7709249499
+                  <a href="tel:+9195037 29925" className="text-[#F97316] font-medium">
+                    95037 29925
                   </a>{" "}
                   or{" "}
                   <a

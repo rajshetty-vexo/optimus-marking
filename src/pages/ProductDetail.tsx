@@ -1,6 +1,6 @@
 import { useParams, Link ,useNavigate} from "react-router-dom";
 // import { useState} from "react";
-import { labellingData, thermalInkjetData,dodPrintingData } from "../data/labellingData"; 
+import { labelingData, thermalInkjetData,dodPrintingData } from "../data/productData"; 
 import ApplicationScheme from "@/components/ApplicationScheme";
 import BrochureModal from "@/components/BrochureModal";
 
@@ -8,7 +8,7 @@ import { useEffect,useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const LabellingProductDetail = () => {
+const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
@@ -19,7 +19,7 @@ const LabellingProductDetail = () => {
 let currentModel: any = null;
   let parentCategory: any = null;
 
-  const allCategories = [...labellingData, ...thermalInkjetData, ...dodPrintingData];
+  const allCategories = [...labelingData, ...thermalInkjetData, ...dodPrintingData];
 
   // 🔄 SMART PRODUCT SEARCHING MATRIX (TypeScript Red Lines Fixed!)
   if (productId) {
@@ -65,7 +65,7 @@ let currentModel: any = null;
           <h2 className="text-2xl font-bold text-[#0B192C] mb-4 uppercase tracking-wider">
             Product Not Found
           </h2>
-          <Link to="/labelling" className="text-xs font-bold uppercase tracking-widest text-[#F97316] hover:underline">
+          <Link to="/product-range" className="text-xs font-bold uppercase tracking-widest text-[#F97316] hover:underline">
             Back to Products
           </Link>
         </div>
@@ -86,7 +86,7 @@ let currentModel: any = null;
   const safeCategoryId = parentCategory?.id || productId || "";
   const safeCategoryTitle = parentCategory?.title || "Products";
 
-  const backLinkPath = isDirectProduct ? "/labelling" : `/labelling/${safeCategoryId}`;
+  const backLinkPath = isDirectProduct ? "/product-range" : `/product-category/${safeCategoryId}`;
   const backLinkLabel = isDirectProduct ? "Products" : `${safeCategoryTitle} Products`;
 
   return (
@@ -226,7 +226,7 @@ let currentModel: any = null;
         </section>
 
         {/* ORIGINAL FOOTER HELP BANNER SYSTEM */}
-        <section className="mt-20 bg-[#0B192C] text-white p-10 text-center relative overflow-hidden -mx-6 sm:-mx-12 md:mx-0 md:rounded-lg">
+        {/* <section className="mt-20 bg-[#1E1951] text-white p-10 text-center relative overflow-hidden -mx-6 sm:-mx-12 md:mx-0 md:rounded-lg">
           <h3 className="text-xl font-bold uppercase tracking-wider mb-2 relative z-10">Let us help you!</h3>
           <p className="text-gray-300 text-sm mb-6 max-w-xl mx-auto relative z-10">
             Our experts are ready to help you find the most efficient solution for your label application needs.
@@ -234,7 +234,7 @@ let currentModel: any = null;
           <button className="bg-[#0B192C] border-2 border-white text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 transition-all duration-300 hover:bg-[#F97316] hover:border-[#F97316] relative z-10 rounded-sm">
             Contact Us
           </button>
-        </section>
+        </section> */}
 
       </main>
        <BrochureModal 
@@ -248,4 +248,4 @@ let currentModel: any = null;
   );
 };
 
-export default LabellingProductDetail;
+export default ProductDetail;

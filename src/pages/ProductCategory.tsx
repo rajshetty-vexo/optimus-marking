@@ -1,17 +1,17 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 // 1. Teeno datasets sahi se imported hain bro
-import { labellingData, thermalInkjetData, dodPrintingData } from "../data/labellingData"; 
+import { labelingData, thermalInkjetData, dodPrintingData } from "../data/productData"; 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 
-const LabellingCategory = () => {
+const ProductCategory = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const navigate = useNavigate();
 
   // 2. Data arrays ka proper combination
-  const allCategories = [...labellingData, ...thermalInkjetData, ...dodPrintingData];
+  const allCategories = [...labelingData, ...thermalInkjetData, ...dodPrintingData];
   const category = allCategories.find((c) => c.id === categoryId);
 
   // Mobile Dots & Scroll Tracking States
@@ -57,7 +57,7 @@ const LabellingCategory = () => {
       <main className="flex-grow py-16 mt-16 max-w-7xl mx-auto px-6 w-full font-display overflow-hidden">
         {/* Back Button */}
         <button 
-          onClick={() => navigate("/labelling-range")} 
+          onClick={() => navigate("/product-range")} 
           className="text-orange font-semibold hover:underline text-base mb-6 inline-block"
         >
           &larr; Back to Products
@@ -109,7 +109,7 @@ const LabellingCategory = () => {
 
               {/* View Machine Button */}
               <Link 
-                to={`/labelling/product/${machine.id}`}
+                to={`/product/${machine.id}`}
                 className="text-center bg-navy hover:bg-orange text-white font-bold py-3 rounded-md transition duration-200 uppercase text-xs tracking-wider shadow-sm block"
               >
                 View Machine
@@ -177,4 +177,4 @@ const LabellingCategory = () => {
   );
 };
 
-export default LabellingCategory;
+export default ProductCategory;

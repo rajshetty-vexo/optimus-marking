@@ -42,7 +42,8 @@ const Solutions = () => {
   }, [location]);
 
   return (
-    <div className="pt-32 pb-20 bg-gray-50 min-h-screen">
+    <>
+    <div className="pt-32 pb-28 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page Header - Animates up on initial page load */}
@@ -87,7 +88,7 @@ const Solutions = () => {
                 <h3 className="text-3xl font-bold text-[#1E1951]">{item.title}</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">{item.desc}</p>
                 <Link
-                  to="/#contact"
+                  to="/contact"
                   className="inline-block mt-4 text-[#1E1951] border-[2px] border-[#1E1951] hover:bg-[#ED691D] hover:text-white hover:border-[#ED691D] px-4 py-2 rounded-full font-bold uppercase tracking-wide transition-all duration-300"
                 >
                   Get a Quote
@@ -97,8 +98,10 @@ const Solutions = () => {
           ))}
         </div>
       </div>
+      </div>
       <Footer/> 
-    </div>
+      </>
+    
   );
 };
 

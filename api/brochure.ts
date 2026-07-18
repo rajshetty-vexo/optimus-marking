@@ -10,16 +10,13 @@ const trim = (value: unknown) => (typeof value === "string" ? value.trim() : "")
 
 const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Optimus company brochure URL — sent with EVERY product brochure email
-// TODO: Replace with actual Optimus company brochure Google Drive / Cloudinary URL
+// Optimus company brochure URL — sent with EVERY product brochure emailL
 // Format: https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
 // ─────────────────────────────────────────────────────────────────────────────
 const OPTIMUS_COMPANY_BROCHURE_URL = "https://drive.google.com/uc?export=download&id=1c3EsiWdFpvxzs4cE09BE4rHKthuPI-ol";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Optimus logo URL for email header
-// TODO: Replace with actual hosted logo URL (Cloudinary PNG recommended)
 // e.g. https://res.cloudinary.com/rjfewkks/image/upload/Optimus_Logo_without_BG_hkgraw.png
 // ─────────────────────────────────────────────────────────────────────────────
 const OPTIMUS_LOGO_URL = "https://res.cloudinary.com/rjfewkks/image/upload/v1782842101/Optimus_Logo_without_BG_hkgraw.png";
@@ -129,22 +126,6 @@ const buildUserEmailHtml = ({
                 </p>
 
                 <!-- ── Optimus Company Brochure Button ── -->
-                <p style="font-size:13px;font-weight:700;color:#0B192C;margin:0 0 10px 0;text-transform:uppercase;letter-spacing:0.5px;">
-                  Optimus Marking Brochure
-                </p>
-                <table cellpadding="0" cellspacing="0" style="margin:0 0 8px 0;">
-                  <tr>
-                    <td style="background-color:#0B192C;border-radius:4px;">
-                      <a href="${OPTIMUS_COMPANY_BROCHURE_URL}" target="_blank"
-                        style="display:inline-block;padding:13px 28px;color:#ffffff;text-decoration:none;font-weight:bold;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">
-                        ↓ Download Company Brochure
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-                <p style="font-size:12px;color:#999999;margin:0 0 28px 0;">
-                  Explore our full range of coding, marking &amp; labelling solutions.
-                </p>
 
                 <hr style="border:none;border-top:1px solid #eeeeee;margin:24px 0;" />
 
@@ -153,10 +134,10 @@ const buildUserEmailHtml = ({
                   <tr>
                     <td style="font-size:13px;color:#555555;line-height:2;">
                       <strong style="color:#0B192C;">For more enquiries:</strong><br/>
-                      📞 <a href="tel:+917709249499" style="color:#0B192C;text-decoration:none;">+91 77092 49499</a><br/>
+                      📞 <a href="tel:+919503729925" style="color:#0B192C;text-decoration:none;">+91 95037 29925</a><br/>
                       ✉️ <a href="mailto:sales@optimusmarking.com" style="color:#0B192C;text-decoration:none;">sales@optimusmarking.com</a><br/>
                       🌐 <a href="https://optimusmarking.com" style="color:#0B192C;text-decoration:none;">optimusmarking.com</a><br/>
-                      💬 <a href="https://wa.me/917709249499" style="color:#0B192C;text-decoration:none;">WhatsApp: Chat with us</a>
+                      💬 <a href="https://wa.me/919503729925" style="color:#0B192C;text-decoration:none;">WhatsApp: Chat with us</a>
                     </td>
                   </tr>
                 </table>

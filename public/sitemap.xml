@@ -1,8 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- 1. Main Landing / Home Page -->
   <url>
     <loc>https://www.optimusmarking.com/</loc>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
   </url>
+
+  <!-- 2. Product Range Page -->
+  <url>
+    <loc>https://www.optimusmarking.com/product-range</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 3. Consumables Page (TIJ Cartridges) -->
+  <url>
+    <loc>https://www.optimusmarking.com/consumable/tij-cartridges</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 4. Product Category: Print & Apply -->
+  <url>
+    <loc>https://www.optimusmarking.com/product-category/print-apply</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 5. Services Page -->
+  <url>
+    <loc>https://www.optimusmarking.com/services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 6. Solutions Page -->
+  <url>
+    <loc>https://www.optimusmarking.com/solutions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 7. Company / About Us Page -->
+  <url>
+    <loc>https://www.optimusmarking.com/company</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 8. Contact Us Page -->
+  <url>
+    <loc>https://www.optimusmarking.com/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
 </urlset>
