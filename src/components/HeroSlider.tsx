@@ -234,7 +234,7 @@ const HeroSlider = () => {
 
           {/* INDEX 1: TIJ Technology */}
           {current === 1 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[0].tag}
@@ -251,7 +251,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <video src={slides[0].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
@@ -259,7 +259,7 @@ const HeroSlider = () => {
 
           {/* INDEX 2: Laser Coding */}
           {current === 2 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[1].tag}
@@ -276,7 +276,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <img src={slides[1].mediaSrc} alt="Laser Machine" className="w-full h-full object-contain drop-shadow-xl" />
               </div>
             </div>
@@ -284,7 +284,7 @@ const HeroSlider = () => {
 
           {/* INDEX 3: DOD Range */}
           {current === 3 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[2].tag}
@@ -301,7 +301,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <img src={slides[2].mediaSrc} alt="DOD Machine" className="w-full h-full object-contain drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
@@ -309,7 +309,7 @@ const HeroSlider = () => {
           
           {/* INDEX 4: Label Print & Apply */}
           {current === 4 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[3].tag}
@@ -326,7 +326,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <video src={slides[3].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
@@ -334,7 +334,7 @@ const HeroSlider = () => {
 
           {/* INDEX 5: Labelling Solution */}
           {current === 5 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[4].tag}
@@ -351,7 +351,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <video src={slides[4].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
@@ -359,7 +359,7 @@ const HeroSlider = () => {
 
           {/* INDEX 6: Consumables Slide */}
           {current === 6 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[5].tag}
@@ -376,7 +376,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <img src={slides[5].mediaSrc} alt="Consumables Portfolio" className="w-full h-full object-contain drop-shadow-xl rounded-xl" />
               </div>
             </div>
@@ -384,7 +384,7 @@ const HeroSlider = () => {
 
           {/* INDEX 7: CIJ Technology */}
           {current === 7 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
+            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[6].tag}
@@ -401,7 +401,7 @@ const HeroSlider = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
                 <img src={slides[6].mediaSrc} alt="CIJ Machine" className="w-full h-full object-contain drop-shadow-xl" /> 
               </div>
             </div>
@@ -500,12 +500,18 @@ const HeroSlider = () => {
 
         .hs-dots {
           position: absolute;
-          bottom: 24px;
+          bottom: 16px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 30;
           align-items: center;
           gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+        .hs-dots {
+         bottom: 10px;
+          }
         }
 
         .hs-dot {
