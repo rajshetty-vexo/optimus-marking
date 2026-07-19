@@ -40,7 +40,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-    className="relative w-full h-full pt-14 overflow-hidden flex items-center"
+    className="relative w-full h-full pt-20 sm:pt-16 lg:pt-0 overflow-hidden flex items-center"
   >
       {/* Background video */}
       <video
@@ -79,7 +79,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* BADGE: Adjusted PC spacing (lg:mb-6) to match space below heading */}
-            <div className="relative inline-block p-[1px] rounded-md overflow-hidden mt-2 sm:mt-1 mb-4 sm:mb-3 ">
+            <div className="relative inline-block p-[1px] rounded-md overflow-hidden mt-0 sm:mt-1 mb-4 sm:mb-3 ">
               <motion.div
                 className="absolute inset-0"
                 animate={{ backgroundPosition: ["0% 50%", "200% 50%"] }}
