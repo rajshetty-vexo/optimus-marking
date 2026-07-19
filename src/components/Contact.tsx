@@ -116,27 +116,44 @@ const Contact = () => {
         ...(token && { recaptchaToken: token }),
       };
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "da99bc0e-0db3-4be9-b006-2580556da87a",
-          ...payload,
-          subject: `New Enquiry from ${sanitizedData.name} (${sanitizedData.company})`,
-          from_name: "Optimus Marking Website",
-        }),
-      });
+      // 🚀 METHOD 1: CUSTOM RESEND BACKEND API
+       const response = await fetch("/api/contact", { 
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
 
-      const result = await response.json();
-      if (result.success) {
+        const result = await response.json();
+        if (response.ok && result.success) {
         setSubmitMessage("Thank you! Your enquiry has been sent successfully.");
         setFormData({ name: "", company: "", email: "", message: "", website: "" });
-        
-        // Success par rate limit counter set karo
         localStorage.setItem("form_last_submission", Date.now().toString());
-      } else {
-        setSubmitError(result.message || "Something went wrong. Please try again.");
-      }
+        } else {
+        setSubmitError(result.message || "Something went wrong. Please try again.");}
+
+
+      // This code is Commented for future Works web3forms code
+
+      // const response = await fetch("https://api.web3forms.com/submit", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     access_key: "da99bc0e-0db3-4be9-b006-2580556da87a",
+      //     ...payload,
+      //     subject: `New Enquiry from ${sanitizedData.name} (${sanitizedData.company})`,
+      //     from_name: "Optimus Marking Website",
+      //   }),
+      // });
+
+      // const result = await response.json();
+      // if (result.success) {
+      //   setSubmitMessage("Thank you! Your enquiry has been sent successfully.");
+      //   setFormData({ name: "", company: "", email: "", message: "", website: "" });
+       
+      //   localStorage.setItem("form_last_submission", Date.now().toString());
+      // } else {
+      //   setSubmitError(result.message || "Something went wrong. Please try again.");
+      // }
     } catch (error) {
       setSubmitError("Failed to connect to the server. Please check your internet connection.");
     } finally {
