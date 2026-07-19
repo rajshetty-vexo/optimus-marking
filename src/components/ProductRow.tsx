@@ -14,16 +14,27 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Tracks horizontal scroll progression on mobile devices to update indicators
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft } = scrollRef.current;
-    
-    // Calculated by card layout width (285) + inline gap layout (24)
-    const index = Math.round(scrollLeft / (285 + 24)); 
-    if (index >= 0 && index < products.length) {
-      setCurrentActiveIndex(index);
-    }
-  };
+ const handleScroll = () => {
+  if (!scrollRef.current) return;
+  const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+  
+  // 1. Check if user reached the exact end of horizontal scrolling (For Tabs/iPads)
+  const isAtEnd = Math.abs(scrollWidth - clientWidth - scrollLeft) < 5;
+  
+  if (isAtEnd) {
+    setCurrentActiveIndex(products.length - 1);
+    return;
+  }
+
+  // 2. Standard Responsive calculation based on card width + gap
+  const cardWidth = scrollRef.current.firstElementChild?.getBoundingClientRect().width || 285;
+  const gap = 24; 
+  
+  const index = Math.round(scrollLeft / (cardWidth + gap));
+  if (index >= 0 && index < products.length) {
+    setCurrentActiveIndex(index);
+  }
+};
 
   return (
     <div className="w-full mb-24 last:mb-0">
@@ -140,8 +151,9 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
       </div>
 
       {/* Mobile-Only Dynamic Scroll Assistant Display */}
-<div className="flex flex-col items-center justify-center mt-2 xl:hidden">
-        <AnimatePresence>
+        <div className="flex flex-col items-center justify-center mt-2 xl:hidden min-h-[40px]">
+        <div className="h-5 flex items-center justify-center w-full">
+        <AnimatePresence mode="wait">
           {currentActiveIndex < products.length - 1 && (
             <motion.div 
               initial={{ opacity: 0, y: -5 }}
@@ -168,9 +180,9 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
             </motion.div>
           )}
         </AnimatePresence>
-        
+        </div> 
         {/* Isolated Dot Matrix Tracking Navigation */}
-        <div className="flex gap-2.5 mt-3 items-center h-2">
+        <div className="flex gap-2.5 mt-4 items-center h-2">
           {products.map((_, i) => {
             const isSelected = i === currentActiveIndex;
             return (

@@ -359,39 +359,40 @@ const Services = () => {
           .hex-content { width: 76%; }
         }
 @media (max-width: 1025px) {
-          .services-section {
-            padding: 60px 24px !important;
-          }
-          .services-layout {
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: flex-start !important; 
-            gap: 24px !important; 
-          }
-          .services-text {
-            text-align: center;
-            width: 100%;
-            max-width: 700px;
-          }
-          .pan-india-badge {
-            justify-content: center;
-            margin-top: 16px;
-          }
-          .hex-flower {
-            margin-top: 0px !important;
-            transform: scale(0.95);
-            transform-origin: top center;
-          }
+  .services-section {
+    padding: 60px 24px;
+  }
+  .services-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .services-text {
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+  }
+  .pan-india-badge {
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .hex-flower {
+    margin-top: 0;
+    transform: none;
+  }
+}
 
-          /* 🎯 SPECIFIC FIX FOR IPAD & TABLETS  */
-          @media (min-width: 681px) {
-            .services-layout {
-              gap: 10px !important; 
-            }
-            .hex-flower {
-              margin-top: -90px !important; 
-            }
-          }
+/* iPad Mini specific */
+@media (min-width: 681px) and (max-width: 900px) {
+  .hex-wrapper { width: 160px; height: 185px; }
+  .hex-row { gap: 12px; }
+  .hex-row-mid { gap: 22px !important; }
+  .hex-row-top { margin-bottom: -14px; }
+  .hex-row-bot { margin-top: -14px; }
+  .service-title { font-size: 9px; }
+  .service-desc { font-size: 8px; }
+  .service-icon { width: 20px; height: 20px; }
+}
         }
 
 
