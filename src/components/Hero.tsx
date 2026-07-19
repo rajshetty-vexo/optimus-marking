@@ -40,7 +40,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-    className="relative w-full h-full pt-20 sm:pt-16 lg:pt-0 overflow-hidden flex items-center"
+    className="relative w-full h-full pt-20 sm:pt-20 lg:pt-24 overflow-hidden flex items-center"
   >
       {/* Background video */}
       <video
@@ -70,7 +70,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-0 sm:pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-0 ">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-w-0">
           <motion.div
             className="min-w-0"
