@@ -125,9 +125,9 @@ const Navbar = () => {
   transition-all duration-200 ease-out z-50 flex flex-col">
   {item.dropdown.map((sub) => (
     <button key={sub.label} onClick={() => go(sub.href, sub.hashId)}
-      className="w-full text-left px-5 py-2.5 text-[13px] font-semibold text-[#1E1951]/75
+      className="w-full text-center px-5 py-2.5 text-[13px] font-semibold text-[#1E1951]/75
         hover:text-orange hover:bg-orange/5 transition-colors duration-150
-        bg-transparent border-none outline-none cursor-pointer text-center">
+        bg-transparent border-none outline-none cursor-pointer">
       {sub.label}
     </button>
   ))}

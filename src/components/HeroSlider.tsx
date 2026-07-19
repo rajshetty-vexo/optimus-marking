@@ -234,7 +234,7 @@ const HeroSlider = () => {
 
           {/* INDEX 1: TIJ Technology */}
           {current === 1 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[0].tag}
@@ -259,7 +259,7 @@ const HeroSlider = () => {
 
           {/* INDEX 2: Laser Coding */}
           {current === 2 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[1].tag}
@@ -284,7 +284,7 @@ const HeroSlider = () => {
 
           {/* INDEX 3: DOD Range */}
           {current === 3 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[2].tag}
@@ -309,7 +309,7 @@ const HeroSlider = () => {
           
           {/* INDEX 4: Label Print & Apply */}
           {current === 4 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[3].tag}
@@ -334,7 +334,7 @@ const HeroSlider = () => {
 
           {/* INDEX 5: Labelling Solution */}
           {current === 5 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[4].tag}
@@ -359,7 +359,7 @@ const HeroSlider = () => {
 
           {/* INDEX 6: Consumables Slide */}
           {current === 6 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[5].tag}
@@ -384,7 +384,7 @@ const HeroSlider = () => {
 
           {/* INDEX 7: CIJ Technology */}
           {current === 7 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-16 pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none">
+            <div className="w-full h-full grid lg:grid-cols-2 items-center bg-white pt-20 pb-16 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-6 select-none overflow-hidden">
               <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
                 <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
                   {slides[6].tag}
