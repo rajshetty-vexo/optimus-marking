@@ -38,13 +38,24 @@ const ProductCategory = () => {
   const machinesList = category.machines || [];
   const totalMachines = machinesList.length;
 
-  // Mobile Scroll Monitor to calculate current visible card index
+// Mobile Scroll Monitor with exact layout alignment logic
   const handleScroll = () => {
     if (!scrollRef.current) return;
-    const { scrollLeft } = scrollRef.current;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
     
-    // Card width (290) + Gap (24) = 314
-    const index = Math.round(scrollLeft / (290 + 24));
+    // 1. Check if user reached the exact end of horizontal scrolling layout flow
+    const isAtEnd = Math.abs(scrollWidth - clientWidth - scrollLeft) < 5;
+    
+    if (isAtEnd) {
+      setCurrentActiveIndex(totalMachines - 1);
+      return;
+    }
+
+    // 2. Standard Responsive calculation based on custom dynamic container width
+    const cardWidth = scrollRef.current.firstElementChild?.getBoundingClientRect().width || 290;
+    const gap = 24; 
+    
+    const index = Math.round(scrollLeft / (cardWidth + gap));
     if (index >= 0 && index < totalMachines) {
       setCurrentActiveIndex(index);
     }
@@ -73,7 +84,7 @@ const ProductCategory = () => {
         {/* Section Heading */}
         <h2 className="text-2xl font-bold text-navy uppercase tracking-wider mb-8">Machines Portfolio</h2>
         
-        {/* Mobile: Standard Square Card Horizontal Scroll | Desktop: Clean 3-Column Grid Layout */}
+       {/* Mobile: Standard Square Card Horizontal Scroll | Desktop: Clean 3-Column Grid Layout */}
         <div 
           ref={scrollRef}
           onScroll={handleScroll}
@@ -85,69 +96,74 @@ const ProductCategory = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-card border border-border rounded-xl p-6 flex flex-col justify-between hover:border-orange/50 transition-all duration-300 shadow-sm hover:shadow-hex group shrink-0 w-[290px] sm:w-[320px] md:w-full snap-center"
+              className="bg-card border border-border rounded-xl flex flex-col justify-between hover:border-orange/50 transition-all duration-300 shadow-sm hover:shadow-hex group shrink-0 w-[290px] sm:w-[320px] md:w-full snap-center overflow-hidden"
             >
-              <div>
-                {/* Image Viewer Box */}
-                <div className="w-full h-52 sm:h-56 bg-white border border-border/60 rounded-lg flex items-center justify-center p-2 mb-6 overflow-hidden transition-all duration-300 group-hover:border-orange/20 relative">
-                  <img 
-                    src={machine.image} 
-                    alt={machine.name} 
-                    className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out mix-blend-multiply"
+              {/* 🚀 POORA CARD LINK wrapper component ban gaya hai */}
+              <Link 
+                to={`/product/${machine.id}`}
+                className="p-6 flex flex-col justify-between h-full w-full text-left cursor-pointer"
+              >
+                <div>
+                  {/* Image Viewer Box - Clickable Area */}
+                  <div className="w-full h-52 sm:h-56 bg-white border border-border/60 rounded-lg flex items-center justify-center p-2 mb-6 overflow-hidden transition-all duration-300 group-hover:border-orange/20 relative">
+                    <img 
+                      src={machine.image} 
+                      alt={machine.name} 
+                      className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out mix-blend-multiply"
+                    />
+                  </div>
+
+                  {/* Machine Name */}
+                  <h3 className="text-xl font-bold text-foreground mb-3">{machine.name}</h3>
+
+                  {/* Description content with HTML parser */}
+                  <p 
+                    className="text-muted-foreground text-sm line-clamp-3 mb-6 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: machine.description }}
                   />
                 </div>
 
-                {/* Machine Name */}
-                <h3 className="text-xl font-bold text-foreground mb-3">{machine.name}</h3>
-
-                {/* Description content with HTML parser */}
-                <p 
-                  className="text-muted-foreground text-sm line-clamp-3 mb-6 leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: machine.description }}
-                />
-              </div>
-
-              {/* View Machine Button */}
-              <Link 
-                to={`/product/${machine.id}`}
-                className="text-center bg-navy hover:bg-orange text-white font-bold py-3 rounded-md transition duration-200 uppercase text-xs tracking-wider shadow-sm block"
-              >
-                View Machine
+                {/* Steady View Button Style */}
+                <div className="text-center bg-navy group-hover:bg-orange text-white font-bold py-3 rounded-md transition duration-200 uppercase text-xs tracking-wider shadow-sm block w-full mt-auto">
+                  View Machine
+                </div>
               </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* Mobile Only: Smart Dynamic Indicators (Only renders if there is more than 1 item) */}
+     {/* Mobile Only: Smart Dynamic Indicators (Only renders if there is MORE than 1 item) */}
         {totalMachines > 1 && (
-          <div className="flex flex-col items-center justify-center mt-4 md:hidden">
-            <AnimatePresence>
-              {currentActiveIndex < totalMachines - 1 && (
-                <motion.div 
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  className="text-xs text-muted-foreground/70 flex items-center gap-1.5 font-medium"
-                >
-                  <span>Swipe left to view more</span>
-                  <motion.svg 
-                    animate={{ x: [0, 6, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="14" 
-                    height="14" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2.5" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
+          <div className="flex flex-col items-center justify-center mt-4 md:hidden min-h-[40px]">
+            <div className="h-5 flex items-center justify-center w-full">
+              <AnimatePresence mode="wait">
+                {currentActiveIndex < totalMachines - 1 && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    className="text-xs text-muted-foreground/70 flex items-center gap-1.5 font-medium"
                   >
-                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                  </motion.svg>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    <span>Swipe left to view more</span>
+                    <motion.svg 
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="14" 
+                      height="14" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2.5" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </motion.svg>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             
             {/* Real Dynamic Sliding Dots Tracking Container */}
             <div className="flex gap-2.5 mt-3 items-center h-2">
@@ -169,7 +185,6 @@ const ProductCategory = () => {
             </div>
           </div>
         )}
-
       </main>
 
       <Footer />

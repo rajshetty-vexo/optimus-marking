@@ -57,6 +57,9 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
       >
         {products.map((cat, index) => {
           const isHovered = activeCard === cat.id;
+          const targetLink = cat.machines && cat.machines.length > 0
+          ? `/product-category/${cat.id}`             
+          : `/product/${cat.id}`;
           
           return (
             <motion.div
@@ -68,7 +71,7 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
               // Event Handling Core Controllers
               onMouseEnter={() => setActiveCard(cat.id)}
               onMouseLeave={() => setActiveCard(null)}
-              onTouchStart={() => setActiveCard(activeCard === cat.id ? null : cat.id)}
+              // onTouchStart={() => setActiveCard(activeCard === cat.id ? null : cat.id)}
               className={`relative w-[285px] h-[310px] sm:w-[310px] sm:h-[330px] lg:w-[260px] lg:h-[280px] xl:w-[290px] xl:h-[320px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)] shrink-0 snap-center ${
                 isHovered ? "drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" : ""
               }`}
@@ -82,7 +85,8 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
               />
 
               {/* Layer 2: Main Dynamic Product Card Container */}
-              <div
+              <Link
+              to={targetLink}
                 className="absolute inset-[0.7px] bg-white flex flex-col justify-between items-center p-6 text-center transition-all duration-500"
                 style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
               >
@@ -104,49 +108,30 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
                   />
                 </div>
 
-                {/* Hexagon Base CTA Footer Section: Brand Logo & Interactive Button Layer */}
-                <div className="w-full mb-6 h-[38px] relative flex justify-center items-center px-4 overflow-hidden">
-                  
-                {/* Default State View: Dynamic Section Identity Logo */}
-                <div 
-            className={`absolute inset-0 flex justify-center items-center transition-all duration-500 ease-in-out ${
-             isHovered ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}>
-            {cat.logo && (
-             <img 
-             src={cat.logo} 
-             alt="Brand Logo" 
-    
-            className={`w-auto object-contain transition-all duration-300 ${
-            title.toLowerCase().includes("thermal") || title.toLowerCase().includes("tij") || title.toLowerCase().includes("dod")
-            ? "h-11 sm:h-12 max-w-[85%]" 
-            : "h-7"
-             }`} 
-              />
-              )}
-              </div>
+             {/* Hexagon Base CTA Footer Section */}
+      <div className="w-full mb-6 h-[38px] relative flex justify-center items-center px-4 overflow-hidden">
+        
+        {/* Default State: Brand Logo */}
+        <div className={`absolute inset-0 flex justify-center items-center transition-all duration-500 ease-in-out ${isHovered ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}>
+          {cat.logo && (
+            <img 
+              src={cat.logo} 
+              alt="Brand Logo" 
+              className={`w-auto object-contain transition-all duration-300 ${title.toLowerCase().includes("thermal") || title.toLowerCase().includes("tij") || title.toLowerCase().includes("dod") ? "h-11 sm:h-12 max-w-[85%]" : "h-7"}`} 
+            />
+          )}
+        </div>
 
-                  {/* Hover/Focus Active State View: Action Redirect Link Button */}
-                  <div 
-                    className={`absolute inset-0 w-full flex justify-center items-center transition-all duration-500 ease-in-out ${
-                      isHovered ? "opacity-100 translate-y-0 z-10" : "opacity-0 translate-y-4 pointer-events-none"
-                    }`}
-                  >
-                    {/* 🔄 DYNAMIC REDIRECTING LINK */}
-                  <Link
-                    to={
-                   cat.machines && cat.machines.length > 0
-                     ? `/product-category/${cat.id}`             
-                       : `/product/${cat.id}`      
-                      }
-                   className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm bg-[#F97316]">
-                  Discover More
-                    </Link>
-                  </div>
+        <div className={`absolute inset-0 w-full flex justify-center items-center transition-all duration-500 ease-in-out ${isHovered ? "opacity-100 translate-y-0 z-10" : "opacity-0 translate-y-4 pointer-events-none"}`}>
+          <div className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm bg-[#F97316] shadow-sm">
+            Discover More
+          </div>
+        </div>
 
-                </div>
-              </div>
-            </motion.div>
-          );
+      </div>
+    </Link> 
+  </motion.div>
+);
         })}
       </div>
 

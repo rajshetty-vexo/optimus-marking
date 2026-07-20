@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import mahindraLogo from "../assets/clients-logo/mahindra.png";
-import videoconLogo from "../assets/clients-logo/videocon.png";
+// import videoconLogo from "../assets/clients-logo/videocon.png";
 import pipeLogo from "../assets/clients-logo/pipe_logo.png";
 import firstcryLogo from "../assets/clients-logo/firstcry.png";
 import mercedesLogo from "../assets/clients-logo/mercedes-benz.png";
@@ -26,7 +26,7 @@ import swarovskiLogo from "../assets/clients-logo/swarovski.png";
 
 const rowOne = [
   { name: "Mahindra", logo: mahindraLogo },
-  { name: "Videocon d2h", logo: videoconLogo, xl: true },
+  // { name: "Videocon d2h", logo: videoconLogo, xl: true },
   { name: "Future Pipe Industries", logo: pipeLogo },
   { name: "FirstCry", logo: firstcryLogo },
   { name: "Mercedes-Benz", logo: mercedesLogo, xl: true },

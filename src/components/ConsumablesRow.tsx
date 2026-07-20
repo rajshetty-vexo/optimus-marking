@@ -20,17 +20,27 @@ const ConsumablesRow = ({ title, products }: ConsumablesRowProps) => {
   const [currentActiveIndex, setCurrentActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Handles horizontal swipe indicators on mobile devices
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft } = scrollRef.current;
-    
-    // Exactly matches your 285px card width + 24px gap math
-    const index = Math.round(scrollLeft / (285 + 24)); 
-    if (index >= 0 && index < products.length) {
-      setCurrentActiveIndex(index);
-    }
-  };
+const handleScroll = () => {
+  if (!scrollRef.current) return;
+  const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+  
+  // 1. Check if user reached the exact end of horizontal scrolling
+  const isAtEnd = Math.abs(scrollWidth - clientWidth - scrollLeft) < 5;
+  
+  if (isAtEnd) {
+    setCurrentActiveIndex(products.length - 1);
+    return;
+  }
+
+  // 2. Standard Responsive calculation based on dynamic card width
+  const cardWidth = scrollRef.current.firstElementChild?.getBoundingClientRect().width || 285;
+  const gap = 24; 
+  
+  const index = Math.round(scrollLeft / (cardWidth + gap));
+  if (index >= 0 && index < products.length) {
+    setCurrentActiveIndex(index);
+  }
+};
 
   return (
     <div className="w-full mb-24 last:mb-0">
@@ -63,8 +73,7 @@ const ConsumablesRow = ({ title, products }: ConsumablesRowProps) => {
               
               onMouseEnter={() => setActiveCard(cat.id)}
               onMouseLeave={() => setActiveCard(null)}
-              onTouchStart={() => setActiveCard(activeCard === cat.id ? null : cat.id)}
-              /* 🛠️ ULTRA FIX: Changed xl:w-[240px] to xl:w-[290px] and xl:h-[320px] to match your ProductRow perfectly */
+              // onTouchStart={() => setActiveCard(activeCard === cat.id ? null : cat.id)}
               className={`relative w-[285px] h-[310px] sm:w-[310px] sm:h-[330px] lg:w-[260px] lg:h-[280px] xl:w-[290px] xl:h-[320px] group transition-all duration-500 ease-in-out filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)] shrink-0 snap-center ${
                 isHovered ? "drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" : ""
               }`}
@@ -78,7 +87,8 @@ const ConsumablesRow = ({ title, products }: ConsumablesRowProps) => {
               />
 
               {/* Layer 2: Inner Card Content */}
-              <div
+              <Link
+              to={`/consumable/${cat.id}`}
                 className="absolute inset-[0.7px] bg-white flex flex-col justify-between items-center p-6 text-center transition-all duration-500"
                 style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
               >
@@ -99,30 +109,24 @@ const ConsumablesRow = ({ title, products }: ConsumablesRowProps) => {
                     }`}
                   />
                 </div>
+{/* Hexagon Base CTA Footer - STEADY VERSION */}
+      <div className="w-full mb-6 h-[38px] flex justify-center items-center px-4 overflow-hidden">
+        
+        <div className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm bg-[#F97316] shadow-sm transition-transform duration-300 group-hover:scale-105">
+          Discover More
+        </div>
 
-                {/* Hexagon Base CTA Footer */}
-                <div className="w-full mb-6 h-[38px] relative flex justify-center items-center px-4 overflow-hidden">
-                  
-                  {/* Hover State: Consumables Special Link Route */}
-                 <div className="absolute inset-0 w-full flex justify-center items-center z-10">
-                    <Link
-                      to={`/consumable/${cat.id}`}
-                      className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm bg-[#F97316]"
-                    >
-                      Discover More
-                    </Link>
-                  </div>
-
-                </div>
-              </div>
-            </motion.div>
-          );
+      </div>
+    </Link> 
+  </motion.div>
+);
         })}
       </div>
 
       {/* Mobile-Only Dynamic Assistant Scroll */}
-      <div className="flex flex-col items-center justify-center mt-2 xl:hidden">
-        <AnimatePresence>
+      <div className="flex flex-col items-center justify-center mt-2 xl:hidden min-h-[40px]">
+        <div className="h-5 flex items-center justify-center w-full">
+        <AnimatePresence mode="wait">
           {currentActiveIndex < products.length - 1 && (
             <motion.div 
               initial={{ opacity: 0, y: -5 }}
@@ -142,7 +146,7 @@ const ConsumablesRow = ({ title, products }: ConsumablesRowProps) => {
             </motion.div>
           )}
         </AnimatePresence>
-        
+        </div>
         {/* Dot Matrix Tracking */}
         <div className="flex gap-2.5 mt-3 items-center h-2">
           {products.map((_, i) => {

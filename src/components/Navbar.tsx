@@ -56,21 +56,34 @@ const Navbar = () => {
     setMobileOpen(false);
     setAccordion(null);
   }, [location.pathname]);
-
-  // ── Navigation handler ───────────────────────────────────────────────────
+// ── Navigation handler ───────────────────────────────────────────────────
   const go = (href: string, hashId?: string) => {
+    // 1. Pehle drawer aur accordion states clear karo
     setMobileOpen(false);
     setAccordion(null);
 
-    const samePage = location.pathname === href || (href === "/" && location.pathname === "/");
+    const normalizedPath = location.pathname.replace(/\/$/, "");
+    const normalizedHref = href.replace(/\/$/, "");
+    const samePage = normalizedPath === normalizedHref || (href === "/" && normalizedPath === "");
 
     if (hashId) {
       if (samePage) {
-        document.getElementById(hashId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        // 🚀 SMART FIX: Mobile menu ke animation collapse (280ms) hone ka wait karo
+        // Isse browser ko naya dimensions calculate karne ka time mil jata hai
+        setTimeout(() => {
+          const element = document.getElementById(hashId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 300); // 300ms delay perfectly aligns with framer-motion close duration
       } else {
+        // Dusre page se aa rahe ho toh pehle navigate karo
         navigate(href);
         setTimeout(() => {
-          document.getElementById(hashId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          const element = document.getElementById(hashId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         }, 350);
       }
     } else {
