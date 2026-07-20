@@ -80,20 +80,20 @@ export const consumablesData: ConsumableItem[] = [
     ]
   },
   { 
-    id: "laser printer consumables", 
+    id: "laser-consumables", 
     title: "Laser Printer Consumables", 
     image: LaserPrinter, 
-    slug: "laser-source",
+    slug: "laser-consumables",
     variants: [
       {
-        title: "Laser Source Modules & Filters",
+        title: "Inventory Update: Coming Soon!",
         image: "/assets/laser-source-detail.png",
-        description: "Industrial atmospheric protection sets and high-performance beam tubes.",
-        colors: "N/A (Non-Ink Laser Technology)",
-        chemicalBase: "CO2 Gas & Fiber Wavefront structures",
-        colorant: "Thermal Surface Etching",
-        application: "Permanent marks on glass, PET, cardboard, and industrial metals.",
-        suitableWith: "Optimus Laser Marking Series"
+        description: "We are currently expanding our laser consumable catalog. Premium industrial solutions will be listed here shortly.",
+        // colors: "N/A (Non-Ink Laser Technology)",
+        // chemicalBase: "CO2 Gas & Fiber Wavefront structures",
+        // colorant: "Thermal Surface Etching",
+        // application: "Permanent marks on glass, PET, cardboard, and industrial metals.",
+        // suitableWith: "Stay tuned for launch details."
       }
     ]
   },

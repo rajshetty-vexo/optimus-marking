@@ -41,10 +41,9 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
       {/* Row / Section Title Setup */}
       <div className="w-full mb-12 px-6 pl-8 md:px-4">
         <div className="text-left">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#1E1951] uppercase tracking-wide">
+          <h2 className="text-base sm:text-lg font-bold text-[#1E1951] uppercase tracking-wider bg-slate-50 px-4 py-2 rounded-xl inline-block border-l-4 border-[#F97316]">
             {title}
           </h2>
-          <div className="w-20 h-1 bg-orange mt-3"></div>
         </div>
       </div>
 

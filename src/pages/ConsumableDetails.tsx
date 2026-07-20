@@ -14,7 +14,22 @@ const ConsumableDetails = () => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [slug]);
 
+ // ── 📌 LAYER 1.5: MINIMAL COMING SOON OR NOT FOUND INTERCEPTOR ──
   if (!currentCategory) {
+    // If the category is the laser route, show "Coming Soon" instead of "Not Found"
+    if (slug === "laser-source" || slug === "laser-consumables") {
+      return (
+        <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
+          <h2 className="text-xl font-bold text-[#1E1951] uppercase tracking-wide">Coming Soon</h2>
+          <p className="text-gray-500 text-sm mt-1 max-w-xs text-center">Laser printer products will be available shortly.</p>
+          <button onClick={() => navigate(-1)} className="mt-6 px-4 py-2 bg-[#F97316] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all">
+            Go Back
+          </button>
+        </div>
+      );
+    }
+
+    // Default error fallback for completely invalid URLs
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
         <h2 className="text-xl font-bold text-gray-700">Category Not Found</h2>
