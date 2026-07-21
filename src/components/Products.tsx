@@ -181,7 +181,7 @@ const Products = () => {
             Coding, Marking & Labeling Technologies
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm">
-            We offer comprehensive industrial Printing, Marking and Labelling solutions to meet every
+            We offer comprehensive industrial Coding, Marking and Labelling solutions to meet every
             manufacturing need, from high-speed production lines to specialty applications.
           </p>
         </motion.div>
@@ -224,7 +224,7 @@ const Products = () => {
                 setActiveCard={setActiveCard}
               />
             ))}
-            {/* Loop 2 — clone for seamless infinite scroll */}
+            {/* Loop 2 — clone for seamless infinite scroll*/}
             {allProducts.map((cat) => (
               <HexCard
                 key={`${cat.id}-loop2`}

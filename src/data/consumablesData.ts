@@ -2,10 +2,11 @@ import ConsumableMakro from "/src/assets/Consumables/Consumable Makro.jpg"
 import TIJCartridges from "/src/assets/Consumables/TIJ Cartridges.jpg"
 import LaserPrinter from "/src/assets/Consumables/Laser Printer.png"
 import LabelsRibbons from "/src/assets/Consumables/Labels and Ribbons.png"
-import TIJ42ML from "/src/assets/Consumables/TIJ 42ML.png"
-import TIJ400ML from "/src/assets/Consumables/TIJ 400ML.jpg"
+import TIJ400ML from "/src/assets/Consumables/TIJ 400ML.png"
 import TIJ60ML from "/src/assets/Consumables/TIJ 60ML.jpg"
-import TIJ775ML from "/src/assets/Consumables/TIJ 775ML.png"
+import TIJ775ML from "/src/assets/Consumables/TIJ 775ML.jpg"
+import LabelRange from "/src/assets/Consumables/Label Range.jpg"
+import TTR_TTO from "/src/assets/Consumables/TTR and TTO.jpg"
 export interface ProductVariant {
   title: string;
   image: string; 
@@ -124,33 +125,33 @@ export const consumablesData: ConsumableItem[] = [
     variants: [
       {
         title: "Premium Shipping & Barcode Labels",
-        image: "/assets/label-range-1.png",
+        image: LabelRange,
         description: "High-grade semi-gloss and direct thermal labels with advanced adhesive matrix.",
         colors: "White, Custom Pre-printed borders",
         chemicalBase: "Paper & Synthetic (PP/PE)",
-        application: "Pallet tracking, outer box shipment labeling, product identification.",
+        application: "Product to pallete complete label range",
         suitableWith: "IMA Label Print & Apply stations",
         section: "Label Range", 
         subSection: ""
       },
       {
         title: " Flat Edge TTR Ribbon",
-        image: "/assets/ribbon-ttr.png",
+        image: TTR_TTO,
         description: "Excellent print quality for flat-head industrial printers with smudge resistance.",
-        colors: "Black",
-        chemicalBase: "Wax-Resin Compound",
-        application: "Standard box barcode printing, high-speed automated packaging lines.",
+        colors: "Black,other color available on demand",
+        chemicalBase: "Wax,Wax-Resin,Resin Compound",
+        application: "Standard and high speed label printing.",
         suitableWith: "Flat Edge TTR Printers (Label Print and Apply)",
         section: "Ribbon Range ", // ✅ Sub-category heading
         subSection: "TTR Ribbons"
       },
       {
         title: "Near-Edge TTO Ribbon",
-        image: "/assets/ribbon-tto.png",
-        description: "Specialized high-performance thermal ribbon for near-edge flexible packaging systems.",
-        colors: "Black, White, Metallic Silver",
-        chemicalBase: "Pure Resin / High-End Wax-Resin",
-        application: "Expiry date, batch codes on flexible pouches, continuous flow wrappers.",
+        image: TTR_TTO,
+        description: "Specialized high-performance thermal ribbons for near-edge TTO Ribbons systems.",
+        colors: "Black,other color available on demand",
+        chemicalBase: "Wax,Wax-Resin,Resin ",
+        application: "Standard and high speed label printing.",
         suitableWith: "Near Edge TTO Printers",
         section: "", // ✅ Sub-category heading
         subSection: "TTO Ribbons"

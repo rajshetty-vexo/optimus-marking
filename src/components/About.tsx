@@ -25,7 +25,7 @@ const About = () => {
 // ── 1. iAIDC Text Link ──
   const IAidcText = () => (
     <motion.a 
-      href="https://www.iaidc.com" 
+      href="https://iaidctech.com/" 
       target="_blank" 
       rel="noopener noreferrer"
       className="inline font-bold group cursor-pointer whitespace-nowrap mr-1.4" 

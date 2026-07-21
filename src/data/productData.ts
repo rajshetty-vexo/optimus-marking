@@ -290,7 +290,7 @@ export const thermalInkjetData: ProductCategory[] = [
   },
   {
     id: "tij-25-bulk",
-    title: "Thermal Inkjet-2.5 bulk",
+    title: "Thermal Inkjet-2.5 bulk Half-inch",
     subtitle: "BULK INK SUPPLY SOLUTIONS",
     description: "Ideal for high-volume production lines requiring continuous printing with lower running costs.",
     image: TIJPleyon,
@@ -342,7 +342,7 @@ export const thermalInkjetData: ProductCategory[] = [
   },
   {
     id: "tij-40",
-    title: "Thermal Inkjet 4.0",
+    title: "Thermal Inkjet 4.0 22MM,108MM",
     subtitle: "NEXT GENERATION TIJ TECHNOLOGY",
     description: "Cutting-edge Thermal Inkjet 4.0 technology providing unmatched speed, connectivity, and performance.",
     image: KeryonandDyplon,
