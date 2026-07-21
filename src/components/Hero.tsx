@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight} from "lucide-react";
+import { Link } from "react-router-dom";
 import Counter from "./ui/Counter";
 import optimusLogo from "@/assets/optimus-logo.svg";
 
@@ -124,21 +125,21 @@ const Hero = () => {
             </p>
 
             <div className="mt-4 sm:mt-8 flex flex-wrap gap-4">
-              <a
-                href="#products"
+              <Link
+                to="/product-range"
                 className="group relative overflow-hidden inline-flex items-center gap-2 text-accent-foreground px-7 py-3.5 font-display font-semibold tracking-wide text-sm uppercase transition-transform duration-300 rounded-3xl hover:scale-105"
               >
                 <span className="absolute inset-0 bg-orange z-0" />
                 <span className="absolute inset-0 z-0 translate-x-[-100%] bg-gradient-to-r from-orange-500 via-[rgb(252,120,59)] to-orange-600 transition-transform duration-700 group-hover:translate-x-0" />
                 <span className="relative z-10">Explore Products</span>
                 <ArrowRight className="relative z-10 w-4 h-4 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110 group-hover:text-bold" />
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 border-2 border-[#1E1951] hover:border-orange text-[#1E1951] hover:text-orange px-7 py-3.5 font-display font-semibold tracking-wide text-sm uppercase rounded-3xl hover:scale-110 transition-all duration-300"
               >
                 Get a Quote
-              </a>
+              </Link>
             </div>
 
             <motion.div

@@ -13,11 +13,18 @@ import speedmatepro from "/src/assets/Products Models/speedmate pro.jpg"
 import SLAMlabelling from "/src/assets/Products Models/SLAM labelling.jpg"
 import TIJM5 from "/src/assets/Products Models/TIJ M5.jpeg"
 import TIJM9 from "/src/assets/Products Models/TIJ M9.png"
+import TIJM9V from "/src/assets/Products Models/TIJ M9V.png"
+import TIJM9V1 from "/src/assets/Products Models/TIJ M9V1.png"
 import M5andM9 from "/src/assets/Products Models/M5&M9.png"
 import TIJPleyon from "/src/assets/Products Models/TIJ Pleyon.png"
+import TIJPleyonV from "/src/assets/Products Models/TIJ PleyonV.png"
+import TIJPleyonV1 from "/src/assets/Products Models/TIJ PleyonV1.png"
+import TIJPleyonV2 from "/src/assets/Products Models/TIJ PleyonV2.png"
 import TIJM7 from "/src/assets/Products Models/TIJ M7.png"
+import TIJM7V from "/src/assets/Products Models/TIJ M7V.png"
 import TIJKeryon from "/src/assets/Products Models/TIJ Keryon.png"
 import TIJDyplon from "/src/assets/Products Models/TIJ Dyplon.png"
+import TIJDyplonV from "/src/assets/Products Models/TIJ DyplonV.png"
 import KeryonandDyplon from "/src/assets/Products Models/Keryon&Dyplon.png"
 import DKMinimobile from "/src/assets/Products Models/TIJ Dk Minimobile.jpg"
 import Maximinimobile from "/src/assets/Products Models/TIJ Maximinimobile.jpg"
@@ -291,10 +298,7 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/zA9VvKYSqnc?si=WvU0g1hgJE1JCcTH", 
   image: TIJM9,
-   images: [
-           TIJM9,
-          "/src/assets/Products Models/TIJ M9V.png",
-          "/src/assets/Products Models/TIJ M9V1.png"],
+   images: [TIJM9,TIJM9V,TIJM9V1],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1zMNoSOjlgnr_1UKTk_J3GgufLL38hhWu"
 }
     ]
@@ -322,11 +326,7 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/YJmvfvJofiw?si=B8Lhrvvw28JWeRws",
   image: TIJPleyon,
-   images: [
-           TIJPleyon,
-          "/src/assets/Products Models/TIJ PleyonV.png",
-          "/src/assets/Products Models/TIJ PleyonV1.png",
-           "/src/assets/Products Models/TIJ PleyonV2.png"],
+   images: [TIJPleyon,TIJPleyonV,TIJPleyonV1,TIJPleyonV2],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1QliDhYbqiVI8xiSYApO53GjAs8tMvT0B"
 }
     ]
@@ -352,10 +352,7 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
   image: TIJM7,
-    images: [
-           TIJM7,
-          "/src/assets/Products Models/TIJ M7V.png",
-          ],
+  images: [TIJM7,TIJM7V],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1bJuP2pSkJ3YnWjp20FIywg6aT3gDj7Xm"
  }
     ]
@@ -382,10 +379,7 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/G_GgKgstkuk?si=Hdl6I6IEiWNibdqQ",
   image: TIJDyplon,
-    images: [
-           TIJDyplon,
-          "/src/assets/Products Models/TIJ DyplonV.png",
-        ],
+  images: [TIJDyplon,TIJDyplonV],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1djDgpmmHMbGEqwp4do7XjKXBzThS4V40"
 },
    {

@@ -3,9 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
-import Cijproduct1 from "../assets/Slides/Cijproduct1.png";
-import DOD_Slide from "../assets/Slides/DOD Slide.jpeg";
-import consumables from "../assets/Slides/consumables.png";
+import  Twelve_mm from "/src/assets/Slides/12mm.png";
+import  TwentyTwo_mm from "/src/assets/Slides/22mm.png";
+import  Onehundredeight_mm from "/src/assets/Slides/108mm.png";
+import Cijproduct1 from "/src/assets/Slides/Cijproduct1.png";
+import DOD_Slide from "/src/assets/Slides/DOD Slide.jpeg";
+import consumables from "/src/assets/Slides/consumables.png";
+
 
 export type SlideMedia = "video" | "image";
 
@@ -52,11 +56,7 @@ const slides: HeroSlide[] = [
     ctaLabel: "View TIJ Range",
     ctaHref: "/product-range",
     layout: "left",
-    productImages: [
-      "/src/assets/Products Models/12.7mm.png", 
-      "/src/assets/Products Models/22mm.png", 
-      "/src/assets/Products Models/108mm.png"
-    ],
+    productImages: [Twelve_mm,TwentyTwo_mm,Onehundredeight_mm],
     productLabels: [
       "12.7mm",
       "22mm",
