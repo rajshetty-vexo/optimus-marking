@@ -38,7 +38,7 @@ const ProductRange = () => {
           {/* Master Global Portfolio Central Identifier */}
           <div className="w-full mb-16 text-center">
             <span className="text-orange text-lg sm:text-2xl font-bold tracking-widest uppercase inline-block">
-              Products Range
+              Product Range
             </span>
           </div>
 
