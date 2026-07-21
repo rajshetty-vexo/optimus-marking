@@ -241,53 +241,58 @@ const HeroSlider = () => {
         >
           {/* INDEX 0: Home Hero */}
           {current === 0 && <Hero />}
+{/* INDEX 1: TIJ Technology */}
+{current === 1 && (
+  <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-16 sm:pt-20 pb-12 sm:pb-14 lg:pt-24 lg:pb-20 px-4 sm:px-12 lg:px-20 gap-2 sm:gap-4 select-none overflow-hidden">
+    
+    {/* Left Column (Text & Thumbnails) */}
+    <div className="flex flex-col justify-center space-y-2 sm:space-y-4 max-w-xl order-2 lg:order-1 self-center">
+      <span className="inline-block bg-[#F97316] text-white px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-bold uppercase rounded tracking-widest w-fit">
+        {slides[0].tag}
+      </span>
+      <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E1951] leading-tight whitespace-pre-line">
+        {slides[0].heading}
+      </h2>
+      <p className="text-gray-600 text-[11px] sm:text-sm lg:text-base leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
+        {slides[0].description}
+      </p>
 
-          {/* INDEX 1: TIJ Technology */}
-          {current === 1 && (
-            <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
-              <div className="flex flex-col justify-center space-y-4 max-w-xl order-2 lg:order-1 self-center">
-                <span className="inline-block bg-[#F97316] text-white px-3 py-1 text-xs font-bold uppercase rounded tracking-widest w-fit">
-                  {slides[0].tag}
+      {/* Product Variant Thumbnails & Labels - Compact on Mobile */}
+      {slides[0].productImages && slides[0].productImages.length > 0 && (
+        <div className="flex items-center gap-2 sm:gap-4 pt-1 sm:pt-2 overflow-x-auto">
+          {slides[0].productImages.map((imgSrc, idx) => (
+            <div key={idx} className="flex flex-col items-center gap-1 shrink-0">
+              <div className="w-12 h-12 sm:w-20 sm:h-20 bg-gray-50 rounded-lg p-1 sm:p-2 border border-gray-200 shadow-xs flex items-center justify-center">
+                <img 
+                  src={imgSrc} 
+                  alt={slides[0].productLabels?.[idx] || `TIJ Variant ${idx + 1}`} 
+                  className="w-full h-full object-contain mix-blend-multiply" 
+                />
+              </div>
+              {slides[0].productLabels?.[idx] && (
+                <span className="text-[9px] sm:text-[11px] font-bold text-[#1E1951] uppercase tracking-wider">
+                  {slides[0].productLabels[idx]}
                 </span>
-                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1E1951] leading-tight whitespace-pre-line">
-                  {slides[0].heading}
-                </h2>
-                <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">
-                  {slides[0].description}
-                </p>
-                {/* Product Variant Thumbnails & Labels */}
-{slides[0].productImages && slides[0].productImages.length > 0 && (
-  <div className="flex items-center gap-4 pt-2 overflow-x-auto">
-    {slides[0].productImages.map((imgSrc, idx) => (
-      <div key={idx} className="flex flex-col items-center gap-1.5 shrink-0">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 rounded-lg p-2 border border-gray-200 shadow-xs flex items-center justify-center">
-          <img 
-            src={imgSrc} 
-            alt={slides[0].productLabels?.[idx] || `TIJ Variant ${idx + 1}`} 
-            className="w-full h-full object-contain mix-blend-multiply" 
-          />
+              )}
+            </div>
+          ))}
         </div>
-        {slides[0].productLabels?.[idx] && (
-          <span className="text-[11px] font-bold text-[#1E1951] uppercase tracking-wider">
-            {slides[0].productLabels[idx]}
-          </span>
-        )}
+      )}
+
+      <div className="pt-1">
+        <Link to={slides[0].ctaHref} className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold px-4 py-2 sm:px-6 sm:py-2.5 rounded-3xl uppercase tracking-wider text-[11px] sm:text-sm transition-all inline-block shadow-md">
+          {slides[0].ctaLabel}
+        </Link>
       </div>
-    ))}
+    </div>
+
+    {/* Right Column (Video) */}
+    <div className="w-full h-[22vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
+      <video src={slides[0].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
+    </div>
+
   </div>
 )}
-                <div className="pt-1">
-                  <Link to={slides[0].ctaHref} className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold px-6 py-2.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md">
-                    {slides[0].ctaLabel}
-                  </Link>
-                </div>
-              </div>
-              <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <video src={slides[0].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
-              </div>
-            </div>
-          )}
-
           {/* INDEX 2: Laser Coding */}
           {current === 2 && (
             <div className="w-full h-full grid lg:grid-cols-2 items-start bg-white pt-20 pb-14 lg:pt-24 lg:pb-20 px-6 sm:px-12 lg:px-20 gap-4 select-none overflow-hidden">
@@ -479,7 +484,6 @@ const HeroSlider = () => {
         .hs-root {
           position: relative;
           height: calc(100vh - 4.6rem);
-          height: calc(100dvh - 4.6rem);
           width: 100%;
           overflow: hidden;
           background-color: #ffffff;
@@ -487,8 +491,8 @@ const HeroSlider = () => {
 
         @media (max-width: 1024px) {
           .hs-root {
-            height: calc(100vh - 4rem);
-            height: calc(100dvh - 4rem);
+            height: calc(100svh - 4rem);
+            min-height: 520px;
           }
         }
 
