@@ -68,16 +68,13 @@ const Navbar = () => {
 
     if (hashId) {
       if (samePage) {
-        // 🚀 SMART FIX: Mobile menu ke animation collapse (280ms) hone ka wait karo
-        // Isse browser ko naya dimensions calculate karne ka time mil jata hai
         setTimeout(() => {
           const element = document.getElementById(hashId);
           if (element) {
             element.scrollIntoView({ behavior: "smooth", block: "start" });
           }
-        }, 300); // 300ms delay perfectly aligns with framer-motion close duration
+        }, 300); 
       } else {
-        // Dusre page se aa rahe ho toh pehle navigate karo
         navigate(href);
         setTimeout(() => {
           const element = document.getElementById(hashId);
@@ -195,16 +192,16 @@ const Navbar = () => {
 
         {/* ── Mobile drawer ─────────────────────────────────────────────── */}
         <AnimatePresence initial={false}>
-   {mobileOpen && (
- <motion.div
-  ref={drawerRef}
-  key="drawer"
-  initial={{ height: 0 }}
-  animate={{ height: "auto" }}
-  exit={{ height: 0 }}
-  transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
-  className="border-t border-gray-100 overflow-hidden rounded-b-[24px]"
->
+        {mobileOpen && (
+        <motion.div
+        ref={drawerRef}
+        key="drawer"
+        initial={{ height: 0 }}
+        animate={{ height: "auto" }}
+        exit={{ height: 0 }}
+        transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
+        className="border-t border-gray-100 overflow-hidden rounded-b-[24px]"
+         >
 
               <div className="px-5 pt-3 pb-5 space-y-0.5 max-h-[76vh] overflow-y-auto">
 

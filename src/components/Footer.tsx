@@ -126,6 +126,11 @@ const Footer = () => {
               <span className="text-white/40 text-xs block font-display tracking-wider uppercase mb-2">
                 Part of
               </span>
+              <a 
+               href="https://iaidctech.com/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-block">
               <img
                 src={iaidcLogo}
                 alt="iAIDC Technologies"
@@ -133,6 +138,7 @@ const Footer = () => {
                 draggable={false}
                 className="h-12 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity select-none rounded-md bg-white px-3 py-1.5"
               />
+              </a>
             </div>
           </div>
 

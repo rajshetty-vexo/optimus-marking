@@ -133,7 +133,7 @@ const ConsumableDetails = () => {
                   {/* Standard Grid Layout */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center border-b border-dashed border-gray-200 pb-12 last:border-0 last:pb-0">
            {/* Left Side: Product Image Display Grid */}
-<div className="bg-gray-50 rounded-2xl p-6 flex flex-col items-center justify-center border border-gray-200/60 min-h-[350px] shadow-inner relative group overflow-hidden">
+<div className="bg-gray-50 rounded-2xl p-6 flex flex-col items-center justify-center border-2 border-[#F97316]/60 min-h-[350px] shadow-inner relative group overflow-hidden">
   <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
   
 

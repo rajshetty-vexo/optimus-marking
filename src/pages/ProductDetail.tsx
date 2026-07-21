@@ -153,13 +153,13 @@ let currentModel: any = null;
 </button>
 
 
-        <section className="my-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+<section className="my-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
 {/* Left Column (5/12 Cols): Fixed Standard Box + Gallery */}
 <div className="lg:col-span-5 w-full flex flex-col items-center gap-4">
   
   {/* 🔒 FIXED STANDARD IMAGE FRAME */}
-  <div className="w-full h-[380px] sm:h-[450px] lg:h-[480px] bg-gray-50/60 rounded-2xl p-6 sm:p-8 border border-gray-200/50 shadow-xs flex items-center justify-center overflow-hidden">
+  <div className="w-full h-[380px] sm:h-[450px] lg:h-[480px] bg-gray-50/60 rounded-2xl p-6 sm:p-8 border-2 border-[#F97316]/60 shadow-xs flex items-center justify-center overflow-hidden">
     <img 
       src={selectedImage || currentModel.image} 
       alt={currentModel.name} 
@@ -180,7 +180,7 @@ let currentModel: any = null;
             className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white border-2 p-1.5 transition-all duration-200 shrink-0 cursor-pointer overflow-hidden ${
               isActive 
                 ? "border-[#F97316] shadow-md scale-105" 
-                : "border-gray-200 hover:border-gray-300 opacity-70 hover:opacity-100"
+                : "border-gray-200 hover:border-gray-300 opacity-75 hover:opacity-100"
             }`}
           >
             <img 

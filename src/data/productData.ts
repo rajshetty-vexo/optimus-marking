@@ -14,8 +14,8 @@ import SLAMlabelling from "/src/assets/Products Models/SLAM labelling.jpg"
 import TIJM5 from "/src/assets/Products Models/TIJ M5.jpeg"
 import TIJM9 from "/src/assets/Products Models/TIJ M9.png"
 import M5andM9 from "/src/assets/Products Models/M5&M9.png"
-import TIJPleyon from "/src/assets/Products Models/TIJ Pleyon.jpeg"
-import TIJM7 from "/src/assets/Products Models/TIJ M7.jpg"
+import TIJPleyon from "/src/assets/Products Models/TIJ Pleyon.png"
+import TIJM7 from "/src/assets/Products Models/TIJ M7.png"
 import TIJKeryon from "/src/assets/Products Models/TIJ Keryon.png"
 import TIJDyplon from "/src/assets/Products Models/TIJ Dyplon.png"
 import KeryonandDyplon from "/src/assets/Products Models/Keryon&Dyplon.png"
@@ -260,7 +260,7 @@ export const thermalInkjetData: ProductCategory[] = [
   id: "famjet-m5",
   name: "Famjet M5",
   description: "<strong>Famjet M5</strong> is a high-performance, advanced technology thermal inkjet printer equipped with HP TIJ technology. It offers an affordable price point and an easy-to-use interface for most industrial applications, featuring a compact design reduced in volume to perfectly suit any production line workflow.",
-  scheme: "Top side, Left & right lateral side,", // Tumhare structural layout ke mutabik unchanged rakha hai
+  scheme: "Top side, Left & right lateral side,", 
   features: [
     "Screen Touch 5\" Controller supporting 1 or 2 HP pen stalls",
     "Powerful printing of texts, counters, autodata, logos, and 1D & 2D barcodes (static or dynamic)",
@@ -271,6 +271,7 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/H9VcMeB-sfQ?si=9ypiqLujssw76qJ4",
   image: TIJM5,
+
   brochureUrl: "https://drive.google.com/uc?export=download&id=1KaecXPXoZWvQa9I9LUY6NW_gA8jlL4L6"
   
 },
@@ -351,6 +352,10 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
   image: TIJM7,
+    images: [
+           TIJM7,
+          "/src/assets/Products Models/TIJ M7V.png",
+          ],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1bJuP2pSkJ3YnWjp20FIywg6aT3gDj7Xm"
  }
     ]
@@ -380,7 +385,7 @@ export const thermalInkjetData: ProductCategory[] = [
     images: [
            TIJDyplon,
           "/src/assets/Products Models/TIJ DyplonV.png",
-          "/assets/windgrip-in-action.png"],
+        ],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1djDgpmmHMbGEqwp4do7XjKXBzThS4V40"
 },
    {

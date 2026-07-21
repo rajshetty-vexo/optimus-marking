@@ -175,7 +175,7 @@ const Contact = () => {
                 Get In Touch
               </span>
               <h2 className="mt-3 text-3xl sm:text-4xl font-bold font-display text-[#1E1951]">
-                Let's Discuss Your Coding Marking & Labelling Needs
+                Let's Discuss Your Coding Marking & Labeling Needs
               </h2>
               <p className="mt-4 text-slate-600 leading-relaxed font-body">
                 Have questions about our products or need authorized service support? Fill out the form or reach out directly to our Pune headquarters.

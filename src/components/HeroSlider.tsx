@@ -48,10 +48,20 @@ const slides: HeroSlide[] = [
     tag: "TIJ Technology",
     heading: "FAMJet TIJ\nPrecision in Every Drop",
     description:
-      "Thermal Inkjet systems available in 22mm, 12.7mm and wider formats — ideal for pharmaceutical, food & beverage, and logistics coding.",
+      "Thermal Inkjet systems available in 12.7mm, 22mm, 108mm and wider formats — ideal for pharmaceutical, food & beverage, and logistics coding.",
     ctaLabel: "View TIJ Range",
     ctaHref: "/product-range",
     layout: "left",
+    productImages: [
+      "/src/assets/Products Models/12.7mm.png", 
+      "/src/assets/Products Models/22mm.png", 
+      "/src/assets/Products Models/108mm.png"
+    ],
+    productLabels: [
+      "12.7mm",
+      "22mm",
+      "108mm"
+    ]
   },
   {
     id: "slide-laser",
@@ -121,7 +131,7 @@ const slides: HeroSlide[] = [
     description:
       "See our real-time high-speed printing results. Clear, smudge-proof printing of Batch Numbers, MRP, and Expiry Dates on dairy foils, caps, and containers.",
     ctaLabel: "Get Solution For Your Product",
-    ctaHref: "#contact",
+    ctaHref: "contact",
     layout: "left",
   },
 ];
@@ -245,6 +255,27 @@ const HeroSlider = () => {
                 <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">
                   {slides[0].description}
                 </p>
+                {/* Product Variant Thumbnails & Labels */}
+{slides[0].productImages && slides[0].productImages.length > 0 && (
+  <div className="flex items-center gap-4 pt-2 overflow-x-auto">
+    {slides[0].productImages.map((imgSrc, idx) => (
+      <div key={idx} className="flex flex-col items-center gap-1.5 shrink-0">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 rounded-lg p-2 border border-gray-200 shadow-xs flex items-center justify-center">
+          <img 
+            src={imgSrc} 
+            alt={slides[0].productLabels?.[idx] || `TIJ Variant ${idx + 1}`} 
+            className="w-full h-full object-contain mix-blend-multiply" 
+          />
+        </div>
+        {slides[0].productLabels?.[idx] && (
+          <span className="text-[11px] font-bold text-[#1E1951] uppercase tracking-wider">
+            {slides[0].productLabels[idx]}
+          </span>
+        )}
+      </div>
+    ))}
+  </div>
+)}
                 <div className="pt-1">
                   <Link to={slides[0].ctaHref} className="bg-[#F97316] hover:bg-orange-600 text-white font-semibold px-6 py-2.5 rounded-3xl uppercase tracking-wider text-xs sm:text-sm transition-all inline-block shadow-md">
                     {slides[0].ctaLabel}

@@ -70,7 +70,7 @@ const About = () => {
       href="https://www.imalabeling.com/" 
       target="_blank" 
       rel="noopener noreferrer"
-      className="inline-flex items-baseline gap-1 group cursor-pointer" // Yahan se mx-1 hata diya
+      className="inline-flex items-baseline gap-1 group cursor-pointer" 
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.98 }}
     >
