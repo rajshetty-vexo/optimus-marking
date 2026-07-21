@@ -17,7 +17,7 @@ import M5andM9 from "/src/assets/Products Models/M5&M9.png"
 import TIJPleyon from "/src/assets/Products Models/TIJ Pleyon.jpeg"
 import TIJM7 from "/src/assets/Products Models/TIJ M7.jpg"
 import TIJKeryon from "/src/assets/Products Models/TIJ Keryon.png"
-import TIJDyplon from "/src/assets/Products Models/TIJ Dyplon.jpg"
+import TIJDyplon from "/src/assets/Products Models/TIJ Dyplon.png"
 import KeryonandDyplon from "/src/assets/Products Models/Keryon&Dyplon.png"
 import DKMinimobile from "/src/assets/Products Models/TIJ Dk Minimobile.jpg"
 import Maximinimobile from "/src/assets/Products Models/TIJ Maximinimobile.jpg"
@@ -36,6 +36,7 @@ export interface ProductMachine {
   features: string[]; 
   videoUrl?: string; 
   image: string; 
+  images?: string[];
   brochureUrl?: string;
  
 }
@@ -46,6 +47,7 @@ export interface ProductCategory {
   subtitle: string;
   description: string;
   image: string;
+  images?: string[];
   logo?:string;
   machines: ProductMachine[];
   scheme?: string;
@@ -75,7 +77,11 @@ export const labelingData: ProductCategory[] = [
           "<strong>Wide range of stroke lengths</strong> and label pad sizes",,
         ],
         videoUrl: "https://www.youtube.com/embed/6E_EXWwczHk",
-        image: fliximatewindgrip
+        image: fliximatewindgrip,
+        // images: [
+        //    fliximatewindgrip,
+        //   "/assets/windgrip-angle-2.png",
+        //   "/assets/windgrip-in-action.png"]
       },
       {
         id: "ebelt",
@@ -284,7 +290,11 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/zA9VvKYSqnc?si=WvU0g1hgJE1JCcTH", 
   image: TIJM9,
-   brochureUrl: "https://drive.google.com/uc?export=download&id=1zMNoSOjlgnr_1UKTk_J3GgufLL38hhWu"
+   images: [
+           TIJM9,
+          "/src/assets/Products Models/TIJ M9V.png",
+          "/src/assets/Products Models/TIJ M9V1.png"],
+  brochureUrl: "https://drive.google.com/uc?export=download&id=1zMNoSOjlgnr_1UKTk_J3GgufLL38hhWu"
 }
     ]
   },
@@ -311,6 +321,11 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/YJmvfvJofiw?si=B8Lhrvvw28JWeRws",
   image: TIJPleyon,
+   images: [
+           TIJPleyon,
+          "/src/assets/Products Models/TIJ PleyonV.png",
+          "/src/assets/Products Models/TIJ PleyonV1.png",
+           "/src/assets/Products Models/TIJ PleyonV2.png"],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1QliDhYbqiVI8xiSYApO53GjAs8tMvT0B"
 }
     ]
@@ -344,7 +359,7 @@ export const thermalInkjetData: ProductCategory[] = [
     id: "tij-40",
     title: "Thermal Inkjet 4.0 22MM,108MM",
     subtitle: "NEXT GENERATION TIJ TECHNOLOGY",
-    description: "Cutting-edge Thermal Inkjet 4.0 technology providing unmatched speed, connectivity, and performance.",
+    description: "Cutting-edge Thermal Inkjet 4.0 22mm & 108mm technology providing unmatched speed, connectivity, and performance.",
     image: KeryonandDyplon,
     logo: FamHplogo, // Fam Logo
     machines: [
@@ -362,6 +377,10 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/G_GgKgstkuk?si=Hdl6I6IEiWNibdqQ",
   image: TIJDyplon,
+    images: [
+           TIJDyplon,
+          "/src/assets/Products Models/TIJ DyplonV.png",
+          "/assets/windgrip-in-action.png"],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1djDgpmmHMbGEqwp4do7XjKXBzThS4V40"
 },
    {
@@ -378,6 +397,10 @@ export const thermalInkjetData: ProductCategory[] = [
   ],
   videoUrl: "https://www.youtube.com/embed/your_video_id_here",
   image: TIJKeryon,
+  // images: [
+  //          TIJKeryon,
+  //         "/assets/windgrip-angle-2.png",
+  //         "/assets/windgrip-in-action.png"],
   brochureUrl: "https://drive.google.com/uc?export=download&id=1_k-sgdK92GObxsJrfdZhji5-Ti5Rg4QF"
 }
     ]

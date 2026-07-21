@@ -56,7 +56,8 @@ const HexCard = ({ cat, cardKey, activeCard, setActiveCard }: HexCardProps) => {
       : `/product/${cat.id}`;
 
   return (
-    <div
+    <Link
+    to={linkTo}
       key={cardKey}
       onMouseEnter={() => setActiveCard(cardKey)}
       onMouseLeave={() => setActiveCard(null)}
@@ -120,17 +121,17 @@ const HexCard = ({ cat, cardKey, activeCard, setActiveCard }: HexCardProps) => {
           {/* Discover More button — ⚡ FIX 3: Always visible on Consumables, hover action for others */}
           <div className={`absolute inset-0 w-full flex justify-center items-center transition-all duration-500 ease-in-out
             ${isConsumable ? "opacity-100 translate-y-0 z-10" : isHovered ? "opacity-100 translate-y-0 z-10" : "opacity-0 translate-y-4 pointer-events-none"}`}>
-            <Link
-              to={linkTo}
+            <span
+            
               className="w-full max-w-[135px] text-center text-white text-[10px] font-bold uppercase tracking-widest py-2.5 rounded-sm block transition-all duration-300 shadow-sm bg-[#F97316]"
             >
               Discover More
-            </Link>
+            </span>
           </div>
 
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

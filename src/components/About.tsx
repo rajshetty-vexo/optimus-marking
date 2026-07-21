@@ -57,7 +57,7 @@ const About = () => {
       <span className="font-bold text-sm sm:text-base tracking-tight whitespace-nowrap">
         <span className="text-orange">Favata</span>{" "}
         <span className="text-[#1E1951] group-hover:text-orange transition-colors">
-          Advanced Marking S.r.l
+          Advanced Marking S.R.L.
         </span>
       </span>
      <span className="text-orange text-[8px] opacity-0 group-hover:opacity-100 transition-opacity absolute ml-0.5 -translate-y-[2px]">↗</span>
@@ -80,7 +80,7 @@ const About = () => {
         className="h-2.5 w-auto object-contain translate-y-[0px]"
       />
       <span className="font-bold text-[#1E1951] group-hover:text-orange transition-colors text-sm sm:text-base tracking-tight whitespace-nowrap">
-        Phoenix Italia S.r.l
+        Phoenix Italia S.R.L.
       </span>
       <span className="text-orange text-[8px] opacity-0 group-hover:opacity-100 transition-opacity absolute ml-0.5 -translate-y-[7px]">↗</span>
     </motion.a>
@@ -152,11 +152,11 @@ const About = () => {
               </h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 standard-case text-left list-none pl-0">
                 {[
-                  "Continuous Inkjet (CIJ) Printers",
-                  "Thermal Inkjet (TIJ) Printers",
-                  "Laser Marking Systems",
+                  "Continuous Inkjet Printers (CIJ) ",
+                  "Thermal Inkjet Printers  (TIJ) ",
+                  "Laser Marking Systems (LMS)",
                   "Thermal Transfer Overprinters (TTO)",
-                  "Label Print & Apply Systems",
+                  "Label Print & Apply Systems (LPA)",
                   "Product Labeling Solutions"
                 ].map((item, index) => (
                   <motion.li 

@@ -129,7 +129,7 @@ export const consumablesData: ConsumableItem[] = [
         description: "High-grade semi-gloss and direct thermal labels with advanced adhesive matrix.",
         colors: "White, Custom Pre-printed borders",
         chemicalBase: "Paper & Synthetic (PP/PE)",
-        application: "Product to pallete complete label range",
+        application: "Product to pallet complete label range",
         suitableWith: "IMA Label Print & Apply stations",
         section: "Label Range", 
         subSection: ""

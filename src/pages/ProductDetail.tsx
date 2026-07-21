@@ -12,6 +12,7 @@ const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -56,6 +57,28 @@ let currentModel: any = null;
         break;
       }
     }
+  }
+
+  const galleryList = currentModel?.images && currentModel.images.length > 0
+    ? currentModel.images
+    : currentModel?.image
+      ? [currentModel.image]
+      : [];
+
+  // Update selected image whenever currentModel changes
+  useEffect(() => {
+    if (currentModel?.image) {
+      setSelectedImage(currentModel.image);
+    }
+  }, [productId, currentModel?.image]);
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  if (!currentModel) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white">
+        {/* Not Found View */}
+      </div>
+    );
   }
   if (!currentModel) {
     return (
@@ -132,15 +155,49 @@ let currentModel: any = null;
 
         <section className="my-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
-          {/* Left Column (5/12 Cols): Bolder, responsive product frame container */}
-          <div className="lg:col-span-5 w-full flex justify-center bg-gray-50/60 rounded-2xl p-6 sm:p-10 border border-gray-200/50 shadow-xs">
-            <img 
-              src={currentModel.image} 
-              alt={currentModel.name} 
-              className="max-h-[460px] md:max-h-[500px] w-auto object-contain mix-blend-multiply drop-shadow-md transition-transform duration-300 hover:scale-[1.02]"
-            />
-          </div>
+{/* Left Column (5/12 Cols): Fixed Standard Box + Gallery */}
+<div className="lg:col-span-5 w-full flex flex-col items-center gap-4">
+  
+  {/* 🔒 FIXED STANDARD IMAGE FRAME */}
+  <div className="w-full h-[380px] sm:h-[450px] lg:h-[480px] bg-gray-50/60 rounded-2xl p-6 sm:p-8 border border-gray-200/50 shadow-xs flex items-center justify-center overflow-hidden">
+    <img 
+      src={selectedImage || currentModel.image} 
+      alt={currentModel.name} 
+      className="w-full h-full object-contain mix-blend-multiply drop-shadow-md transition-all duration-300 hover:scale-[1.03]"
+    />
+  </div>
 
+  {/* Dynamic Thumbnails Strip */}
+  {galleryList.length > 1 && (
+    <div className="flex items-center justify-center gap-3 w-full overflow-x-auto py-2 px-1">
+      {galleryList.map((imgUrl: string, idx: number) => {
+        const isActive = (selectedImage || currentModel.image) === imgUrl;
+        return (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => setSelectedImage(imgUrl)}
+            className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white border-2 p-1.5 transition-all duration-200 shrink-0 cursor-pointer overflow-hidden ${
+              isActive 
+                ? "border-[#F97316] shadow-md scale-105" 
+                : "border-gray-200 hover:border-gray-300 opacity-70 hover:opacity-100"
+            }`}
+          >
+            <img 
+              src={imgUrl} 
+              alt={`${currentModel.name} view ${idx + 1}`} 
+              className="w-full h-full object-contain mix-blend-multiply"
+              onError={(e) => {
+                // Safe fallback in case image URL is broken
+                (e.target as HTMLImageElement).src = currentModel.image;
+              }}
+            />
+          </button>
+        );
+      })}
+    </div>
+  )}
+</div>
           {/* Right Column (7/12 Cols): Heading context details layout side-by-side */}
           <div className="lg:col-span-7 flex flex-col pt-2">
             <span className="text-[#F97316] text-xs font-extrabold uppercase tracking-[0.2em] mb-3 block">
