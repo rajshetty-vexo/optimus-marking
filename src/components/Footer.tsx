@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Linkedin, Youtube, Mail, Globe, Instagram, X, Phone, MapPin } from "lucide-react"; // ⚡ Added Phone and MapPin here
+import { Facebook, Linkedin, Youtube, Mail, Globe, Instagram, X, Phone, MapPin } from "lucide-react"; 
 import optimusLogo from "@/assets/optimus-logo-white.png";
 import iaidcLogo from "@/assets/Logo/iaidc-logo.jpeg"; 
 
@@ -8,54 +8,51 @@ const Footer = () => {
     <footer className="bg-[#1E1951] text-white border-t border-white/10 pt-16 pb-8 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main 5-Column Grid Structure - Centered on mobile, Left-aligned on Desktop */}
+        {/* Main 5-Column Grid Structure */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 border-b border-white/10 pb-12 text-center sm:text-left">
           
-          {/* ── COLUMN 1: NOW CONTACT INFORMATION (INTERCHANGED) ── */}
-<div className="flex flex-col items-center sm:items-start space-y-4">
-  <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-1 font-display">
-    Contact Us
-  </h3>
-  
-  <div className="space-y-5 text-sm text-white/70 w-full flex flex-col">
-    {/* Phone Row */}
-    <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-      <Phone size={16} className="shrink-0 text-white/50 sm:mt-0.5 group-hover:text-orange-500 transition-colors" />
-      <div className="flex flex-col items-center sm:items-start">
-        <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Phone</span>
-        <a href="tel:+919503729925" className="text-white/90 hover:text-orange-500 transition-colors font-medium">
-          +91 95037 29925
-        </a>
-      </div>
-    </div>
+          {/* COLUMN 1: CONTACT INFORMATION */}
+          <div className="flex flex-col items-center sm:items-start space-y-4">
+            <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-1 font-display">
+              Contact Us
+            </h3>
+            
+            <div className="space-y-5 text-sm text-white/70 w-full flex flex-col">
+              <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+                <Phone size={16} className="shrink-0 text-white/50 sm:mt-0.5 group-hover:text-orange-500 transition-colors" />
+                <div className="flex flex-col items-center sm:items-start">
+                  <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Phone</span>
+                  <a href="tel:+919503729925" className="text-white/90 hover:text-orange-500 transition-colors font-medium">
+                    +91 95037 29925
+                  </a>
+                </div>
+              </div>
 
-    {/* Email Row */}
-    <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-      <Mail size={16} className="shrink-0 text-white/50 sm:mt-0.5 group-hover:text-orange-500 transition-colors" />
-      <div className="flex flex-col items-center sm:items-start">
-        <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Email</span>
-        <a href="mailto:sales@optimusmarking.com" className="text-white/90 hover:text-orange-500 transition-colors">
-          sales@optimusmarking.com
-        </a>
-      </div>
-    </div>
+              <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+                <Mail size={16} className="shrink-0 text-white/50 sm:mt-0.5 group-hover:text-orange-500 transition-colors" />
+                <div className="flex flex-col items-center sm:items-start">
+                  <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Email</span>
+                  <a href="mailto:sales@optimusmarking.com" className="text-white/90 hover:text-orange-500 transition-colors">
+                    sales@optimusmarking.com
+                  </a>
+                </div>
+              </div>
 
-    {/* Address/Location Row */}
-    <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-      <MapPin size={16} className="shrink-0 text-white/50 sm:mt-1 group-hover:text-orange-500 transition-colors" />
-      <div className="flex flex-col items-center sm:items-start">
-        <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Address</span>
-        <p className="text-white/90 leading-relaxed text-xs sm:text-sm">
-          Optimus Marking Systems Pvt Ltd<br />
-          2, Vitthal Park, Manjari BK,<br />
-          Pune-412307
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+              <div className="flex flex-col items-center sm:flex-row sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+                <MapPin size={16} className="shrink-0 text-white/50 sm:mt-1 group-hover:text-orange-500 transition-colors" />
+                <div className="flex flex-col items-center sm:items-start">
+                  <span className="text-white/40 text-[11px] uppercase tracking-wider leading-none mb-1">Address</span>
+                  <p className="text-white/90 leading-relaxed text-xs sm:text-sm">
+                    Optimus Marking Systems Pvt Ltd<br />
+                    2, Vitthal Park, Manjari BK,<br />
+                    Pune-412307
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          {/* ── COLUMN 2: PRODUCTS RANGE (UNTOUCHED) ── */}
+          {/* COLUMN 2: PRODUCTS RANGE */}
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-4 font-display">
               Products
@@ -69,7 +66,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* ── COLUMN 3: SERVICES (UNTOUCHED) ── */}
+          {/* COLUMN 3: SERVICES */}
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-4 font-display">
               Services
@@ -81,7 +78,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* ── COLUMN 4: SOLUTIONS & COMPANY (UNTOUCHED) ── */}
+          {/* COLUMN 4: SOLUTIONS & COMPANY */}
           <div className="flex flex-col items-center sm:items-start space-y-6">
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-sm font-bold tracking-wider uppercase text-white mb-4 font-display">
@@ -102,7 +99,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* ── COLUMN 5: NOW BRAND LOGO & PARENT RELATION (INTERCHANGED) ── */}
+          {/* COLUMN 5: BRAND LOGO & PARENT RELATION */}
           <div className="flex flex-col items-center sm:items-start justify-between space-y-8 lg:space-y-0">
             <div className="flex flex-col items-center sm:items-start">
               <Link to="/" className="block focus:outline-none" onClick={() => {
@@ -121,35 +118,38 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* "Part of iAIDC" - Nicely shifted & formatted */}
             <div className="pt-4 lg:pt-6 border-t border-white/5 w-full flex flex-col items-center sm:items-start">
               <span className="text-white/40 text-xs block font-display tracking-wider uppercase mb-2">
                 Part of
               </span>
               <a 
-               href="https://iaidctech.com/" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="inline-block">
-              <img
-                src={iaidcLogo}
-                alt="iAIDC Technologies"
-                title="iAIDC Technologies Private Limited"
-                draggable={false}
-                className="h-12 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity select-none rounded-md bg-white px-3 py-1.5"
-              />
+                href="https://iaidctech.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block">
+                <img
+                  src={iaidcLogo}
+                  alt="iAIDC Technologies"
+                  title="iAIDC Technologies Private Limited"
+                  draggable={false}
+                  className="h-12 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity select-none rounded-md bg-white px-3 py-1.5"
+                />
               </a>
             </div>
           </div>
 
         </div>
 
-        {/* ── LOWER FOOTER BAR: COPYRIGHT & TRADEMARK DISCLAIMERS (UNTOUCHED) ── */}
+        {/* ── LOWER FOOTER BAR: COPYRIGHT & LEGAL LINKS ── */}
         <div className="mt-8 flex flex-col sm:flex-row gap-6 justify-between items-center text-xs text-white/40">
           
-          <div className="max-w-2xl text-center sm:text-left leading-relaxed">
-            <div>© {new Date().getFullYear()} Optimus Marking Systems Pvt Ltd. All rights reserved.</div>
-            <p className="mt-1 text-white/30 text-[10px]">
+          <div className="max-w-3xl text-center sm:text-left leading-relaxed">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 sm:gap-x-3 gap-y-1 text-[11px] sm:text-xs">
+           <span>© {new Date().getFullYear()} Optimus Marking Systems Pvt Ltd. All rights reserved.</span>
+            <span className="whitespace-nowrap">• <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></span>
+           <span className="whitespace-nowrap">• <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link></span>
+          </div>            
+           <p className="mt-2 text-white/30 text-[10px]">
               Disclaimer: All third-party product names, logos, machinery images, and trademarks referenced herein 
               remain the intellectual property of their respective owners and strategic global technology partners.
             </p>
@@ -157,7 +157,7 @@ const Footer = () => {
 
           {/* Social Platforms Block */}
           <div className="flex items-center gap-5 justify-center">
-              <a href="tel:+919503729925" className="hover:text-white transition-colors p-1" aria-label="Phone">
+            <a href="tel:+919503729925" className="hover:text-white transition-colors p-1" aria-label="Phone">
               <Phone size={18} />
             </a>
             <a href="https://www.linkedin.com/company/optimus-marking-systems-private-limited/" className="hover:text-white transition-colors p-1" aria-label="LinkedIn">

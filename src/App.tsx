@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import OpeningAnimation from "@/components/ui/opening-animation";
 import Navbar from "../src/components/Navbar";
 import ScrollToTop from "../src/components/ScrollToTop.tsx";
+import CookieBanner from "@/components/CookieBanner";
 
 import Index from "../src/pages/Index.tsx";
 import NotFound from "../src/pages/NotFound.tsx";
@@ -19,6 +20,8 @@ import ProductDetail from "../src/pages/ProductDetail.tsx";
 import ConsumableDetails from "../src/pages/ConsumableDetails.tsx";
 import Company from "../src/pages/Company.tsx";
 import ContactPage from "../src/pages/ContactPage.tsx";
+import PrivacyPolicy from "../src/pages/PrivacyPolicy";
+import TermsConditions from "../src/pages/TermsConditions";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +37,7 @@ export default function App(){
        {!showIntro && (
       <BrowserRouter>
       <ScrollToTop />
+      <CookieBanner />
       <Navbar/>
         <Routes>
           {/* Main Landing/Home Page */}
@@ -50,6 +54,8 @@ export default function App(){
           <Route path="/consumable/:slug" element={<ConsumableDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsConditions />} />
         </Routes>
       </BrowserRouter>
        )}
