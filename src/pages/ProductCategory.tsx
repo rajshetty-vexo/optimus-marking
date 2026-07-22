@@ -107,6 +107,7 @@ const ProductCategory = () => {
                   {/* Image Viewer Box - Clickable Area */}
                   <div className="w-full h-52 sm:h-56 bg-white border border-border/60 rounded-lg flex items-center justify-center p-2 mb-6 overflow-hidden transition-all duration-300 group-hover:border-orange/20 relative">
                     <img 
+                    loading="lazy"
                       src={machine.image} 
                       alt={machine.name} 
                       className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out mix-blend-multiply"

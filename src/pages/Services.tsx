@@ -81,6 +81,7 @@ const Services = () => {
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                   <img 
                     src={item.img} 
+                    loading='lazy'
                     alt={item.title} 
                     className="w-full h-[250px] md:h-[350px] object-cover hover:scale-105 transition-transform duration-500" 
                   />

@@ -115,6 +115,7 @@ const ProductRow = ({ title, products }: ProductRowProps) => {
           {cat.logo && (
             <img 
               src={cat.logo} 
+              loading="lazy"
               alt="Brand Logo" 
               className={`w-auto object-contain transition-all duration-300 ${title.toLowerCase().includes("thermal") || title.toLowerCase().includes("tij") || title.toLowerCase().includes("dod") ? "h-11 sm:h-12 max-w-[85%]" : "h-7"}`} 
             />

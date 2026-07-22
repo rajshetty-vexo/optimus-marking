@@ -163,6 +163,7 @@ const ClientAvatar = ({
           <img
             src={photo}
             alt={name}
+            loading="lazy"
             onError={() => setImgFailed(true)}
             className="w-full h-full object-cover"
           />

@@ -49,6 +49,7 @@ const Hero = () => {
         muted
         loop
         playsInline
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover opacity-100"
       >
         <source src="https://res.cloudinary.com/rjfewkks/video/upload/v1783089525/Nozzle-Sealing_02_xjatre.mp4" />

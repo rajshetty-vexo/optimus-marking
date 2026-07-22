@@ -111,6 +111,7 @@ const HexCard = ({ cat, cardKey, activeCard, setActiveCard }: HexCardProps) => {
                     : cat.logo
                 }
                 alt="Brand Logo"
+                loading="lazy"
                 className={`w-auto object-contain transition-all duration-300 ${
                   isTechBrand ? "h-11 max-w-[85%]" : "h-7"
                 }`}

@@ -108,6 +108,7 @@ const Footer = () => {
                 <img
                   src={optimusLogo}
                   alt="Optimus Marking"
+                  loading="lazy"
                   title="Optimus Marking Systems"
                   draggable={false}
                   className="h-14 w-auto object-contain mb-4 select-none rounded-md"
@@ -130,6 +131,7 @@ const Footer = () => {
                 <img
                   src={iaidcLogo}
                   alt="iAIDC Technologies"
+                  loading="lazy"
                   title="iAIDC Technologies Private Limited"
                   draggable={false}
                   className="h-12 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity select-none rounded-md bg-white px-3 py-1.5"

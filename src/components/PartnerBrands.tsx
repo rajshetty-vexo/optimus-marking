@@ -128,6 +128,7 @@ const PartnerBrands = () => {
                 <img
                   src={logo.src}
                   alt={logo.title}
+                  loading="lazy"
                   className={
                     "max-w-full w-auto h-auto object-contain block " +
                     (logo.title === "HP"

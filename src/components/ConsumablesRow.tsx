@@ -102,6 +102,7 @@ const handleScroll = () => {
                 <div className="h-28 w-full flex items-center justify-center overflow-hidden px-4 my-1">
                   <img
                     src={cat.image}
+                    loading="lazy"
                     alt={cat.title}
                     className={`max-h-full max-w-full object-contain transform transition-transform duration-500 ease-out mix-blend-multiply ${
                       isHovered ? "scale-105" : "group-hover:scale-105"

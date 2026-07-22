@@ -223,7 +223,7 @@ const HeroSlider = () => {
       onTouchEnd={handleTouchEnd}
       aria-label="Product showcase slider"
     >
-      {/* ⚡ FIXED 1: Hata diya mode="popLayout" taaki slide animation container flow ko break na kare */}
+
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={current}
@@ -264,7 +264,7 @@ const HeroSlider = () => {
             <div key={idx} className="flex flex-col items-center gap-1 shrink-0">
               <div className="w-12 h-12 sm:w-20 sm:h-20 bg-gray-50 rounded-lg p-1 sm:p-2 border border-gray-200 shadow-xs flex items-center justify-center">
                 <img 
-                  src={imgSrc} 
+                  src={imgSrc} loading="lazy"
                   alt={slides[0].productLabels?.[idx] || `TIJ Variant ${idx + 1}`} 
                   className="w-full h-full object-contain mix-blend-multiply" 
                 />
@@ -288,7 +288,9 @@ const HeroSlider = () => {
 
     {/* Right Column (Video) */}
     <div className="w-full h-[22vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-      <video src={slides[0].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
+      <video src={slides[0].mediaSrc}
+      poster="https://res.cloudinary.com/rjfewkks/video/upload/v1783755393/InShot_20260711_124001275_erruqd.jpg" 
+      autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
     </div>
 
   </div>
@@ -313,7 +315,7 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <img src={slides[1].mediaSrc} alt="Laser Machine" className="w-full h-full object-contain drop-shadow-xl" />
+                <img src={slides[1].mediaSrc} loading="lazy" alt="Laser Machine" className="w-full h-full object-contain drop-shadow-xl" />
               </div>
             </div>
           )}
@@ -338,7 +340,7 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <img src={slides[2].mediaSrc} alt="DOD Machine" className="w-full h-full object-contain drop-shadow-xl rounded-xl border border-gray-100" />
+                <img src={slides[2].mediaSrc} loading="lazy" alt="DOD Machine" className="w-full h-full object-contain drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
           )}   
@@ -363,7 +365,9 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <video src={slides[3].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
+                <video src={slides[3].mediaSrc} 
+                poster="https://res.cloudinary.com/rjfewkks/video/upload/v1783755460/InShot_20260711_125724467_y7drzh.jpg"
+                autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
           )}
@@ -388,7 +392,9 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <video src={slides[4].mediaSrc} autoPlay loop muted playsInline className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
+                <video src={slides[4].mediaSrc} 
+                poster="https://res.cloudinary.com/rjfewkks/video/upload/v1783954086/InShot_20260713_201142601_okpetw.mp4"
+                autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover drop-shadow-xl rounded-xl border border-gray-100" />
               </div>
             </div>
           )}
@@ -413,7 +419,7 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <img src={slides[5].mediaSrc} alt="Consumables Portfolio" className="w-full h-full object-contain drop-shadow-xl rounded-xl" />
+                <img src={slides[5].mediaSrc} loading="lazy" alt="Consumables Portfolio" className="w-full h-full object-contain drop-shadow-xl rounded-xl" />
               </div>
             </div>
           )}
@@ -438,7 +444,7 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className="w-full h-[28vh] sm:h-[38vh] lg:h-[50vh] flex items-center justify-center order-1 lg:order-2 self-center">
-                <img src={slides[6].mediaSrc} alt="CIJ Machine" className="w-full h-full object-contain drop-shadow-xl" /> 
+                <img src={slides[6].mediaSrc} loading="lazy" alt="CIJ Machine" className="w-full h-full object-contain drop-shadow-xl" /> 
               </div>
             </div>
           )}

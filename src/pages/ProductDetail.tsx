@@ -162,6 +162,7 @@ let currentModel: any = null;
   <div className="w-full h-[380px] sm:h-[450px] lg:h-[480px] bg-gray-50/60 rounded-2xl p-6 sm:p-8 border-2 border-[#F97316]/60 shadow-xs flex items-center justify-center overflow-hidden">
     <img 
       src={selectedImage || currentModel.image} 
+      loading="lazy"
       alt={currentModel.name} 
       className="w-full h-full object-contain mix-blend-multiply drop-shadow-md transition-all duration-300 hover:scale-[1.03]"
     />

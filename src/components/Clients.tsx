@@ -131,6 +131,7 @@ const LogoRow = ({
             <img
               src={client.logo}
               alt={client.name}
+              loading="lazy"
               className={`w-auto object-contain select-none pointer-events-none ${
                 client.xl ? "h-16 lg:h-28 max-w-[160px] lg:max-w-[220px]"
                 : client.large ? "h-12 lg:h-20 max-w-[160px] lg:max-w-[220px]"

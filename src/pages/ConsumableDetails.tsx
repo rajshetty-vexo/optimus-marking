@@ -140,6 +140,7 @@ const ConsumableDetails = () => {
   <div className="w-full max-w-[320px] h-[250px] sm:h-[280px] bg-white border border-gray-100 shadow-md flex items-center justify-center rounded-2xl p-6 transition-transform duration-300 group-hover:scale-105">
     <img 
       src={variant.image} 
+      loading="lazy"
       alt={variant.title} 
       className="max-w-full max-h-full object-contain mix-blend-multiply"
       onError={(e) => {
