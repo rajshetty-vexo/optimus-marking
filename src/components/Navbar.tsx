@@ -208,28 +208,36 @@ const Navbar = () => {
                 {navLinks.map((item) => (
                   <div key={item.label} className="border-b border-gray-100/70 last:border-none">
 
-                    {/* Row button */}
-                    <button
-                      onClick={() => {
-                        if (item.dropdown) {
-                          setAccordion(accordion === item.label ? null : item.label);
-                        } else {
-                          go(item.href, item.hashId);
-                        }
-                      }}
-                      className="flex items-center justify-between w-full py-3 text-left
-                        text-[11px] font-bold font-display tracking-widest uppercase
-                        text-[#1E1951] hover:text-orange transition-colors duration-150
-                        bg-transparent border-none outline-none cursor-pointer">
-                      <span>{item.label}</span>
-                      {item.dropdown && (
-                        <motion.span
-                          animate={{ rotate: accordion === item.label ? 180 : 0 }}
-                          transition={{ duration: 0.22, ease: "easeInOut" }}>
-                          <ChevronDown className="w-4 h-4 text-[#1E1951]/50" />
-                        </motion.span>
-                      )}
-                    </button>
+{/* Row layout split into Text Link + Arrow Toggle */}
+<div className="flex items-center justify-between w-full py-1">
+  {/* Label text click -> Direct page navigation */}
+  <button
+    onClick={() => go(item.href, item.hashId)}
+    className="py-2 text-left text-[11px] font-bold font-display tracking-widest uppercase
+      text-[#1E1951] hover:text-orange transition-colors duration-150
+      bg-transparent border-none outline-none cursor-pointer flex-1">
+    {item.label}
+  </button>
+
+  {/* Chevron button click -> Toggle dropdown only */}
+  {item.dropdown && (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        setAccordion(accordion === item.label ? null : item.label);
+      }}
+      className="p-2 -mr-2 text-[#1E1951]/60 hover:text-orange transition-colors
+        bg-transparent border-none outline-none cursor-pointer"
+      aria-label={`Toggle ${item.label} menu`}>
+      <motion.span
+        className="block"
+        animate={{ rotate: accordion === item.label ? 180 : 0 }}
+        transition={{ duration: 0.22, ease: "easeInOut" }}>
+        <ChevronDown className="w-4 h-4" />
+      </motion.span>
+    </button>
+  )}
+</div>
 
                     {/* Accordion sub-links */}
                     <AnimatePresence initial={false}>

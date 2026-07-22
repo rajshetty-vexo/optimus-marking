@@ -45,7 +45,7 @@ export const consumablesData: ConsumableItem[] = [
         colors: "Black (Mostly Used), Blue, and other colors on specific requirement",
         chemicalBase: "Water Base and Solvent Base",
         colorant: "Dye Base and Pigment Base",
-        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing, Blister Foil Printing",
+        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing, Blister Foil Printing.",
         suitableWith: "Famjet M5 (12.7mm x 2 Heads), M9 (12.7mm x 4 Heads) and Pleyon (12.7mm x 2 Heads)"
       },
       {
@@ -55,7 +55,7 @@ export const consumablesData: ConsumableItem[] = [
         colors: "Black (Mostly Used), Blue, and other colors on specific requirement",
         chemicalBase: "Water Base and Solvent Base",
         colorant: "Dye Base and Pigment Base",
-        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing, Blister Foil Printing",
+        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing, Blister Foil Printing.",
         suitableWith: "Famjet Pleyon (12.7mm x 2 Heads)"
       },
       {
@@ -65,7 +65,7 @@ export const consumablesData: ConsumableItem[] = [
         colors: "Black (Mostly Used), Blue, and other colors on specific requirement",
         chemicalBase: "Water Base and Solvent Base",
         colorant: "Dye Base and Pigment Base",
-        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing, Blister Foil Printing",
+        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing, Blister Foil Printing.",
         suitableWith: "Famjet M7 (25.4mm X 4 Heads)"
       },
       {
@@ -75,7 +75,7 @@ export const consumablesData: ConsumableItem[] = [
         colors: "Black, other colors are available on specific requirement",
         chemicalBase: "Water Base",
         colorant: "Dye Base and Pigment Base",
-        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing on Porous and Semi-Porous Substrate",
+        application: "Track and Trace QR/Datamatrix Codes, GS1 Datamatrix, 1D Barcodes, Primary Batch details, Shipper Carton Printing, Variable Data Printing on Porous and Semi-Porous Substrate.",
         suitableWith: "Dyplon (22mm x 2 Heads) and Keryon (108mm x 2 Heads)"
       }
     ]
@@ -109,8 +109,7 @@ export const consumablesData: ConsumableItem[] = [
         image: ConsumableMakro,
         description: "Optimus offers a complete range of inks, top-up fluids, and cleaning solvents compatible with Famjet Makro® DOD printers,Each batch is manufactured in compliance with strict technical specifications, ensuring continuous quality control and full traceability across the entire production chain.",
         colors: "Black,Blue,Red,Green,White (White is only available in MEK base)",
-        chemicalBase: "Oil Solvent & Water Base",
-      
+        chemicalBase: "Oil,Solvent & Water Base",
         suitableWith: "Famjet Makro 116 Mobile & Makro Plus standard modules"
       }
     ]
